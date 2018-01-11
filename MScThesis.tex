@@ -1,0 +1,84 @@
+\documentclass[12pt, a4paper, twoside, openright]{book}
+
+\usepackage{vuwthesis} % sets up some local things, mostly the front page
+
+%\usepackage{palatino} % sets palatino as the default font
+\usepackage{fontspec}
+\setmainfont{lato}
+\usepackage{url} % for typesetting urls
+\usepackage{hyperref}
+
+
+%\renewcommand{\baselinestretch}{1.00}
+
+\begin{document}
+
+\frontmatter
+% Book style knows about front matter
+% Report style doesn't so you need to set roman numbering etc yourself :-(
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Ttwo} {\textit{T\textsubscript{2}}}
+\newcommand{\SOtwo} {\textit{sO\textsubscript{2}} }
+
+\title{Parameter Space Mapping for Blood Oxygenation Measurement with Low Field NMR}
+\author{Dion Gary Thomas}
+
+\subject{Physics}
+\abstract{An abstract of fewer than 500 words must be included. \Ttwo}
+% Books don't normally have abstracts, and this is a bit of a hack
+
+% Uncomment the appropriate degree
+%\phd
+\mscthesisonly
+%\mscwithhonours
+%\mscbothparts
+% \otherdegree{DEGREE OR DIPLOMA NAME}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{pdftitle=\@title}
+
+
+
+%\maketitle
+
+%\include{chapters/acknowledge}
+
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% book style knows about mainmatter
+% if you are using report style you will have to rest page numbering etc.
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% individual chapters included here
+
+\include{chapters/introduction}
+\include{chapters/background}
+\include{chapters/stoppedflow}
+\include{chapters/continuousSO2setup}
+\include{chapters/continuousSO2}
+\include{chapters/resultsechotime}
+\include{chapters/conclusion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% and of course book style knows about backmatter
+% \backmatter caused problems with appendices :-(
+% and of course report style doesn't
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibliographystyle{ieeetr}
+%\bibliographystyle{plain}
+\bibliography{mscproposal}
+
+
+\end{document}
