@@ -10,11 +10,59 @@ Generally, the two models predict the same behaviour at short echo times (<3 ms)
 Additionally, experiments comparing the two models have found that at clinical MRI fields (1.5 T and up), both models provide good agreement with experimental data \cite{StefanovicHumanwholebloodrelaxometry2004,GardenerDependencebloodR22010,GrgacHematocritoxygenationdependence2013}.
 Because of this, the Luz-Meiboom equation is typically used when analysing data, as it is simpler than the diffusion model.
 
-As another component of this research, the agreement between these models and data collected at lower fields has been tested.
+As another component of this research, the agreement between these models and data collected at lower fields has been tested to investigate whether the different models are more effective at lower field.
+For example, whether exchange type processes are more visible at lower field, causing the exchange model to provide a better fit.
 
 \section{Theory}
+Thulborn proposed using the Luz-Meiboom equation to describe the decrease in \Ttwo that occurs in deoxygenated blood in the CPMG experiment.
+This equation comes from the study of a chemical exchange process, where protons on an ammonium ion exchange with the solvent\cite{LuzNuclearMagneticResonance1963}.
+Protons bound to the ammonium ion have a different chemical shift, which combined with the exchange, makes the refocusing pulses in the CPMG experiment less effective.
+Luz and Meiboom show that this process leads to a \Ttwo decrease dependent on the echo time given by \autoref{eq:LMchemEx}\cite{LuzNuclearMagneticResonance1963}, where $p_i$ is the fraction of protons in state $i$, $\delta_i$ is the shift of protons in state $i$, $t_{ec}$ is the echo time, and $\tau_{ex}$ is the average time between exchanges. It also includes the $T_{20}$ to include the $T_2$ when there is no exchange contribution.
+
+\begin{equation}
+\label{eq:LMchemEx}
+\frac{1}{T_2} = \frac{1}{T_{20}} + \sum_i{p_i\delta_i^2} (1 - \frac{t_{ec}}{\tau_{ex}} \tanh{\frac{\tau_{ex}}{t_{ec}}})
+\end{equation}
+
+\begin{equation}
+\label{eq:LMblood}
+\frac{1}{T_2} = \frac{1}{T_{20}} +(P_A)(1 - P_A)\tau_{ex} [(1-sO_2)\alpha\omega_0]^2 (1 - \frac{\tau_{ex}}{t_{ec}} \tanh{\frac{\tau_{ex}}{t_{ec}}})
+\end{equation}
+
+This was thought to be a similar situation to red blood cells, where the susceptibility change due to haemoglobin causes a difference in the field in the cytoplasm compared to the plamsa, and protons exchange across the cell membrane.
+One version of this interpretation is given by Wright\cite{WrightEstimatingoxygensaturation1991}. In \autoref{eq:LMblood} the summation over the states becomes $P_A$, which is the relative population of protons in cytoplasm and plasma (and therefore the haematocrit, and the frequency difference given by a term dependent on the $sO_2$, the field strength $\omega_0$, and a dimensionless factor $\alpha$ which is dependent on the susceptibility change of deoxyhaemoglobin.
+
+One challenge to applying this model comes from the term $\tau_{ex}$.
+In the literature, there are a range of values for the exchange time - see table %\autoref{tb:exchTime}TODO...
+This is typically attributed to using different ranges of $t_ec$ in the CPMG experiments, which can cause the fitting to become biased.
+In addition, many of these do not agree with values for the rate of transmembrane exchange when measured by other NMR methods.
+This suggests that the exchange time parameter is not necessarily due to exchange across the cell membrane.
+
+A similar formula has been found by Jensen and Chandra, following a more general derivation of the signal in CPMG experiments from protons diffusing in a weakly inhomogeneous field\cite{JensenNMRrelaxationtissues2000}.
+Their model uses the weak field approximation, which requires a correlation function $K(t)$ that describes effect of diffusion through the spatial variations in the magnetic field.
+By approximating this correlation function with a exponential decay, they found that the relaxation rate is given by \autoref{eq:LMsimp}\cite{JensenNMRrelaxationtissues2000}.
+This has the same form as the Luz-Meiboom formula, but with the exchange time replaced by a more general ``correlation time'', and the factor $K_0$ representing the variance of the magnetic field.
+Because of this, the correlation time is not directly connected to an exchange process.
+\begin{equation}
+\label{eq:LMsimp}
+\frac{1}{T_2} = \frac{1}{T_{20}} + \gamma^2 K_0 (1 - \frac{\tau_{ex}}{t_{ec}} \tanh{\frac{\tau_{ex}}{t_{ec}}})
+\end{equation}
+
+By using a different correlation function which describes the diffusion of water molecules around microscopic field inhomogeneities, Jensen and Chandra also derived another formula for the change in \Ttwo.
+
+\begin{equation}
+\label{eq:JC}
+\frac{1}{T_2} = \frac{1}{T_{20}}+ G_0 \frac{\gamma^2 r_c^2}{2D} F(\frac{4D \Delta t}{r_c^2})
+\end{equation}
+
+\begin{displaymath}
+\mbox{where  } F(x) = \frac{1}{\sqrt{\pi}} \int_0^\infty \frac{e^{-y}}{\sqrt{y}} \left[1-\frac{1}{xy} \tanh{xy}\right] \mathrm{d}y
+\end{displaymath}
+Here, $G_0$ is the mean squared magnitude of field inhomogeneities, $r_c$ is their characteristic length scale, and $D$ is the diffusion coefficient.
 
 \section{Experimental Setup}
+To better map out the dependency of \Ttwo on echo time, a wider range of echo times than the 5 used in the other continuous experiments was required.
+The
 
 \subsection*{Analysis method}
 this
