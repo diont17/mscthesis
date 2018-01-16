@@ -2,16 +2,17 @@
 
 As discussed in Chapter \ref{ch:background}, researchers have developed a number of models to explain the decrease in \Ttwo of the water protons in blood.
 Thulborn originally applied the Luz-Meiboom equation to describe the decrease in \Ttwo and its dependence on the CPMG echo time\cite{ThulbornOxygenationdependencetransverse1982}.
-This assumes that the water protons in blood instantaneously exchange between two sites with different Larmor frequencies, with a rate $\frac{1}{\tau_{ex}}$.
+This assumes that the water protons in blood exchange between two sites with different Larmor frequencies, with a rate $\frac{1}{\tau_{ex}}$.
 While this provides good agreement with experimental data, it does not provide a good description of the underlying physical system - for example, the exchange time in found in previous studies do not agree with measurements of the exchange rate across the red blood cell membrane \cite{MeyerNMRrelaxationrates1995}.
-There are also inconsistencies in the values of $\tau_{ex}$ reported in the literature, with values ranging from 0.3 ms to 10.1 ms (see table 1).
-Another model has been proposed by Jensen and Chandra, which more accurately describes the dephasing of water protons that diffuse through areas of magnetic field inhomogeneities\cite{JensenNMRrelaxationtissues2000}.
-Generally, the two models predict the same behaviour at short echo times (<3 ms) and at long echo times (>20ms)\cite{BrooksT2shorteningweaklymagnetized2001}, but in the intemediate range, the two models give different values for the magnitude of the \Ttwo change.
+There are also inconsistencies in the values of $\tau_{ex}$ reported in the literature, with values ranging from 0.3 ms to 10.1 ms (see table 1 TODO).
+Another model has been proposed by Jensen and Chandra, which more describes the dephasing of water protons that diffuse through areas of magnetic field inhomogeneities\cite{JensenNMRrelaxationtissues2000}.
+Generally, the two models predict the same behaviour at short echo times (\textless 3 ms) and at long echo times (\textgreater 20ms)\cite{BrooksT2shorteningweaklymagnetized2001}, but in the intemediate range, the two models give different values for the magnitude of the \Ttwo change.
 Additionally, experiments comparing the two models have found that at clinical MRI fields (1.5 T and up), both models provide good agreement with experimental data \cite{StefanovicHumanwholebloodrelaxometry2004,GardenerDependencebloodR22010,GrgacHematocritoxygenationdependence2013}.
 Because of this, the Luz-Meiboom equation is typically used when analysing data, as it is simpler than the diffusion model.
 
+It is also possible that both mechanisms are occuring together, in which case, it is useful to know the relative contributions of the two processes.
+Based on studies of the spectroscopic line width of red blood cell suspensions, Matwiyoff et al. suggest that diffusion processes dominate at higher fields, while exchange between cytoplasm and plasma is more significant at lower fields (\textless 1.5 Tesla)\cite{Matwiyofflineshapeswater1990}.
 As another component of this research, the agreement between these models and data collected at lower fields has been tested to investigate whether the different models are more effective at lower field.
-For example, whether exchange type processes are more visible at lower field, causing the exchange model to provide a better fit.
 
 \section{Theory}
 Thulborn proposed using the Luz-Meiboom equation to describe the decrease in \Ttwo that occurs in deoxygenated blood in the CPMG experiment.
@@ -39,8 +40,8 @@ In addition, many of these do not agree with values for the rate of transmembran
 This suggests that the exchange time parameter is not necessarily due to exchange across the cell membrane.
 
 A similar formula has been found by Jensen and Chandra, following a more general derivation of the signal in CPMG experiments from protons diffusing in a weakly inhomogeneous field\cite{JensenNMRrelaxationtissues2000}.
-Their model uses the weak field approximation, which requires a correlation function $K(t)$ that describes effect of diffusion through the spatial variations in the magnetic field.
-By approximating this correlation function with a exponential decay, they found that the relaxation rate is given by \autoref{eq:LMsimp}\cite{JensenNMRrelaxationtissues2000}.
+Their model uses the weak field approximation, which requires a correlation function $K(t)$ that describes the variations in the magnetic field as protons diffuse.
+By approximating this correlation function with a simple exponential decay, they found that the relaxation rate is given by \autoref{eq:LMsimp}\cite{JensenNMRrelaxationtissues2000}.
 This has the same form as the Luz-Meiboom formula, but with the exchange time replaced by a more general ``correlation time'', and the factor $K_0$ representing the variance of the magnetic field.
 Because of this, their correlation time is not directly connected to an exchange process, which could explain why the Luz-Meiboom formula agrees with experimental results, but also gives a range of exchange times.
 \begin{equation}
@@ -71,18 +72,125 @@ This presented a problem with measuring longer echo times, for example, 200 echo
 Overall, the experiment with 13 echo times, and a T\textsubscript{R} of 5 seconds takes 5 minutes.
 
 These experiments were completed during the continuous flow experiments, when the blood was in a deoxygenated state, with measurements done at each field strength.
-The oxygenation was still logged by optical sensor, and probably didn't vary significantly [but actually did it??TODO check!]
-
-
+The oxygenation was logged by optical sensor, and probably didn't vary significantly [but actually did it? should probably check TODO!].
+A steady flow rate was maintained using the screw clamp, which meant that the blood did not have the chance to settle and meant that the temperature was relatively stable during the 5 minutes of the experiment ( \mbox{$\pm 4^{\circ}\, \mathrm{C}$}) TODO see how much this actually was!!.
 
 \subsection*{Analysis method}
 To compare the two models, a similar approach was used to Stefanovic\cite{StefanovicHumanwholebloodrelaxometry2004} and Gardener\cite{GardenerDependencebloodR22010}.
-\Ttwo values were calculated for each echo time using least squares fitting of the phased and integrated echo amplitudes with the function $S=Ae^(t/T_2)$.
-The models were then fit to constrained versions of equations \ref{LM:simp} and \ref{JC}  (where either $\tau_{ex}$ or $r_c$ are held constant).
+\Ttwo values were calculated for each echo time using least squares fitting of the phased and integrated echo amplitudes with the function $S=Ae^{(t/T_2)}$.
+To remove the effect of the fast decaying signal from the tube surrounding the blood, the first 40 ms of the CPMG decay is ignored in the fitting.
+The models were then fit to constrained versions of equations \ref{eq:LMsimp} and \ref{eq:JC}  (where either $\tau_{ex}$ or $r_c$ are held constant).
 The results from the constrained fit were then used as initial guesses for an unconstrained least squares fit to the formulae, where all three parameters were allowed to vary.
-Finally, the sum of residuals was calculated to give a quantitative measure of the model's agreement.
+Finally, the sum of squared residuals was calculated to give a quantitative measure of the model's agreement.
 
 \section{Results}
 
+\subsection{\Ttwo Measurement}
+CPMG decays were measured for blood in the contunuous flow setup at each of the field strengths used in those experiments.
+To obtain a \Ttwo value for each echo time, the echo intensities were fit to a monoexponential decay.
+An example of this is shown in \autoref{fig:dm-CPMGdecay}, the section of the decay used for fitting is also marked.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{figures/diffmodels/20MHzT2fit.pdf}
+
+\caption{CPMG decays measured at the field of 20 MHz, at the different echo times. Red lines indicate data points used for fitting}
+\label{fig:dm-CPMGdecay}
+\end{figure}
+
+With the exception of the fast decay from the plastic tube at the start of the CPMG experiment, the echo intensities show good agreement with the monoexponential decay function, which confirms that the blood is not separating, and that the decay is not significantly affected by the flow.
+
+Values of \Ttwo measured at each echo time were then used as inputs for fitting equations \ref{eq:LMsimp} and \ref{eq:JC}.
+The resulting best fit curves for both equations are shown in \autoref{fig:dm-fitResults}, while the parameters are included in \autoref{tab:dm-fitPars}.
+
+
+\begin{figure}[t]
+  \makebox[\textwidth][c]{
+
+  \begin{subfigure}[t]{0.6\textwidth}
+  \includegraphics[width=\textwidth]{figures/diffmodels/40MHzT2.pdf}
+  \caption{40 MHz}
+  \label{fig:dm-fitResults40}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.6\textwidth}
+  \includegraphics[width=\textwidth]{figures/diffmodels/20MHzT2.pdf}
+  \caption{20 MHz}
+  \label{fig:dm-fitResults20}
+  \end{subfigure}
+  \hfill
+  }
+
+  \makebox[\textwidth][c]{
+  \begin{subfigure}[t]{0.6\textwidth}
+  \includegraphics[width=\textwidth]{figures/diffmodels/14MHzT2.pdf}
+  \caption{14 MHz}
+  \label{fig:dm-fitResults14}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.6\textwidth}
+  \includegraphics[width=\textwidth]{figures/diffmodels/10MHzT2.pdf}
+  \caption{10 MHz}
+  \label{fig:dm-fitResults10}
+  \end{subfigure}
+  \hfill
+  }
+
+  \makebox[\textwidth][c]{
+  \begin{subfigure}[t]{0.6\textwidth}
+  \includegraphics[width=\textwidth]{figures/diffmodels/5MHzT2.pdf}
+  \caption{5 MHz}
+  \label{fig:dm-fitResults5}
+  \end{subfigure}
+  \hspace{0.6\textwidth}
+  }
+
+  \caption[Luz-Meiboom and diffusion model fits at different fields]{Luz-Meiboom (Green) and diffusion model (Purple) fit to \Ttwo results at different fields. Dashed lines show the best fits when $\tau_{ex}$ is fixed at 3.3 ms and when r\textsubscript{c} is fixed at 4.2 μm. Solid lines show the best fits when all three variables are unconstrained.}
+  \label{fig:dm-fitResults}
+\end{figure}
+
+
+\begin{table}
+\centering
+
+\makebox[\textwidth][c]{
+\begin{tabular}{l|ccc|ccc|}
+%Copied from Python/processCPMGvt/newCPMGvt
+& \multicolumn{3}{c}{Constrained LM} & \multicolumn{3}{c}{Unconstrained LM} \\ Field
+& T\textsubscript{20} & K\textsubscript{0} & Tau\textsubscript{ex}
+& T\textsubscript{20} & K\textsubscript{0} & Tau\textsubscript{ex}\\
+ & ms & 10\textsuperscript{14} T\textsuperscript{2} & ms & ms & 10\textsuperscript{14} T\textsuperscript{2} & ms \\ \hline
+40 MHz & 223 \pm 1.0 & 6.491 \pm 0.026 & 3.30 \cellcolor[gray]{0.9} & 246 \pm 1.5 & 7.646 \pm 0.053 & 2.38 \pm 0.02\\
+20 MHz & 209 \pm 0.8 & 2.538 \pm 0.026 & 3.30 \cellcolor[gray]{0.9} & 213 \pm 1.1 & 2.779 \pm 0.046 & 2.71 \pm 0.07\\
+14 MHz & 289 \pm 0.1 & 0.821 \pm 0.003 & 3.30 \cellcolor[gray]{0.9} & 292 \pm 0.2 & 0.858 \pm 0.004 & 2.61 \pm 0.03\\
+10 MHz & 296 \pm 1.7 & 0.461 \pm 0.026 & 3.30 \cellcolor[gray]{0.9} & 300 \pm 2.3 & 0.612 \pm 0.066 & 2.00 \pm 0.28\\
+5M MHz & 284 \pm 0.2 & 0.518 \pm 0.008 & 3.30 \cellcolor[gray]{0.9} & 291 \pm 0.5 & 0.939 \pm 0.029 & 1.02 \pm 0.04\\
+
+%stop copying
+
+\end{tabular}
+}
+
+\vspace{1cm}
+
+\makebox[\textwidth][c]{
+\begin{tabular}{l|ccc|ccc|}
+
+%Same deal..
+& \multicolumn{3}{c}{Constrained JC} & \multicolumn{3}{c}{Unconstrained JC} \\ Field
+& T\textsubscript{20} & G\textsubscript{0} & r\textsubscript{c}
+& T\textsubscript{20} & G\textsubscript{0} & r\textsubscript{c}\\
+ & ms & 10\textsuperscript{14} T\textsuperscript{2} & um & ms & 10\textsuperscript{14} T\textsuperscript{2} & um \\ \hline
+40 MHz & 255 \pm 1.4 & 9.657 \pm 0.038 & 4.30 \cellcolor[gray]{0.9} & 272 \pm 2.3 & 10.821 \pm 0.122 & 3.80 \pm 0.04\\
+20 MHz & 218 \pm 1.0 & 3.758 \pm 0.038 & 4.30 \cellcolor[gray]{0.9} & 218 \pm 1.4 & 3.757 \pm 0.092 & 4.30 \pm 0.12\\
+14 MHz & 297 \pm 0.2 & 1.194 \pm 0.005 & 4.30 \cellcolor[gray]{0.9} & 295 \pm 0.3 & 1.142 \pm 0.008 & 4.65 \pm 0.05\\
+10 MHz & 300 \pm 1.9 & 0.689 \pm 0.038 & 4.30 \cellcolor[gray]{0.9} & 304 \pm 3.3 & 0.932 \pm 0.181 & 3.22 \pm 0.50\\
+5M MHz & 287 \pm 0.2 & 0.749 \pm 0.011 & 4.30 \cellcolor[gray]{0.9} & 297 \pm 1.0 & 1.674 \pm 0.110 & 2.09 \pm 0.09\\
+
+%Stop thecopy
+\end{tabular}
+}
+\caption{Best fit values to the experimental data at different fields}
+\label{tab:dm-fitPars}
+\end{table}
+At the higher field of 40 MHz (\autoref{fig:dm-fitResults40}), all of the curves show good agreement with the experimental data. The
 
 \section{Discussion}
