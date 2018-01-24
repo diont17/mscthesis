@@ -1,121 +1,41 @@
 \chapter{Stopped flow \SOtwo measurements}\label{ch:stoppedflow}
 
 As a first step in this research, experiments on blood using a stopped flow setup were completed, using a similar protocol and design used in previous work by the group.
-These experiments used a flow circuit and 3 different magnet systems with different fields to observe changes in \Ttwo at a number of levels of oxygenation.
-
-Results from these experiments were presented in an oral presentation at the 14\textsuperscript{th} International Congress on Magnetic Resonance Microscopy.
-
-\section{Experimental Setup}
-
-\subsection{Flow circuit}
-The blood used in these experiments was contained in a flow circuit similar to what is used for Cardio-Pulmonary Bypass (CPB) surgery.
-A schematic of the flow setup is shown in TODO drawing.
-The main components are the roller pump and the oxygenation membrane, with the blood collection bag acting as a reservoir.
-These are all joined by 1/4'' medical grade PVC tubing.
-The total volume of this circuit was typically \SI{60}{\milli\litre}, with the blood bag containing 450 ml TODO check logbook.
-The roller pump is used to generate flow around the circuit, by rotating the pump head to drive 2 rollers that squeeze the walls of the tube and force the blood along.
-The pump is also designed for use in CPB surgery, and is a Stockert SIII, with a flow rate controllable from \SIrange{0.01}{6}{L/m} when used with the 1/4'' tube. TODO equip?.
-These versions of the flow circuit included a bypass section controlled by clamping the tubes so that the blood flow could be directed to around the reservoir, allowing for faster changes in the oxygenation due to a lower effective volume.
-
-
-\subsection{Oxygenator and Gas Mixer}
-A hollow-fibre membrane oxygenator was used to control the oxygenation of the blood in the circuit.
-This was a Medtronic Affinity Pixie oxygenator, designed for use in paediatric CPB procedures.
-It allows for gas exchange and temperature control of the blood flowing through, with the oxygenation controlled by the mix of gases going into the oxygenator.
-This paediatric model was chosen to minimize the required priming volume, and it still provided more than enough capacity to oxygenate the blood at the flow rates used.
-The temperature of the blood was regulated by flowing water from a temperature controlled waterbath through the oxygenator, which has a separate path built into it for this purpose.
-The water bath temperature was set to \SI{35}{\degreeCelsius}, although this corresponded with a blood temperature at the outlet of \SI{34}{\degreeCelsius} at maximum flow rates (with lower temperatures at lower flow rates.)
-
-The gas mix was set using a Dansensor MapMix 3 gas mixer, which allowed control of the different proportions of N\textsubscript{2}, O\textsubscript{2} and CO\textsubscript{2} flowing through the oxygenator.
-The Oxygen fraction was typically varied from 0\% up to 21\%, the value of atmospheric air.
-Nitrogen was used as a non-Oxygen containing gas, and between 2.5-5\% CO\textsubscript{2} was also added to ensure the pH of the blood sample remained stable over the course of the experiment (as these are linked by the bicarbonate buffer system in blood).
-Gases for all experiments were used as supplied from BOC and were instrument grade or higher.
-The output of the gas mixer flowed into a pressurised buffer tank before flowing into a Dansensor MapCheck Provectus gas analyser, which allowed us to check the fraction of the three gases which flowed into the oxygenation membrane.
-This gas analyser also provided some flow regulation, although this was supplemented with an adjustable needle valve.
-Typically, the gas flow rate was set to \SIrange{1}{2}{\liter\per\minute} to avoid creating bubbles in the oxygenator.
-
-\subsection{Blood collection}
-Samples of whole blood were collected by venipuncture from healthy volunteers (taking place at Otago medical school).
-This procedure was approved by the central health and disability ethics committee, and all volunteers provided written, informed consent.
-Approximately \SI{450}{ml} of blood was collected into a blood bag containing \SI{66.5}{\milli\litre} CPD anticoagulant/preservative solution (Haemonetics Leukotrap WB system).
-CPD solution is rated for storage of red blood cells for up to at least 3 weeks of storage\cite{Hessupdatesolutionsred2006}.
-Blood samples were held at room temperature following collection, before undergoing leukoreduction filtering to remove white blood cells.
-As it has been shown that the presence of white blood cells can adversely affect the condition of red blood cells in storage\cite{Hessupdatesolutionsred2006}.
-Samples were then moved to a refrigerator and stored at \SI{4}{\degreeCelsius} until required for experiments (up to 30 TODO check! days.)
-
-\subsection{NMR setup}
-For these experiments, 3 different permanent magnet systems were used to obtain data at 3 different field strengths.
-The first system was a 12 MHz (\SI{0.3}{T}) Halbach magnet array, with \SI{9}{cm} diameter bore and approximately \SI{20}{\centi\metre} long TODO check!.
-This magnet was repurposed from a previous experiment in the lab, and specifications are not available for it.
-When combined with the coil and holder system described below, the FID linewidth produced by the magnet was \SI{12}{\kilo\hertz}, which is relatively broad.
-
-Because it uses permanent magnets, it requires a stable temperature in order to have a stable field.
-This was set up using a temperature controlled water bath, which pumped wat at a constant \SI{30}{\celsius} through tubes wrapped around the magnet.
-On top of this, the magnet was wrapped in a layer of foam, and a layer of mylar sheeting to insulate it from the room.
-To decrease the effect of electrical noise on the measurements, the magnet assembly was also surrounded by a thin coppper mesh blanket.
-
-The second magnet system used was the NMR MOLE, previously developed by Manz et al\cite{ManzmobileonesidedNMR2006}.
-The NMR MOLE operates at a field of \SI{0.1}{T} and is a single sided device, which produces a `sweet spot' in the region above the magnet.
-The sweet spot is where the combination of magnetic field and RF produced by the coil on the surface are able to create resonance, and defines where signal comes from.
-In this case, the sweet spot was a pair of regions marking out a \SI{3}{cm} circle over the RF coil (TODO see figure? honours project).
-While earlier experiments attempted to position the tube containing blood over the sweet spot, in later experiments, it was decided that it was simpler and more reliable to place the blood bag on the top of the MOLE.
-As with the Halbach array, the MOLE is also sensitive to temperature, so an electronic temperature controller and wire heater were used to keep it stable at \SI{29}{\celsius}.
-
-The design of the magnet array in the MOLE creates strong magnetic field gradients across the sweet spot.
-This creates a wide range of resonance frequencies, and means that it was not possible to measure an FID from the system.
-It was also found that this limited the possible range of CPMG echo times, as echo times longer than \SI{1}{ms} were found to cause excessive signal attenuation.
-This limited experiments with this system to short echo times.
-
-The third magnet system used was a Magritek Spinsolve, which is another permanent magnet based NMR system operating at \SI{1}{T}.
-The Spinsolve has a very homogeneous field, and can produce a linewidth of \SI{0.1}{Hz}.
-This system is designed for chemical spectroscopy, and uses standard 5 mm NMR sample tubes.
-Because of this, experiments on the Spinsolve required withdrawing a small amount of blood and transferring it into an NMR tube, rather than using blood in the flow circuit.
-This meant that that there were typically delays between removing the blood from the circuit and taking measurements on it, which may cause changes in the state of the blood.
-
-Both the Halbach and MOLE systems were controlled on computers running Magritek Prospa, and used Magritek Kea 2 spectrometers to run the NMR experiments.
-The Spinsolve was also controlled from a computer with a newer version of Prospa.
-CPMG experiments were run using the default CPMG macros included in Prospa, with batch scripts set up to automate making measurements at multiple echo times.
-
-\subsection{Coil Assemblies and Electronics}
-A new coil holder, coil assembly and tuning and matching circuit was designed to fit into the baby-MRI system and the Halbach magnet array.
-It was designed with exchangeable coils and tuning and matching capacitors so that the probe could be used at multiple fields / frequencies.
-It consists of a probe (outer piece), which holds the coil assembly and the tuning and matching circuit inside the bore of the magnet (which had the same diameter in the two magnets).
-
-The coils are \SI{2}{cm} long, and have a diameter of \SI{1}{cm}, so that the 1/4'' tube can be passed through the coil,
-Different numbers of turns were used for the three different coils, to be able to use the coils at different frequencies (More turns causes more inductance, and a lower resonant frequency.)
-In the initial design of the coil assembly, the coil was constructed from \SI{0.67}{mm} Copper wire wrapped around a rolled up acetate cylinder.
-A second version of the coil assemblies used 3D printed forms made from ABS plastic (to decrease unwanted signal), with the same wire and number of turns.
-
-TODO:picture of the coils
-TODO:picture of the T\&M circuit
-
-The tuning and matching circuit was also designed and manufactured for this probe.
-It allows for the capacitors to be exchanged, using PCBs with different capacitors attached.
-The different capacitors allowed the probe to be tuned and matched at frequencies ranging from \SIrange{2}{60}{\mega\hertz}.
-As the probe is located inside the magnet, the capacitors are all of a non-magnetic type and are rated for high voltage > \SI{1000}{V}.
-The tuning and matching circuit also contains variable capacitors which are used for fine tuning the match frequency.
+These experiments used the stopped flow experimental setup from \autoref{ch:exptsetup}, with 3 different magnet systems at different fields to observe changes in \Ttwo at a number of levels of oxygenation.
 
 \section{Experimental Protocol}
+For this series of experiments, measurements of \Ttwo were made at a series of oxygenation steps, which we attempted to set by adjusting the gas mix going into the oxygenator.
+These steps are shown graphically in TODO fig from ICMRM!!
+After the flow circuit was assembled, the blood sample was loaded into the tubes and oxygenator, using the standard connectors on the bag.
+The pump was switched on, and gas at 21\% \Otwo was flowed through to bring the oxygenation and temperature of the blood up to the 100\% starting point for the experiments.
+The blood was allowed to flow through the circuit for TODO how long?? to stabilise, before an initial test with the iStat.
+Durig this time, the probes were tuned and matched, and pulse sequence parameters such as pulse power were calibrated using amplitude sweeps (using FID on the Halbach system, and CPMG detection on the MOLE.)
 
+If this showed that the pH, \SOtwo and HcT were normal, the flow was stopped and measurements on the two in-line NMR systems were started.
+Typically \TR = \SI{1.5}{s}, with echo times of \SIlist{0.25;0.5;1;5}{ms} on the Halbach, and \SIlist{0.25; 0.5; 1}{ms} on the MOLE (these were limited by the magnetic field gradients in each system).
+4 scans with phase cycling were used on the Halbach, but the poorer signal to noise on the MOLE meant that 16 scans were required.
+Once these measurements had completed, the pump was turned on briefly to agitate the blood and minimize any effects of settling before repeating the NMR measurements.
+A \SI{2}{ml} sample of blood in the circuit was also taken out and syringed into a clean \SI{5}{mm} NMR tube for the Spinsolve measurements.
+These tubes were sealed with the caps provided by the manufacturer.
+On the Spinsolve, typical experimental parameters were \TR = \SI{10}{s} with a 4 scan phase cycle, and with 4 echo times: \SIlist{0.5;2.5;5;10}{ms}.
 
-\subsection{Data Processing}
+The \SOtwo was then lowered to an intermediate value (around 50\%).
+Flow was turned back on and the gas mix set to 5\% \Otwo, which we had found produced these levels of oxygenation.
+After waiting for the \SOtwo to reach the desired level, a sample of blood was taken from the flow circuit and the iStat was used to confirm the \SOtwo.
+The flow was stopped, and two sets of NMR meaurements were completed as above, with samples also removed for the Spinsolve.
+
+This process was repeated again to measure \Ttwo at a very low oxygenation (10\% or less), by setting the gas mix to 0\% \Otwo.
+Afterwards, these steps were reversed to increase the oxygenation again, taking a measurement at an intermediate value of \SOtwo on the way up as well.
+
 Data was extracted and processed using Python, in JuPyter notebooks.
 Each echo train is phased, and each echo is summed to give a single value for the signal at each echo time.
-The resulting decay is fit to a monoexponential decay, which results in a single \Ttwo value.
-
-
-
-
-\begin{itemize}
-\item Flow Circuit
-\item Oxygenator, gas mixer
-\item Blood collection and age?
-\item NMR setup
-\item Coil and electronics
-\end{itemize}
+The resulting decay is fit to a monoexponential decay, which results in a single \Ttwo value at each \SOtwo.
 
 \section{Results}
+
 Short section of results presented at ICMRM - 3 sO2 at 3 different fields
+
+
 \section{Discussions}
 
 \begin{itemize}

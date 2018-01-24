@@ -20,7 +20,7 @@ As another component of this research, the agreement between these models and da
 \label{tab:dm-litTex}
 \begin{tabular}{|llll|}
 \hline
-Author     & Year & Field (T) & Tex (ms)      \\
+Author     & Year & Field (T) & \Texc (ms)      \\
 \hline
 Thulborn   &   1982\cite{ThulbornOxygenationdependencetransverse1982}  & 4.2       & 0.6           \\
 Gomori     &   1987\cite{GomoriNMRRelaxationTimes1987}  & 0.94      & 9.1 \pm 0.1   \\
@@ -38,7 +38,7 @@ Gardener   &   2010\cite{GardenerDependencebloodR22010}  & 7         & 4.4 \pm 2
 Thulborn proposed using the Luz-Meiboom equation to describe the decrease in \Ttwo that occurs in deoxygenated blood in the CPMG experiment.
 This equation comes from the study of a chemical exchange process, where protons on an ammonium ion exchange with the solvent\cite{LuzNuclearMagneticResonance1963}.
 Protons bound to the ammonium ion have a different chemical shift, which combined with the exchange, makes the refocusing pulses in the CPMG experiment less effective.
-Luz and Meiboom show that this process leads to a \Ttwo decrease dependent on the echo time given by \autoref{eq:LMchemEx}\cite{LuzNuclearMagneticResonance1963}, where $p_i$ is the fraction of protons in state $i$, $\delta_i$ is the shift of protons in state $i$, $t_{ec}$ is the echo time, and $\tau_{ex}$ is the average time between exchanges. It also includes the $T_{20}$ to include the $T_2$ when there is no exchange contribution.
+Luz and Meiboom show that this process leads to a \Ttwo decrease dependent on the echo time given by \autoref{eq:LMchemEx}\cite{LuzNuclearMagneticResonance1963}, where $p_i$ is the fraction of protons in state $i$, $\delta_i$ is the shift of protons in state $i$, $t_{ec}$ is the echo time, and $\tau_{ex}$ is the average time between exchanges. It also includes the \TtwoO to include the \Ttwo when there is no exchange contribution.
 
 \begin{equation}
 \label{eq:LMchemEx}
@@ -243,8 +243,8 @@ This is shown by the decreased SSR - the unconstrained JC fits provides much low
 However, the curves / predictions of the LM model tend to be within 10 ms of the experimental data, which means that both models are probably fine TODO: more scientific??.
 This is the same conclusion reached by Stefanovic and Pike and Chen and Pike, who found that the Luz-Meiboom exchange model provides acceptable accuracy at 1.5 T and at 3T respectively.
 
-Additionally, with the exception of the 20 MHz results (where experiments were run after the 40 MHz run), the unconstrained fits produce concordant results of $\tau_{ex} = 2.17 \pm 0.06$ and $r_c = 3.58 \pm 0.08 um$ (weighted mean across field strengths).
-This value for rc is within the range of red blood cell size, although it is smaller than the value found by Stefanovic (4.3 um)\cite{StefanovicHumanwholebloodrelaxometry2004}, and larger than the value found by Chen (2.7 um)\cite{ChenHumanwholeblood2009}.
+Additionally, with the exception of the 20 MHz results (where experiments were run after the 40 MHz run), the unconstrained fits produce concordant results of \Texc = \SI{2.17\pm0.06}{ms} and \rc = \SI{3.58 \pm 0.08}{\micro\metre} (weighted mean across field strengths).
+This value for rc is within the range of red blood cell size, although it is smaller than the value found by Stefanovic (\SI{4.3}{\micro\metre})\cite{StefanovicHumanwholebloodrelaxometry2004}, and larger than the value found by Chen (\SI{2.7}{\micro\metre})\cite{ChenHumanwholeblood2009}.
 
 This value for the exchange time is also within the range of results in the literature, although they do not correspond with the values measured at low field by Gomori\cite{GomoriNMRRelaxationTimes1987}.
 This may be due to the long echo times they used, e.g. Gomori used two echo times of 32 and 64 ms at 0.94 T to get very short \Ttwo decays.
@@ -257,7 +257,7 @@ More precisely, the fitted parameter in \autoref{eq:JC} is actually $\frac{r_c^2
 It would be interesting to see if this effect occurs when there is no change in the magnetic field.
 
 The \Kzero and \Gzero terms tend to follow a quadratic curve, which agrees with the predictions of theory \cite[Eq. 52-54]{JensenNMRrelaxationtissues2000}.
-When extrapolating this to 1.5 T predicts a value of $G_0 = 26.7 \times 10^{-14}  T^2$.
+When extrapolating this to 1.5 T predicts a value of \Gzero = \SI{26.7e-14}{T^2}.
 This is about half of what is predicted using the results of Stefanovic, which (although based on studying changes in \SOtwo) can be used to find $G_0 = (45\pm0.51) \times 10^{-14} (sO_2)^2 = 40.6 \times 10^{-14}  T^2$ when using sO2=0.03, the average value from our experiments.
 While the difference is significant, it is important to note that the variation between the oxygenations and haematocrit used at the different field strengths was not taken into account when fitting the data to find \Gzero, and multiple researchers \cite{StefanovicHumanwholebloodrelaxometry2004,ChenHumanwholeblood2009,GardenerDependencebloodR22010} have found that these parameters are correlated.
 
