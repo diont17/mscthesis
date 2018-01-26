@@ -83,6 +83,12 @@ A number of experiments were conducted to investigate the cause of this, and the
 \subsection{Halbach results}
 %Graph produced in Halbach 170726
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/stoppedflow/halbachT2SO2.pdf}
+\caption[Stopped flow \Ttwo vs. \SOtwo measured on the Halbach system]{\Ttwo vs. \SOtwo measured on the Halbach system. Circles indicate samples measured when deoxygenating, upwards triangles are measured when oxygenating and right-pointing triangles are a sample oxygenated with 30\% \Otwo. Error bars represent standard error (n=3)}
+\label{fig:sf-halbachT2SO2}
+\end{figure}
 
 The Halbach magnet system was run inline with the flow circuit, making it easier to measure more data points.
 As with the Spinsolve results, the CPMG decays were found to be monoexponential, however there was no appearance of even echo rephasing in the CPMG decays.
@@ -91,27 +97,81 @@ The strong field gradients in this system means that the CPMG experiments are se
 This can be seen in the position of the \SI{5}{ms} points (red), which are significantly lower than points at \textless\SI{1}{ms}.
 In this experiment, measurements were also completed with echo times of \SIlist{8;12}{ms}, but these did not show any trends due to the strong relaxation from the field inhomogeneities.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\textwidth]{figures/stoppedflow/halbachT2SO2.pdf}
-\caption[Stopped flow \Ttwo vs. \SOtwo measured on the Halbach system]{\Ttwo vs. \SOtwo measured on the Halbach system. Circles indicate samples measured when deoxygenating, upwards triangles are measured when oxygenating and right-pointing triangles are a sample oxygenated with 30\% \Otwo. Error bars represent standard error (n=3)}
-\label{fig:sf-halbachT2SO2}
-\end{figure}
+Like the Spinsolve experiments, the \Ttwo values in this experiment did not reach the same levels they did at the start of the experiment, which suggests that this change is not solely related to the sampling method and storage of the Spinsolve samples.
+The decrease from the initial \Ttwo measurement to the reoxygenated measurement appears to be approximately the same size (\SI{40}{ms}), although the decrease at the \SI{5}{ms} echo time is much greater.
+This may also be related to problems with the halbach magnet and probe, for example, changes in magnet temperature over the experiment time or movement or rotation of the probe inside the magnet, which would alter the intrisic gradient seen be the sample.
 
-Like the Spinsolve experiments, the \Ttwo values in this experiment did not reach the same levels they did at the start of the experiment, which suggests that the state of the blood in the circuit has changed.
 
 \subsection{MOLE results}
 %Graph from Mole 170728
-Measurements on the MOLE had much less signal to noise than the other two systems.
-This is related to both the reduced field strength \SI{0.1}{T}, and the single-sided design of the magnet system.
-Because of this, measurements took longer to acquire than on the other systems and the largest source of experimental uncertainty was from the fitting process.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/stoppedflow/moleT2SO2.pdf}
+\caption[Stopped flow \Ttwo vs. \SOtwo measured on the MOLE system]{\Ttwo vs. \SOtwo measured on the MOLE system. Circles indicate samples measured when deoxygenating, upwards triangles are measured when oxygenating and right-pointing triangles are a sample oxygenated with 30\% \Otwo. Error bars represent standard error (n=3)}
+\label{fig:sf-moleT2SO2}
+\end{figure}
+%
+Measurements on the MOLE had a significantly lower signal to noise than the other two systems.
+This is related to both the reduced field strength (\SI{0.1}{T}), and the single-sided design of the magnet system.
+Because of this, measurements took longer to acquire than on the other systems and the largest source of experimental uncertainty was from noise in the fitting process.
 
+As expected, the change in \Ttwo as oxygenation was decreased was smaller again than in the higher field Spinsolve and Halbach system measurements.
+At the \SI{0.25}{ms} echo time, the decrease from oxygenated to deoxygenated is \SI{25}{ms}, but at the \SI{1}{ns} echo time, the decrease is only \SI{5}{ms} (which is within experimental uncertainty.)
+Additionally, the field inhomogeneity of the MOLE means that there is a significant decrease in the measured \Ttwo due to diffusion through the gradients of the magnet system.
+Along with the decrease in the stregnth of the effect at this field, this could explain why there is little to no change at the \SI{1}{ms} echo time.
+
+These results also show that \Ttwo is lower after reoxygenating, with a decrease of approximately \SI{15}{ms} between the initial \Ttwo and the \Ttwo after reoxygenation.
+It is unlikely to be due to changes in the magnetic field gradients as the MOLE temperature is very well controlled, and the sample was the entire blood bag, which is larger than the sweet spot of the magnet.
+
+\subsection{Field comparison}
+Results for the different fields are combined in \autoref{fig:sf-fieldcomparison}, after converting the \Ttwo values for oxygenated and deoxygeneated blood into \Rtwo.
+These points are from the \SI{0.5}{ms} echo time.
+Although the data from the MOLE is strongly affected by its inhomogeneous field, taking the difference of the oxygenated and deoxygenated \Rtwo{}s should cancel this effect.
+
+%Graph from Spinsolve 170728
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/stoppedflow/fieldcomparison.pdf}
+\caption[Change in \Rtwo for the three stopped flow systems]{Change in \Rtwo for the three stopped flow systems. Data points show \Rtwo\textsubscript{\textit{deoxy}} -- \Rtwo\textsubscript{\textit{oxy}} measured with an echo time of \SI{0.5}{ms}}
+\label{fig:sf-fieldcomparison}
+\end{figure}
+
+This graph clearly shows that the \Ttwo decrease is much larger at \SI{1}{T}, although there are not enough points to be able to see whether it follows the quadratic trend seen in the literature.
+Additionally, the \SI{0.1}{\tesla} measurement shows that the change in \Rtwo is higher or the same as than the data point at \SI{0.3}{T}, which does not agree with the quadratic dependence from theory.
+This may be due to the effect of the field inhomogeneity of the MOLE, which caused all \Ttwo measurements to be lower on this system, which means that the same \SI{30}{ms} change in \Ttwo is larger at this field.
+It is also possible that the exchange/diffusion theory is not as effective at these low fields and/or short echo times, and other processes are occuring, this might be discussed below TODO!!!!
 
 \section{Discussions}
 
-\begin{itemize}
-\item Hard to set sO2 with gas mixer
-\item decreasing \Ttwo when hyperoxygenating?, connection to literature
-\item Effect of blood settling when flow stopped
-\item time taken to measure sO2 with iStat
-\end{itemize}
+These results confirm that \Ttwo when decreasing \SOtwo occur at low fields, in agreement with the literature.
+As noted in the introduction however, there are relatively few examples in the literature to compare them to.
+Brooks et al. studied the field dependence of the \Ttwo decrease for oxygenated and deoxygenated blood, and found that the size of the \Rtwo change scales with \Bzero  squared\cite[Fig.1]{BrooksComparisont2relaxation1995}.
+For their study however, an echo time of \SI{4}{ms}, which makes the \Rtwo change from oxygenated to deoxygenated much larger (on the order of \SI{4}{s^{-1}} at \SI{0.5}{T}.)
+This means that their results are not comparable with the results in \autoref{fig:sf-fieldcomparison}, where the echo tmime is \SI{0.5}{ms}.
+
+Interestingly, a change is still visible on the MOLE, even though the field is extremely weak and the signal is noisy.
+On this system, the size of the effect is small though, and only becomes larger than the uncertainty at extreme levels of deoxygenation.
+This is mainly due to the inhomogeneous field on this system, which limits the echo times used to be less than \SI{1}{ms}.
+Using a longer echo time means that there is more time for spins to be dephased due to the field inhomogeneities from the blood, but also means that there is additional dephasing from the field inhomogeneity of the magnet.
+This means that field homogeneity will be an important consideration in the design of a single-sided magnet, as allowing longer echo times improve sensitivity to changes in \SOtwo.
+More experiments of \Ttwo change at 5 MHz were conducted using the baby-MRI magnet, which is much more homogeneous and means that echo times greater than \SI{20}{ms} can be investigated.
+These are included in \autoref{ch:cont} and \autoref{ch:models}.
+
+While applying the Luz-Meiboom model discussed in TODO directly to these results is not possible due to the effect of the field gradient, these gradient effects can be subtracted to estimate the amount of \Ttwo shortening due to the \SOtwo change.
+TODO think about this more.. may need more data? Does this show a different process occuring?
+
+We also encountered trouble with recovering the intial \Ttwo when reoxygenating the blood.
+This was visible in all results above, where at high \SOtwo{}s, the reoxygenated \Ttwo values (upwards triangles)  are typically lower than the initial values (circles) by \SIrange{10}{40}{ms}.
+In this set of experiments, several hypotheses were tested to investigate the cause of this.
+The fact that it occured across all three systems (including the Spinsolve, which was used in a different room) suggests that it is due to a physical change in the blood and not only related to changes in the flow circuit (although movement of the Halbach probe could not be ruled out.)
+
+One possibility was that the blood was not completely reoxygenated, which could occur if the blood was damaged during storage or or the time at extremely low \SOtwo, and the \SOtwo measurement on the iStat was inaccurate.
+To test this, samples were hyper-oxygenated with 30\% \Otwo (rather than 21\%).
+This caused an increase in the p\Otwo from \SIrange{110}{150}{mmHg} in the normally reoxygenated blood to \SIrange{180}{200}{mmHg} in the hyperoxygenated, and should have caused more haemoglobin to become oxy-haemoglobin, raising the \Ttwo.
+Interestingly, we observed a further decrease in the \Ttwo, shown by the right-triangles in the results.
+This is not likely to be due to the paramagnetic effect of dissolved Oxygen, as this should have an extremely small effect on the \Ttwo at these relatively low p\Otwo values.
+Ma et al. found that p\Otwo caused \Rtwo to increase by \SI{2.3e-4}{s^{-1}\per\mmHg}~\cite{Maeffectdissolvedoxygen2016}, which would correspond to a change of \SI{0.04}{s^{-1}} at \SI{200}{mmHg}.
+
+Instead, we investigated whether red blood cells were being damaged by flowing through the circuit.
+
+This
