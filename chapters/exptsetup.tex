@@ -22,7 +22,7 @@ These are all joined by 1/4'' medical grade PVC tubing.
 The total volume of this circuit was typically \SI{60}{\milli\litre}, with the blood bag containing 450 ml TODO check logbook.
 
 The roller pump is used to generate flow around the circuit, by rotating the pump head to drive 2 rollers that squeeze the walls of the tube and force the blood along.
-The pump is also designed for use in CPB surgery, and is a Stockert SIII, with a flow rate controllable from \SIrange{0.01}{6}{L/m} when used with the 1/4'' tube. TODOcheck?.
+The pump is also designed for use in CPB surgery, and is a Stockert SIII (Sorin Group, Munich Germany), with a flow rate controllable from \SIrange{0.01}{6}{L/m} when used with the 1/4'' tube. TODOcheck?.
 These versions of the flow circuit included a bypass section controlled by clamping the tubes so that the blood flow could be directed to around the reservoir, allowing for faster changes in the oxygenation due to a lower effective volume.
 One important setting on the pump is the occlusion, which controls how much the tubing is squeezed as the pump head rotates.
 Having the occlusion set too loosely causes the pump to become ineffective, as the blood can flow backwards through the pump, while setting it too tightly was found to cause damage to the red blood cells as they travel through the pump.
@@ -30,27 +30,50 @@ One problem with the model of pump used in these experiments does not have any s
 
 \subsection{Oxygenator and Gas Mixer}
 A hollow-fibre membrane oxygenator was used to control the oxygenation of the blood in the circuit.
-This was a Medtronic Affinity Pixie oxygenator, designed for use in paediatric CPB procedures.
+This was a Affinity Pixie oxygenator (Medtronic, Minneapolis MN US), designed for use in paediatric CPB procedures.
 It allows for gas exchange and temperature control of the blood flowing through, with the oxygenation controlled by the mix of gases going into the oxygenator.
 This paediatric model was chosen to minimize the required priming volume, and it still provided more than enough capacity to oxygenate the blood at the flow rates used.
 The temperature of the blood was regulated by flowing water from a temperature controlled waterbath through the oxygenator, which has a separate path built into it for this purpose.
 The water bath temperature was set to \SI{35}{\degreeCelsius}, although this corresponded with a blood temperature at the outlet of \SI{33}{\degreeCelsius} at maximum flow rates (with lower temperatures at lower flow rates.)
 
-The gas mix was set using a Dansensor MapMix 3 gas mixer, which allowed control of the different proportions of \Ntwo, \Otwo, and \COtwo flowing through the oxygenator.
+The gas mix was set using a Dansensor MapMix 3 gas mixer (Dansensor, Ringsted Denmark), which allowed control of the different proportions of \Ntwo, \Otwo, and \COtwo flowing through the oxygenator.
 The Oxygen fraction was typically varied from 0\% up to 21\%, the value of atmospheric air.
 Nitrogen was used as a non-Oxygen containing gas, and between 2.5-5\% \COtwo was also added to ensure the pH of the blood sample remained stable over the course of the experiment (as these are linked by the bicarbonate buffer system in blood).
 Gases for all experiments were used as supplied from BOC and were instrument grade or higher.
-The output of the gas mixer flowed into a pressurised buffer tank before flowing into a Dansensor MapCheck Provectus gas analyser, which allowed us to check the fraction of the three gases which flowed into the oxygenation membrane.
+The output of the gas mixer flowed into a pressurised buffer tank before flowing into a MapCheck Provectus gas analyser (Dansensor, Ringsted Denmark), which allowed us to check the fraction of the three gases which flowed into the oxygenation membrane.
 This gas analyser also provided some flow regulation, although this was supplemented with an adjustable flow valve.
 Typically, the gas flow rate was set to only \SIrange[per-mode=symbol]{1}{2}{\liter\per\minute} to avoid creating bubbles in the oxygenator.
 
 \subsection{Blood collection}
 Samples of whole blood were collected by venipuncture from healthy volunteers (taking place at Otago medical school).
 This procedure was approved by the Central Health and Disability Ethics Committee (15/, and all volunteers provided written, informed consent.
-Approximately \SI{450}{ml} of blood was collected into a blood bag containing \SI{66.5}{\milli\litre} CPD anticoagulant/preservative solution (Haemonetics Leukotrap WB system).
+Approximately \SI{450}{ml} of blood was collected into a blood bag containing \SI{66.5}{\milli\litre} CPD anticoagulant/preservative solution (Leukotrap WB system, Haemonetics, Braintree MA US).
 CPD solution is rated for storage of red blood cells for up to at least 3 weeks of storage\cite{Hessupdatesolutionsred2006}.
-Blood samples were held at room temperature following collection, before undergoing leukoreduction filtering to remove white blood cells, s it has been shown that the presence of white blood cells can adversely affect the condition of red blood cells in storage\cite{Hessupdatesolutionsred2006}.
+Blood samples were held at room temperature following collection, before undergoing leukoreduction filtering to remove white blood cells, as it has been shown that the presence of white blood cells can adversely affect the condition of red blood cells in storage\cite{Hessupdatesolutionsred2006}.
 Samples were then moved to a refrigerator and stored at \SI{4}{\degreeCelsius} until required for experiments (up to 30 TODO check! days for stopped flow experiments, up to 10 days for continuous flow experiments)
+
+\subsection{Oxygenation Measurement}
+The \SOtwo of the blood in the circuit was measured by blood gas analysis in an iStat handheld blood analyser (Abbott Point of Care, Abbott Park IL US.)
+This uses small sample of blood (\SI{0.95}{\micro\litre} for the CG8+) that is loaded into a disposable test cartridge, containing the required sensors for specific tests.
+The loaded cartridge is then inserted into the handheld analyser unit, to actually complete the measurements.
+The measurement process typically takes 2 minutes.
+For these experiments, the iStat CG8+ cartridge was used, which allows for measurement of p\Otwo, pH, p\COtwo, Haematocrit, \textit{[Na], [K], [Ca]} and Glucose concentration.
+The p\Otwo is measured using a microelectrode, as described in TODO(background i guess?)
+
+From these measurements, the iStat calculates the \SOtwo of the sample, based on the p\Otwo, p\COtwo and pH\cite{AbbottPointofCareCartridgeTestInformation2013}.
+The iStat uses the following equation, which assumes Oxygen saturation follows the normal affinity curve  (TODO in the background?).
+
+\begin{displaymath}
+\mathit{sO_2} = 100 \times \frac{X^3 + 150X}{X^2 + 150X + 23400}
+\end{displaymath}
+
+\begin{displaymath}
+\mathrm{where }~ X = \mathit{pO_2} \times 10^{0.48(\mathit{pH}-7.4) - 0.0013(\mathit{[HCO3]}-25)}
+\end{displaymath}
+
+While it takes into account the effect of \COtwo and pH on the p\Otwo/\SOtwo relationship, it does not include the effect of 2,3-DPG (diphospoglycerate) which affects haemoglobin's Oxygen affinity.
+It also does not take into account altered haemoglobins (e.g. met-haemoglobin)
+As there are alternative
 
 \subsection{NMR setup}
 For these experiments, 3 different permanent magnet systems were used to obtain data at 3 different field strengths.
@@ -93,13 +116,6 @@ CPMG experiments were run using the default CPMG macros included in Prospa, with
 To be able to get better data on how \Ttwo is affected by \SOtwo at different fields, we decided to move to a continuous flow method, where the \SOtwo was slowly ramped from low to high oxygenation, while the \Ttwo was constantly measured.
 This required a number of changes to the stopped flow setup, including the use of the baby-MRI magnet, and the development of a system for continuous \SOtwo tracking.
 
-
-\begin{itemize}
-\item Flow Circuit changes
-\item different magnet
-\item sO2 measurement - optical sensor, calibration
-\end{itemize}
-
 \subsection{Flow Circuit Changes}
 When first moving on to the measurements using continuous flow, the same flow circuit setup used in the stopped flow experiments was used.
 It was found that the design of the circuit, with the pump connected directly in line after the NMR system caused unacceptable variations in the flow rate through the probe, creating spikes in the measurements of \Ttwo (see TODO(continuous flow results?).
@@ -137,7 +153,7 @@ These were used with the custom built probe, tuning and matching circuit and RF 
 To help stabilise the sample temperature, the gradient set was warmed by flowing water through the cooling water tubes from a water bath set to \SI{28}{\celsius}.
 
 It was also discovered that the magnet power supply unit (used to change the magnet current and field strength) creates interference which disrupted NMR experiments.
-This occured when echo times were approximately \SIrange{8-12}{ms}, and caused CPMG echo trains that were not exponential decays.
+This occured when echo times were approximately \SIrange{8}{12}{ms}, and caused CPMG echo trains that were not exponential decays.
 While the exact cause of this effect is unknown, it was removed by ensuring the magnet power supply was switched off during measurements.
 
 \subsection{Coil Assemblies and Electronics}
@@ -173,7 +189,7 @@ The configurations were tested by measuring \textit{S\textsubscript{11}} on a sp
 Frequency (\si{MHz}) & Coil & Capacitor board\\
 \hline
 40 & A (8 turn) & 4.7/1 \\
-20 & A (8 turn) & Switched 63 \\
+20 & A (8 turn) & Switched 63+4.7 \\
 14 & C (10 turn) & Switched 33+18 \\
 10 & C (10 turn) & 100/12 \\
 5.2 & E (14 turn) & 220/24 \\
@@ -186,25 +202,45 @@ Frequency (\si{MHz}) & Coil & Capacitor board\\
 \subsection{Optical \SOtwo measurement}
 Making measurements with continuously flowing blood required continuous monitoring of the \SOtwo of the blood going into the magnet system.
 This meant that the iStat would not be suitable for these experiments, due to the cost of the cartridges and the length of time it took to measure each sample (approximately two minutes.)
-While there were a number of possible techniques for this such as polarographic or fibre-optic p\Otwo sensors, it was decided to use an optical/NIR setup.
+While there were a number of possible techniques for this, such as polarographic or fibre-optic p\Otwo sensors, it was decided to use an optical/NIR setup.
 
 This optical system was designed around the MAX30102 sensor (Maxim Integrated, San Jose CA US), which is an integrated pulse oximetry/heart rate module.
 It contains all the components for two wavelength pulse oximetry including a \SI{660}{nm} red LED, a \SI{880}{nm} IR LED, LED driver circuits, a photodiode and 18-bit ADC, and a digital ambient light cancellation filter.
-The sensor is included on an evaluation board (MAXREFDES117) (Maxim Integrated, San Jose CA US), which includes a voltage regulator and level shifter to allow it to be connected and supplied from 5V electronics.
+The sensor is included on an evaluation board (MAXREFDES117) (Maxim Integrated, San Jose CA US), which includes a voltage regulator and level shifter to allow it to be connected to, and supplied from 5V electronics.
+This PCB module was mounted in a 3D printed holder, which allowed it to be clipped onto a tubing joint used in the flow circuit.
+It was arranged so that the sensor was shining perpendicular to a flat section of the tubing, to try and reduce any background effects from the plastic.
+The polystyrene plastic used in the joint did not cause significant absorption of the reflected light from the blood at either the red or IR wavelengths.
+
+TODO picture of SpO2 sensor module in mount
 
 The sensor measures the red and IR light reflected by the blood by alternately pulsing the red and IR LEDs and measuring the photodiode output.
 In this experiment, the LED pulse time was \SI{411}{\micro\second} (the longest possible value to get the most sensitivity), and the sample rate set to \SI{100}{Hz} with a 4x averaging filter to give 25 samples per second.
 Other parameters were set to the suggested values in the evaluation demo.
-The MAX30102 sensor communicated over I\textsuperscript{2}C to an Arduino board, that reads the incoming data and sends to to the computer to be logged over USB.
+The MAX30102 sensor communicated over I\textsuperscript{2}C to an Arduino board, that reads the incoming data and sends it to the computer over USB to be logged.
 This data is collected by a Python application, which provides a live plot of the data from the sensor and averages it further (100x) to reduce the amount of data stored.
 The application saves values of the red intensity, IR intensity every 4 seconds.
 
 As discussed in (TODO background-pulseoximetry), the ratio of red and IR intensities are typically converted to \SOtwo using an empirical calibration curve.
-To create this curve, samples were collected while the oxygenation was being decreased, the \SOtwos measured using the iStat.
+To create this curve, samples were collected while the oxygenation was being decreased, the \SOtwo{}s measured using the iStat.
 The ratio for each sample was also measured, and used to fit a quadratic curve to find \SOtwo as a function of \textit{R}.
 The procedure for this process improved over the course of the experiments, to try and ensure that what was sampled from the circuit and tested on the iStat was on the sensor at the time it the ratio was measured.
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/exptsetup/oximetercal.pdf}
+\caption{Calibration data for optical \SOtwo sensor}
+\label{fig:exptsetup-oximetercal}
+\end{figure}
+To get a good distribution of data points across \textit{R}, samples were taken every 0.1 units, approximately 2 corresponds to oxygenated blood,and 0.3 is completely deoxygenated.
+Before sampling, approximately \SI{2}{ml} was syringed from the sample tube (thin tube in \autoref{fig:exptsetup-contflow-schematic}) and flushed to the other bag by syringe to remove the volume of the tube.
+A \SI{0.5}{ml} sample was taken by syringe and measured as soon as possible on the iStat.
+When this was not immediately possible, syringes were capped with parafilm to try and avoid any changes in \SOtwo due to absorbing Oxygen from the air.
 
-To get a good distribution of data points across \textit{R}, samples were taken every 0.1 units, approximately 2.5 corresponds to oxygenated blood,and 0.3 is completely deoxygenated.
-Before sampling, approximately \SI{2}{ml} was syringed from the sample tube (thin tube in \autoref{exptsetup-contflow-schematic}) and flushed to the other bag by syringe to remove the volume of the tube.
-A \SI{0.5}{ml} sample was taken and measured as soon as possible on the iStat.
-When this was not immediately possible, samples were capped with parafilm to try and avoid any changes in \SOtwo due to absorbing Oxygen from the air.
+Results for this calibration process from different experimental runs are shown in \autoref{fig:exptsetup-oximetercal}.
+Because of the fast change in \SOtwo at intermediate oxygenations (TODO background O2 affinity), it was more difficult to ensure that the blood sampled for iStat measurements hadn't changed from the blood measured at the sensor, so there is a larger scatter in the data points in the middle of the curve.
+Variations in the technique used for earlier calibration runs meant there is also more scatter for these points (shown in grey is much larger).
+These results were used to find a calibration curve following \autoref{eq:oximetercal}, which was used when processing experiments at all fields.
+
+\begin{equation}
+\mathit{sO_2} = -25.5 R^2 + 118 R - 35
+\label{eq:oximetercal}
+\end{equation}
