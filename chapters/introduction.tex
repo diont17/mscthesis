@@ -5,12 +5,12 @@ Oxygen saturation measurement are a routine part of care, and changes in these m
 Low levels of Oxygen can cause tissue damage and cell death, particularly in sensitive tissue such as the brain, where even brief periods of
 hypoxia can have catastrophic effects.
 Low Oxygen levels can also be an issue for neonates, who can have circulatory and pulmonary systems which are still developing.
-Being able to detect changes in oxygenation quickly means that action can be taken to limit and/or prevent ill effects to the patient.
+Being able to detect changes in oxygenation quickly means that action can be taken to limit and/or prevent ill effects to patients.
 
 The typical method for measuring blood oxygenation in patients is through pulse oximetry, a non-invasive method which measures the change in absorbance at
 various wavelengths of light to detect the presence of oxygenated and deoxygenated haemoglobin.
 This method can produce quick measurements of the blood oxygen saturation, while also being relatively cheap and robust.
-Because it measures the blood, this technique provides information about Oxygen saturation across the whole body.
+Because it measures the blood, this technique provides information about Oxygen saturation across the whole body, measured at a single point on the finger or ear lobe.
 However, this means that these saturations are not necessarily representative of Oxygen levels in specific parts of the body, such as the brain.
 An example is given by ....., if there are issues with blood flow to specific areas (ischemia?), these will not necessarily be reflected by pulse oximetry.
 Because of this, local tissue oxygenation measurements are desired by physicians, but they are difficult to measure.
@@ -18,17 +18,17 @@ Because of this, local tissue oxygenation measurements are desired by physicians
 Techniques for measuring local tissue oxygenation in the brain include the use of NIRS (Near-Infrared Spectroscopy), and the use of oxygen measuring
 polarographic electrodes.
 NIRS is a non-invasive method where the changes in light absorption from oxy/deoxy-haemoglobin are observed at near-infrared wavelengths, which can penetrate
-into tissue.
+into tissue, similar to pulse oximetry.
 This technique is commercially available and already used regularly, particularly for monitoring neonates.
 However, it can be difficult to measure the local oxygenation of deeper structures, as it depends on light traveling through the tissue and returning to the sensor.
 Oxygen electrodes can also be used, which can be inserted into the desired area for measurement.
-These give a direct readout of the pO~2~, in the tissue surrounding the probe.
+These give a direct readout of the p\Otwo, in the tissue surrounding the probe.
 However, inserting these oxygen electrodes into the tissue is extremely invasive, which has limited the use of these sensors.
 
 Nuclear Magnetic Resonance (NMR) presents an alternative way to measure blood oxygen saturation.
 It has been known since the early 1980s that the saturation of blood is linked to it's transverse relaxation time \Ttwo.
 This relationship is caused by the change in the magnetic properties of haemoglobin when bound to oxygen.
-This effect is one of the main causes of the BOLD(Blood Oxygen Level Dependent) contrast which underlies fMRI(functional Magnetic Resonance Imaging).
+This effect is a contributing factor to BOLD(Blood Oxygen Level Dependent) contrast which underlies fMRI(functional Magnetic Resonance Imaging).
 Non-invasive measurement of local oxygen saturation has also been demonstrated using this effect.
 These applications have been developed using high-field (>1.5 T) imaging systems, whose large size and cost means that these techniques are not in clinical use.
 
@@ -37,16 +37,33 @@ These magnetic resonance instruments produce a sweet spot, where the magnetic fi
 Combining this with the oxygen dependent \Ttwo change could produce an instrument which is sensitive to local changes in tissue oxygenation.
 However, single sided NMR systems have limitations on the strength and homogeneity of the magnetic field they produce, due to the use of permanent magnets, and the geometry of the system.
 This means that it is important to understand how factors like field strength and homogeneity affect how oxygenation dependent \Ttwo changes can be observed in this type of system.
-Additionally, the magnitude of the change in oxygen saturation that can be detected using this magnetic resonance relaxation effect is also important, as being able to
-measure slight changes in oxygenation will mean that this technique can provide clinically relevant early warnings of low oxygenation.
+
+%Additionally, the magnitude of the change in oxygen saturation that can be detected using this magnetic resonance relaxation effect is also important, as being able to measure slight changes in oxygenation will mean that this technique can provide clinically relevant early warnings of low oxygenation.
 
 \section{NMR Measurement of oxygen saturation}
+The effect of \SOtwo on the \Ttwo of blood was originally described by \cite{ThulbornOxygenationdependencetransverse1982} in 1982, who investigated how \Ttwo changed as a function of oxygenation, magnetic field strength and haematocrit (fraction of blood in red blood cells.
+Thulborn found that the \Rtwo ($\mathit{\frac{1}{T_2}}$) of blood decreased with $(100-\mathit{SO_2})^2$.
+Using a variety of spectrometers and NMR systems, he also showed that the strength of this effect scales with \Bzero squared, and that this effect requires that the red blood cells are intact (as no change in \Ttwo occured when the cells were lysed.)
+
+From this initial study, other researchers studied how the effect can be detected at lower fields.
+Gomori measured the \Ttwo of samples of oxygenated and deoxygenated blood at fields ranging from \SIrange{0.19}{1.4}{T}, and found that changes were still visible at these lower fields\cite{GomoriNMRRelaxationTimes1987}.
+This sort of experiment was also completed by Brooks, who found that \Ttwo shortening were visible at fields between \SIlist{0.05;1.5}{T} \cite{BrooksComparisont2relaxation1995}.
+Brooks mapped out the dependence on field strength more finely than Gomori, and was able to show that the size of the effect still scales with \Bzero squared at low fields.
+In these studies, the samples of blood were measured with either completely oxygenated and completely deoxygenated blood, typically obtained by 
+There are a handful of other studies of this effect at these low field strengths, such as \cite{BryantMagneticrelaxationblood1990} and Stadelmann\cite{StadelmannRelaxationtimesvenous1991},
+although like the studies by Brooks and Gomori, these were only done using samples of deoxygenated and oxygenated blood.
 
 
-\def\chapterautorefname{Chapter}
+More recently, this effect has been studied for potential applications in high field imaging systems (\SI{>1.5}{T}.)
+Silvennoin\cite{JohannaSilvennoinenBloodNMRrelaxation2002}, Stefanovic\cite{StefanovicHumanwholebloodrelaxometry2004}, Chen\cite{ChenHumanwholeblood2009} and Gardener\cite{GardenerDependencebloodR22010} scanned samples with varying oxygenation levels in MRI scanners (1.5, 2.35, 3 or 4.7 T) to study the change in \Ttwo as a function of oxygenation, haematocrit and CPMG echo time.
+These studies showed that the effect follows the same trend found by Thulborn, and shows good agreement with the theoretical models discussed in \autoref{ch:models}.
 
-In this thesis, this parameter space has been mapped out to determine the how field strength, CPMG echo time, and other factors affect the magnitude of the oxygenation
+Another method of studying \Ttwo changes with \SOtwo was described by Meyer et al., who used a continuous flow loop to
+Their setup used
+
+In this thesis, this parameter space has been mapped out to determine how field strength, CPMG echo time, and other factors affect the magnitude of the oxygenation
 \Ttwo effect in whole blood.
 \autoref{ch:background} presents background information on NMR relaxation, and on the origin of the oxygenation dependent \Ttwo change.
-
-\def\chapterautorefname{chapter}
+\autoref{ch:exptsetup} describes the two versions of the experimental setup used for the two series of experiments in this thesis.
+\autoref{ch:stopppedflow} presents the results of stopped flow experiments into the \Ttwo change at a series of oxygenation steps, while \autoref{ch:cont} presents the results of experiments measuring \Ttwo changes continuously as \SOtwo is slowly decreased.
+\autoref{ch:models} evaluates an alternative model proposed by Jensen and Chandra to describe the process causing decreases in \Ttwo\cite{JensenNMRrelaxationtissues2000}.
