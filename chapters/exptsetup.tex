@@ -68,7 +68,7 @@ The iStat uses the following equation, which assumes Oxygen saturation follows t
 \end{displaymath}
 
 \begin{displaymath}
-\mathrm{where }~ X = \mathit{pO_2} \times 10^{0.48(\mathit{pH}-7.4) - 0.0013(\mathit{[HCO3]}-25)}
+\mathrm{where } X = \mathit{pO_2} \times 10^{0.48(\mathit{pH}-7.4) - 0.0013(\mathit{[HCO3]}-25)}
 \end{displaymath}
 
 While it takes into account the effect of \COtwo and pH on the p\Otwo/\SOtwo relationship, it does not include the effect of 2,3-DPG (diphospoglycerate) which affects haemoglobin's Oxygen affinity.
@@ -191,6 +191,7 @@ Frequency (\si{MHz}) & Coil & Capacitor board\\
 40 & A (8 turn) & 4.7/1 \\
 20 & A (8 turn) & Switched 63+4.7 \\
 14 & C (10 turn) & Switched 33+18 \\
+12 & C (10 turn) & Switched 63 \\
 10 & C (10 turn) & 100/12 \\
 5.2 & E (14 turn) & 220/24 \\
 \hline
@@ -199,7 +200,21 @@ Frequency (\si{MHz}) & Coil & Capacitor board\\
 \label{tbl:exptsetup-capconf}
 \end{table}
 
+\subsection{Flow measurement by NMR}
+In the continuous flow loop, the flow rate was set by adjusting a screw clamp on the tube, which meant that the flow rate could not be set directly (e.g. by setting the pump rate.)
+Because of this, flow measurements were done using NMR velocimetry, using the gradient coils of the baby-MRI magnet.
+A pulse sequence for measuring the flow rate in the circuit using a Pulsed Gradient Spin Echo (PGSE) experiment was developed, following Callaghan \cite{CallaghanTranslationalDynamicsMagnetic2014}.
+This pulse sequence is shown in TODO..
+As discussed in the TODO background.., the experiment uses two gradient pulses to encode displacement into the phase of the spin echo, so that with knowledge of the phase difference and $\Delta$, the velocity of the spins can be determined.
+This pulse sequence was implemented in Prospa, and allows the user to set pulse parameters such as gradient direction, number of q-steps and echo time.
+It can be used to measure using both the fourier method, and the two q-step method (TODO check for better name in book).
+
+To investigate variations in the flow rate, the pulse sequence also allows for a single reference measurement (where \textit{g}=\SI{0}{T/m}) followed by repetitions of the same q-step.
+This allowed for much faster measurements of the flow rate, when compared with the multiple q-step method -- in this experiment the temporal resolution is set by \TR.
+
+
 \subsection{Optical \SOtwo measurement}
+\label{sec:exptsetup-pulseoximeter}
 Making measurements with continuously flowing blood required continuous monitoring of the \SOtwo of the blood going into the magnet system.
 This meant that the iStat would not be suitable for these experiments, due to the cost of the cartridges and the length of time it took to measure each sample (approximately two minutes.)
 While there were a number of possible techniques for this, such as polarographic or fibre-optic p\Otwo sensors, it was decided to use an optical/NIR setup.
