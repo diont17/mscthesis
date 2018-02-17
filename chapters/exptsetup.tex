@@ -28,6 +28,11 @@ One important setting on the pump is the occlusion, which controls how much the 
 Having the occlusion set too loosely causes the pump to become ineffective, as the blood can flow backwards through the pump, while setting it too tightly was found to cause damage to the red blood cells as they travel through the pump.
 One problem with the model of pump used in these experiments does not have any sort of readout of the occlusion setting, so this had to be set at the correct value by following a testing procedure each time the occlusion was changed.
 
+The occlusion testing required a piece of the 1/4'' tubing in the pump, with one end going up vertically.
+The other end was connected to an IV bag of saline so that the water level was just above the pump.
+The pump head was tightened, and the pump was switched on to raise the water level in the tube, then switched off.
+The occlusion was then loosened until the water level started to fall, then tightened to the point where the level was stable.
+
 \subsection{Oxygenator and Gas Mixer}
 A hollow-fibre membrane oxygenator was used to control the oxygenation of the blood in the circuit.
 This was a Affinity Pixie oxygenator (Medtronic, Minneapolis MN US), designed for use in paediatric CPB procedures.
@@ -81,7 +86,6 @@ A set of K-type thermocouples was used with a Picolog TC-08 USB temperature logg
 Temperature was measured at the oxygenator outlet, and at a spot between the two NMR systems.
 To maintain good thermal contact between the blood and the thermocouples, they were mounted in Luer-lock temperature connectors included in the Affinity Pixie kits.
 These have a hollow gold tip which extends into the tube, which the thermocouples were pressed into, allowing for temperature measurements while keeping the circuit sealed.
-
 
 \subsection{NMR setup}
 For these experiments, 3 different permanent magnet systems were used to obtain data at 3 different field strengths.
@@ -162,7 +166,7 @@ To help stabilise the sample temperature, the gradient set was warmed by flowing
 
 It was also discovered that the magnet power supply unit (used to change the magnet current and field strength) creates interference which disrupted NMR experiments.
 This occured when echo times were approximately \SIrange{8}{12}{ms}, and caused CPMG echo trains that were not exponential decays.
-While the exact cause of this effect is unknown, it was removed by ensuring the magnet power supply was switched off during measurements.
+While the exact cause of this effect is unknown, it was remedied by ensuring the magnet power supply was switched off during measurements.
 
 \subsection{Coil Assemblies and Electronics}
 \label{sec:exptsetup-coil}
@@ -213,9 +217,9 @@ In the continuous flow loop, the flow rate was set by adjusting a screw clamp on
 Because of this, flow measurements were done using NMR velocimetry, using the gradient coils of the baby-MRI magnet.
 A pulse sequence for measuring the flow rate in the circuit using a Pulsed Gradient Spin Echo (PGSE) experiment was developed, following Callaghan \cite{CallaghanTranslationalDynamicsMagnetic2014}.
 This pulse sequence is shown in TODO..
-As discussed in the TODO background.., the experiment uses two gradient pulses to encode displacement into the phase of the spin echo, so that with knowledge of the phase difference and $\Delta$, the velocity of the spins can be determined.
+As discussed in \autoref{sec:back-PGSE}, the experiment uses two gradient pulses to encode displacement into the phase of the spin echo, so that with knowledge of the phase difference and $\Delta$, the velocity of the spins can be determined.
 This pulse sequence was implemented in Prospa, and allows the user to set pulse parameters such as gradient direction, number of q-steps and echo time.
-It can be used to measure using both the fourier method, and the two q-step method (TODO check for better name in book).
+It can be used to measure using both the Fourier method, and the two q-step method (TODO check for better name in book).
 
 To investigate variations in the flow rate, the pulse sequence also allows for a single reference measurement (where \textit{g}=\SI{0}{T/m}) followed by repetitions of the same q-step.
 This allowed for much faster measurements of the flow rate, when compared with the multiple q-step method -- in this experiment the temporal resolution is set by \TR.
