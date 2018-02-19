@@ -12,7 +12,7 @@ various wavelengths of light to detect the presence of oxygenated and deoxygenat
 This method can produce quick measurements of the blood oxygen saturation, while also being relatively cheap and robust.
 Because it measures the blood, this technique provides information about Oxygen saturation across the whole body, measured at a single point on the finger or ear lobe.
 However, this means that these saturations are not necessarily representative of Oxygen levels in specific parts of the body, such as the brain.
-An example is given by ....., if there are issues with blood flow to specific areas (ischemia?), these will not necessarily be reflected by pulse oximetry.
+An example is given by TODO if there are issues with blood flow to specific areas (ischemia?), these will not necessarily be reflected by pulse oximetry.
 Because of this, local tissue oxygenation measurements are desired by physicians, but they are difficult to measure.
 
 Techniques for measuring local tissue oxygenation in the brain include the use of NIRS (Near-Infrared Spectroscopy), and the use of oxygen measuring
@@ -53,13 +53,19 @@ In these studies, the samples of blood were measured with either completely oxyg
 There are a handful of other studies of this effect at these low field strengths, such as \cite{BryantMagneticrelaxationblood1990} and Stadelmann\cite{StadelmannRelaxationtimesvenous1991},
 although like the studies by Brooks and Gomori, these were only done using samples of deoxygenated and oxygenated blood.
 
-
-More recently, this effect has been studied for potential applications in high field imaging systems (\SI{>1.5}{T}.)
+More recently, this effect has been studied \textit{in-vitro} for applications in high field imaging systems (\SI{>1.5}{T}.)
 Silvennoin\cite{JohannaSilvennoinenBloodNMRrelaxation2002}, Stefanovic\cite{StefanovicHumanwholebloodrelaxometry2004}, Chen\cite{ChenHumanwholeblood2009} and Gardener\cite{GardenerDependencebloodR22010} scanned samples with varying oxygenation levels in MRI scanners (1.5, 2.35, 3 or 4.7 T) to study the change in \Ttwo as a function of oxygenation, haematocrit and CPMG echo time.
-These studies showed that the effect follows the same trend found by Thulborn, and shows good agreement with the theoretical models discussed in \autoref{ch:models}.
+These studies showed that the effect follows the same quadratic trend found by Thulborn, and shows good agreement with the theoretical models discussed in \autoref{ch:models}.
 
-Another method of studying \Ttwo changes with \SOtwo was described by Meyer et al., who used a continuous flow loop to
-Their setup used
+Another method of studying \Ttwo changes with \SOtwo \textit{in-vitro} was described by Meyer et al., who used a continuous flow loop to measure \Ttwo at varying levels of \SOtwo, with a spectrometer at \SI{4.7}{T}.
+This method was more recently used by the group of Peter van Zilj, who has published multiple studies (\cite{ZhaoOxygenationhematocritdependence2007,GrgacTransversewaterrelaxation2017,QinDeterminationwholebrainoxygen2011} on the dependence of \Ttwo on \SOtwo, haematocrit, and on field strength.
+These studies have looked at magnetic field strengths from \SIrange{3.0}{16.4}{T}.
+
+The effect on \Ttwo of \SOtwo has also been applied in \textit{in-vivo} imaging, with a pioneering study by Wright\cite{WrightEstimatingoxygensaturation1991}, who measured changing oxygen saturation in the body using \Ttwo changes.
+More recently, other researchers have developed methods for imaging \SOtwo in blood based on this \Ttwo effect.
+TRUST-MRI (\Ttwo Relaxation Under Spin Tagging) can be used to measure the \Ttwo of blood, and convert this into an \SOtwo using a calibration curve \cite{LuQuantitativeevaluationoxygenation2008}.
+Measurement of oxygenation using \Ttwo values collected with different echo times has also been demonstrated \cite{VargheseCMRbasedbloodoximetry2017}.
+While these methods provide good agreement with other measurements of \SOtwo, they are not typically used in clinical practice.
 
 In this thesis, this parameter space has been mapped out to determine how field strength, CPMG echo time, and other factors affect the magnitude of the oxygenation
 \Ttwo effect in whole blood.

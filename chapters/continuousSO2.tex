@@ -44,11 +44,11 @@ Multiple versions of the standard CPMG experiment included in Prospa were added 
 4 scans of each CPMG experiment were used with the standard phase cycling and a \SI{1.2}{s} inter-experiment delay (the sample was flowing through the coil, bringing in `fresh' spins, so the repetition time could be less than $5 \times \mathit{T_1}$.)
 Additionally, a PGSE experiment was added to monitor the flow rate, with $\Delta = \SI{16}{ms}$, $\delta = \SI{2}{ms}$, $\mathit{g} =$ \SIrange{0}{0.015}{T/m} over 4 steps, and a \SI{15.5}{ms} echo time.
 The x gradients were used as the PGSE gradient, as this corresponds to the direction of flow through the coil.
-
-\begin{equation*}
-v = \frac{\phi}{\gamma \Delta \delta g} \tag{\ref{eq:PGSEvel}}
-\end{equation*}
-Using \autoref{eq:PGSEvel}, these parameters allow for measurement of velocities \SI{< 5}{cm/s} without phase wrapping.
+\autoref{eq:PGSEvel} (restated here) was used to calculate the flow velocity.
+\begin{displaymath}
+v = \frac{\phi}{\gamma \Delta \delta g}
+\end{displaymath}
+These parameters allow for measurement of velocities \SI{< 5}{cm/s} without phase wrapping.
 A standard 1pulse FID experiment is also run, to test for any shifts in the magnetic field.
 
 The batch script in Prospa runs each experiment, then moves to a new directory and repeats.
@@ -572,6 +572,7 @@ Stefanovic et al. measured the \Ttwo of blood at various levels of oxygenation w
 They performed the same \Kzero fitting process to calibrate \Kzero values against \SOtwo, and plotted them against the same (1-\SOtwo)\textsuperscript{2}
 Their results also produced a linear dependence, with a slope of \SI{3.1\pm0.2 e-13}{T^2}.
 For comparison, this data point is also included in \autoref{fig:contflow-k0loglog}, and appears to follow the field dependence trend predicted by theory.
+
 This is nice. (TODO more scientific!)
 
 Other studies give empirical calibration constants for the shape of the \Rtwo/\SOtwo curve (curvature in \autoref{fig:contflow-R2SO2}).
@@ -600,9 +601,9 @@ In these continuous flow experiments, this effect is more visible due to the lon
 
 The stopped flow experiments suggested that the change in \Ttwo might be due to the breakdown of red blood cells in the blood.
 To test this more quantitatively, the haemoglobin concentration was measured for samples of plasma, separated from blood removed from the flow circuit.
-This `Plasma free haemoglobin' is an indicator for haemolysis, the breakdown of red blood cells, as the cells release their haemoglobin into the surrounding plasma. CITE MALINAUSKSUS
+This `Plasma free haemoglobin' is an indicator for haemolysis, the breakdown of red blood cells, as the cells release their haemoglobin into the surrounding plasma. \cite{MalinauskasPlasmaHemoglobinMeasurement1997}.
 Additionally, the \Ttwo for the separated plasma was measured on the Spinsolve, to see if there was any correlation with the changing \Ttwo values from the continuous flow experiment.
-In studies at high fields, haemoglobin has been shown in the literature to act as a paramagnetic contrast agent CITE GRGAC2017
+In studies at high fields, haemoglobin has been shown in the literature to act as a paramagnetic contrast agent \cite{GrgacTransversewaterrelaxation2017}
 
 Plasma free haemoglobin was measured using the Kahn method, which is described in a review of haemolysis testing methods by Fairbanks\cite{FairbanksMethodsmeasuringplasma1992}.
 This uses UV/Vis spectroscopy of the haemoglobin absorption peak at \SI{578}{nm} to measure the concentration.
@@ -635,7 +636,7 @@ From these spectra, the plasma free haemoglobin at each point was calculated usi
 \begin{figure}[t]
 \centering
 \begin{subfigure}{\textwidth}
-\caption[Blood haemolysis experiment results]{Blood haemolysis results from 5 MHz experiment. Plasma free haemoglobin found using Kahn method, Plasma \Rtwo values measured on Spinsolve at \SI{1}{T}, Blood \Rtwo values taken from blood data shown in \autoref{fig:contflow-5mhzT2Time} (\Ttwo for sample at minute 350 taken from minute 294 to compare data from oxygenated blood)}
+\caption{5 MHz experiment. (\Ttwo for blood sample at minute 350 taken from minute 294 to compare data from oxygenated blood)}
 \includegraphics[width=0.9\textwidth]{figures/contflow/haemolyseSpect.pdf}
 
 \includegraphics[width=0.9\textwidth]{figures/contflow/haemolysePlasT2.pdf}
@@ -643,13 +644,13 @@ From these spectra, the plasma free haemoglobin at each point was calculated usi
 \end{subfigure}
 
 \begin{subfigure}{\textwidth}
-\caption[Blood haemolysis experiment results from 40 MHz experiment]{Blood haemolysis results from 40 MHz experiment. Blood \Rtwo values taken from blood data shown in \autoref{fig:contflow-40mhzT2Time}.}
+\caption{40 MHz experiment}
 \includegraphics[width=0.9\textwidth]{figures/contflow/40haemolyseSpect.pdf}
 
 \includegraphics[width=0.9\textwidth]{figures/contflow/40haemolysePlasT2.pdf}
 %\includegraphics[width=0.9\textwidth]{figures/contflow/haemolyseBloodT2.pdf}
 \end{subfigure}
-\caption[Blood haemolysis experiment result]
+\caption[Blood haemolysis experiment result]{Blood haemolysis experiment result. Plasma free haemoglobin found using Kahn method, Plasma \Rtwo values measured on Spinsolve at \SI{1}{T}, Blood \Rtwo values taken from blood data shown in \autoref{fig:contflow-5mhzT2Time} and \autoref{fig:contflow-40mhzT2Time}}
 \label{fig:contflow-haemolyseResult}
 \end{figure}
 
@@ -659,7 +660,7 @@ This corresponds to an increase in \Rtwo from \SI{1.3}{s^-1} to \SI{1.5}{s^{-1}}
 As expected, there is a large difference between the \Ttwo of the separated plasma and the blood measurements, due to the removal of the red blood cells.
 Comparing this with the \Rtwo measurements in blood, this \SI{0.2}{s^{-1}} change accounts for about half of the relaxivity change between minute 90 and minute 350, which is \SI{0.4}{s^{-1}}.
 
-A similar result was found in the 40 MHz experiment, although the plasma sample used was relatively cloudy, potentially due to lipids or , which meant that the UV/Vis spectra displayed broad absorptions.
+A similar result was found in the 40 MHz experiment, although the plasma sample used was relatively cloudy, potentially due to lipids or proteins in the plasma , which meant that the UV/Vis spectra displayed broad absorptions.
 This broke (TODO more scientific!) the Kahn method, as it uses the region around the absorption peak to attempt to remove background absorption.
 
 \Rtwo values in the separated plasma increased from \SI{1.25}{s^{-1}} to \SI{1.7}{s^{-1}}, while the oxygenated blood increased from \SI{2.9}{s^{-1}} to \SI{4.0}{s^{-1}}.
@@ -667,10 +668,10 @@ The
 While the UV/Vis spectra from this experiment cannot conclusively link free haemoglobin and the plasma \Rtwo, the increasing trend in the plasma \Rtwo and blood \Rtwo over time suggest that the blood is breaking down.
 
 These experiments suggest that the background decrease in \Ttwo across the time span of the experiments is due to haemolysis of the red blood cells.
-Haemolysis can be caused by many factors including the age of the blood, changes in osmolarity, temperatures above \SI{40}{\celsius} and mechanical/shear stress. CITE[Red blood cell hemolysis during processing]2002
+Haemolysis can be caused by many factors including the age of the blood, changes in osmolarity, temperatures above \SI{40}{\celsius} and mechanical/shear stress\cite{Sowemimo-CokerRedbloodcell2002}
 This was observed happening in the pump when the occlusion was set too tightly, which lead to the use of the occlusion setting process described in .
 It is possible that haemolysis is occuring due to the blood flowing through the relatively tight screw clamp, or due to contact with the PVC tube and oxygenator membrane.
-Blood haemolysis is also known to occur in \textit{ex-vivo} blood circulation circuits for cardiopulmonary bypass, although typically the natural scavenging process in the body is able to clear this. CITE[PMC4680715]
+Blood haemolysis is also known to occur in \textit{ex-vivo} blood circulation circuits for cardiopulmonary bypass, although typically the natural scavenging process in the body is able to clear this without significant ill-effects\cite{VercaemstHemolysiscardiacsurgery2008}.
 
 
 \subsection{\SOtwo measurement from \Ttwo}
@@ -682,7 +683,7 @@ More recently, a parametric method of fitting \Ttwo values measured at multiple 
 This relies on using non-linear least sqaures fitting to fit the full Luz-Meiboom equation (\autoref{eq:LMblood}, which includes terms for Hct, $\alpha$ and \SOtwo) to the measured \Ttwo values, and extracting \SOtwo from this.
 In their study, they demonstrated that this parametric method improved \SOtwo measurement accuracy when compared to the simplified calibration curve model, by comparing the \SOtwo values calculated with each method to direct \SOtwo measurements of blood sampled from the heart (in pigs).
 This method requires a separate measurement of a sample of blood to find a known \SOtwo value and the haematocrit, to be able to estimate $\alpha$ and the haematocrit factor in the Luz-Meiboom equation.
-4 echo times were used between \SIrange{10}{25}{ms}, which were used to estimate either the \SOtwo, or 4 constrained parameters: \SOtwo, Hct, $\alpha$ and \TtwoO.
+\Ttwo values were measured using 4 echo times between \SIrange{10}{25}{ms}, which were used to estimate either the \SOtwo, or 4 constrained parameters: \SOtwo, Hct, $\alpha$ and \TtwoO.
 
 In this work, a similar parametric method was applied to find \Kzero and \TtwoO from the 5 echo times in each measurement.
 This should mean that effects due to temperature, flow and haemolysis should be able to be ignored, so that the \SOtwo prediction depends only on the echo time splitting.
@@ -691,21 +692,20 @@ In effect, this is the same as the `Approach 3' trained method described by Varg
 The short echo times used in these experiments, particularly the \SI{1}{ms} time, should allow this method to better estimate the \TtwoO, while the wide range of echo times also provides a larger splitting, allowing for better estimation of \Kzero.
 
 This method was applied to data from the 14 MHz experiment, shown in \autoref{fig:contflow-NMRSO2}.
-The section of the experiment where the \Ttwo and optical sensor \SOtwo values were extracted for analysis is shown in grey.
+The section of the experiment where the \Ttwo and optical sensor \SOtwo values were extracted for analysis (effectively training data) is shown in grey.
 For comparison, a quadratic \Rtwo/\SOtwo calibration was also calvulated using the value of \textit{K} found above in \autoref{sec:contflow-litcomp} and is shown in red.
 
 \begin{figure}[t]
 %Graph from 14MHz experiment
 \centering
 \includegraphics[width=0.8\textwidth]{figures/contflow/calibratedNMRSO2.pdf}
-\caption[Back-predicted \SOtwo from NMR measurements at 14 MHz]{Back-predicted \SOtwo from NMR measurements at 14 MHz, using data in highlighted in grey as `training' data}
+\caption[Back-predicted \SOtwo from NMR measurements at 14 MHz]{Back-predicted \SOtwo from NMR measurements at 14 MHz, using data highlighted in grey as `training' data}
 \label{fig:contflow-NMRSO2}
 \end{figure}
 
-This demonstrates that the \SOtwo calculated by the parametric method tracks the optical sensor measurement, and is not affected by the background changes in \Ttwo.
-It also shows that the quadratic calibration curve follows the optical sensor data, but does
-, but is significantly biased towards lower \SOtwo as the experiment continues, due to the background decrease in \Ttwo.
-The background decrease is shown by the decreasing \TtwoO line, which decreases from WHERE to WHERE.
+This demonstrates that the \SOtwo calculated by the parametric method tracks the optical sensor measurement well, and is not affected by the background changes in \Ttwo.
+It also shows that the quadratic calibration curve follows the optical sensor data, but is significantly biased towards lower \SOtwo as the experiment continues, due to the background decrease in \Ttwo.
+The background decrease is shown by the decreasing \TtwoO line, which decreases from \SI{305}{ms} to \SI{250}{ms}.
 Interestingly, the spikes where sudden changes in oxygenation occured (e.g. minutes 140, 225) have a different shape in the NMR data to the optical sensor data.
 This could indicate that there is some sort of change in the \SOtwo as the blood travels between the optical sensor and the probe.
 
@@ -713,4 +713,7 @@ The data also shows that the size of the splitting is not affected by the haemol
 This would lead to a decreased \Kzero for the same \SOtwo, and therefore predict a higher \SOtwo.
 This does not appear to be the case, for example at minute 250, where the optical and NMR data are still in good agreement, suggesting that the free haemoglobin is not at a high enough level to affect the field inhomogeneity.
 
-These continuous flow experiments show that changes in \SOtwo can be detected using NMR at low field, and that the
+These continuous flow experiments show that changes in \SOtwo can be detected using \Ttwo at low field, and that the trends in \Ttwo agree with the literature.
+While the temperature and flow effects in the experiments may need to better controlled, the results still appear to follow the expected trends.
+Repeating these experiments with more samples of blood will also be needed to confirm these results, as they come from one sample at each field strength.
+Additionally, we have found evidence that blood is breaking down during the course of the experiments, suggesting that this \Ttwo method could be sensitive for this.

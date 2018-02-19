@@ -34,7 +34,7 @@ Varghese   &   2017\cite{VargheseCMRbasedbloodoximetry2017} & 1.5 & 5.0\pm1.1 \\
 
 \section{Theory}
 
-As discussed in \autoref{sec:back-TtwoSOtwo}, the typical way to describe the dependence of \Ttwo shortening in blood due to echo time is using the Luz-Meiboom equation \autoref{eq:LMsimp}.
+As discussed in \autoref{sec:back-T2SO2}, the typical way to describe the dependence of \Ttwo shortening in blood due to echo time is using the Luz-Meiboom equation \autoref{eq:LMsimp}.
 While this provides good agreement with experimental data, it does not provide a good description of the underlying physical system - for example, what the exchange time actually measures is not clear.
 
 In the literature, there are a range of values for the exchange time (\autoref{tab:dm-litTex}), ranging from \SIrange{0.6}{9.1}{ms}.
@@ -43,13 +43,13 @@ This suggests that the exchange time parameter is not necessarily due to exchang
 
 Jensen and Chandra derived a similar version of the Luz-Meiboom formula by using an exponential decay to approximate a correlation function (restated here).
 
-\begin{equation*}
-K(t) = K_0 e^{-t/\tau} \tag{\ref{eq:JCExpCorr}}
-\end{equation*}
+\begin{displaymath}
+K(t) = K_0 e^{-t/\tau}
+\end{displaymath}
 
-\begin{equation*}
-\frac{1}{T_2} = \frac{1}{T_{20}} + \gamma^2 K_0 \tau (1 - \frac{2\tau}}{t_{ec}} \tanh{\frac{t_{ec}}{2\tau}}) \tag{\ref{eq:LMsimp}}
-\end{equation*}
+\begin{displaymath}
+\frac{1}{T_2} = \frac{1}{T_{20}} + \gamma^2 K_0 \tau (1 - \frac{2\tau}{t_{ec}} \tanh{\frac{t_{ec}}{2\tau}})
+\end{displaymath}
 
 Jensen and Chandra also proposed a different approximation for $K(t)$ (\autoref{eq:JCCorr}) which considers the diffusion of water molecules around microscopic field inhomogeneities with a size \rc.
 This is intended to give the correlation function more realistic asymptotic behaviour for diffusion than the exponential decay in \autoref{eq:JCExpCorr}.
@@ -72,7 +72,13 @@ K(t) \approx G_0 \left(1 + \frac{2Dt_{ec}}{r_c^2}\right)^{-3/2}
 Here, $G_0$ is the mean squared magnitude of field inhomogeneities, $r_c$ is their characteristic length scale (i.e. the size of the red blood cells), and $D$ is the diffusion coefficient of water protons.
 In studies comparing the Luz-Meiboom and Jensen-Chandra equations, it has been shown that both agree adequately with experimental data, but that the Jensen and Chandra model is better.
 To qualitatively show the different predictions, the quantity $\frac{r_c^2}{2D}$ can be looked at as a time (as it has the dimensions of time).
-By setting this time equal to the exchange time in the Luz-Meiboom equation, the two models can be compared.
+By setting this time equal to the exchange time in the Luz-Meiboom equation, the two models can be compared, as shown in \autoref{fig:dm-JCLMtheory}
+
+\begin{figure}
+\includegraphics[width=0.7\textwidth]{figures/diffmodels/JCLMtheorycomparison.pdf}
+\caption[Different predictions of Luz-Meiboom and Jensen Chandra models]{Different predictions of Luz-Meiboom and Jensen Chandra models. Parameters used are \Kzero = \Gzero = \SI{e-14}{T^2}, \Texc = \SI{4}{ms}, \rc = \SI{4}{\micro\metre}, D=\SI{2e3}{\micro\metre\per\second\squared}. The parameter $\tau_ex = \frac{r_c^2}{2D} = \SI{4}{ms}$.}
+\label{fig:dm-JCLMtheory}
+\end{figure}
 
 The two equations predict slightly different curves for the dependence of \Ttwo on echo time, and this dependence is investigated here.
 
