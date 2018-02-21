@@ -89,7 +89,28 @@ These have a hollow gold tip which extends into the tube, which the thermocouple
 
 \subsection{NMR setup}
 For these experiments, 3 different permanent magnet systems were used to obtain data at 3 different field strengths.
-TODO pics of magnets!!
+\begin{figure}[t]
+\centering
+\begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[width=\textwidth]{figures/exptsetup/nmrmole.jpg}
+\caption{NMR MOLE (\SI{0.1}{T})}
+\label{fit:exptsetup-nmrmole}
+\end{subfigure}
+\hspace{0.5cm}
+\begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[width=\textwidth]{figures/exptsetup/halbach.jpg}
+\caption{Halbach magnet (\SI{0.3}{T})}
+\label{fig:exptsetup-halbach}
+\end{subfigure}
+
+\begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[width=\textwidth]{figures/exptsetup/spinsolve.jpg}
+\caption{Spinsolve (\SI{1}{T})}
+\label{fig:exptsetup-spinsolve}
+\end{subfigure}
+\caption{Magnets used in stopped flow experiments}
+\end{figure}
+
 
 The first system was a 12 MHz (\SI{0.3}{T}) Halbach magnet array, with \SI{9}{cm} diameter bore and approximately \SI{20}{\centi\metre} long.
 This magnet was repurposed from a previous experiment in the lab, and specifications are not available for it.
@@ -100,11 +121,12 @@ This was set up using a temperature controlled water bath, which pumped wat at a
 On top of this, the magnet was wrapped in a layer of foam, and a layer of mylar sheeting to insulate it from the room.
 To decrease the effect of electrical noise on the measurements, the magnet assembly was also surrounded by a thin coppper mesh blanket.
 
-The second magnet system used was the NMR MOLE, previously developed by Manz et al\cite{ManzmobileonesidedNMR2006}.
+The second magnet system used was the NMR MOLE, previously developed by Manz et al.\cite{ManzmobileonesidedNMR2006}.
 The NMR MOLE operates at a field of \SI{0.1}{T} and is a single sided device, which produces a `sweet spot' in the region above the magnet.
 The sweet spot is where the combination of magnetic field and RF produced by the coil on the surface are able to create resonance, which defines where signal comes from.
-In this case, the sweet spot was a pair of regions marking out a \SI{3}{cm} circle over the RF coil (TODO see figure? honours project).
-While earlier experiments attempted to position the tube containing blood over the sweet spot, in later experiments, it was decided that it was simpler and more reliable to place the blood bag on the top of the MOLE.
+In this case, the sweet spot was a pair of regions marking out a \SI{3}{cm} circle over the RF coil.
+In the initial experiments, the tube was positioned over the sweet spot, but this tended to move during the experiment.
+For the last 3 experiments, the whole blood bag was placed on top of the MOLE, avoiding this issue.
 As with the Halbach array, the MOLE is also sensitive to temperature, so an electronic temperature controller and wire heater were used to keep it stable at \SI{29}{\celsius}.
 
 The design of the magnet array in the MOLE creates strong magnetic field gradients across the sweet spot.
@@ -112,13 +134,13 @@ This creates a wide range of resonance frequencies, and means that it was not po
 It was also found that this limited the possible range of CPMG echo times, as echo times longer than \SI{1}{ms} were caused excessive signal attenuation.
 This limited experiments with this system to short echo times.
 
-The third magnet system used was a Magritek Spinsolve, which is another permanent magnet based NMR system operating at \SI{1}{T}.
+The third magnet system used was a Magritek Spinsolve (Magritek, Wellington NZ), which is another permanent magnet based NMR system operating at \SI{1}{T}.
 The Spinsolve is designed for chemical spectroscopy, so has a very homogeneous field, and can produce a linewidth of less than \SI{0.1}{Hz}.
 It also uses standard 5 mm NMR sample tubes, so it could not be used inline in the flow circuit like the other two systems.
 Because of this, experiments on the Spinsolve required withdrawing a small amount of blood and transferring it into an NMR tube.
 This meant that that there were typically delays between removing the blood from the circuit and taking measurements on it, which may cause changes in the state of the blood.
 
-Both the Halbach and MOLE systems were controlled on computers running Magritek Prospa, and used Magritek Kea 2 spectrometers to run the NMR experiments.
+Both the Halbach and MOLE systems were controlled on computers running Magritek Prospa (Magritek, Wellington NZ), and used Magritek Kea 2 (Magritek, Wellington NZ) spectrometers to run the NMR experiments.
 The Spinsolve was also controlled from a computer with a newer version of Prospa.
 CPMG experiments were run using the default CPMG macros included in Prospa, with batch scripts set up to automate taking measurements at multiple echo times.
 
@@ -172,15 +194,28 @@ While the exact cause of this effect is unknown, it was remedied by ensuring the
 \label{sec:exptsetup-coil}
 A new coil holder, coil assembly and tuning and matching circuit was designed to fit into the baby-MRI system and also used in the Halbach magnet array experiments in  \autoref{ch:stoppedflow}.
 It was designed with exchangeable coils and tuning and matching capacitors so that the probe could be tuned and matched at multiple fields / frequencies.
-It consists of a probe (outer piece), which holds the coil assembly and the tuning and matching circuit inside the bore of the magnet (which had the same diameter in the two magnets).
+It consists of a probe (outer piece), which holds the coil assembly and the tuning and matching circuit inside the bore of the magnet (which had the same \SI{8}{cm} diameter in both the Halbach and baby-MRI).
 
-The coils are \SI{2}{cm} long, and have a diameter of \SI{1}{cm}, so that the 1/4'' tube can be passed through the coil,
+The coils are hand-wound solenoids \SI{2}{cm} long, and with a diameter of \SI{1}{cm}, so that the 1/4'' tube can be passed through the coil.
 Different numbers of turns were used for the three different coils, to be able to use the coils at different frequencies (More turns causes more inductance, and a lower resonant frequency.)
 In the initial design of the coil assembly, the coil was constructed from \SI{0.67}{mm} Copper wire wrapped around a rolled up acetate cylinder.
 A second version of the coil assemblies used 3D printed forms made from ABS plastic (to decrease unwanted signal), with the same wire and number of turns.
 
-TODO:picture of the coils and boards
-TODO:picture of the T\&M circuit
+\begin{figure}[th]
+\centering
+\begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[width=\textwidth]{figures/exptsetup/probe.JPG}
+\caption{Probe assembly}
+\label{fit:exptsetup-probe}
+\end{subfigure}
+\hspace{1cm}
+\begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[width=\textwidth]{figures/exptsetup/circuit.jpg}
+\caption{Exchangable coils and capacitor boards}
+\label{fig:exptsetup-coils}
+\end{subfigure}
+\caption{Probe and Tuning and Matching equipment}
+\end{figure}
 
 The tuning and matching circuit was also designed and manufactured for this probe.
 It allows for the capacitors to be exchanged, using small PCBs with different capacitors attached.
@@ -190,7 +225,7 @@ Switching the different capacitors allowed the probe to be tuned and matched at 
 
 As the probe is located inside the magnet, the capacitors are all of a non-magnetic type (AVX Hi-Q (AVX, Greenville SC US)  or MCM series (Cornell Dubilier CDE, New Bedford MA US) and are also rated for high voltage (\SI{>500}{V}.)
 
-\textit{S\textsubscript{11}} simulations were run in Qucs Spice to find the approximate values of C\textsubscript{T} and C\textsubscript{M} at a range of frequencies with the different coils.
+\textit{S\textsubscript{11}} simulations were run in Qucs Spice to find the appropriate capacitor values (C\textsubscript{m}/C\textsubscript{t}) to tune and match a range of frequencies with the different coils.
 These were then used to find the configurations in \autoref{tbl:exptsetup-capconf} for the tuning and matching circuit that were used in experiments.
 The configurations were tested by measuring \textit{S\textsubscript{11}} on a spectrum analyser, before attaching to the Kea for wobbling.
 
@@ -198,7 +233,7 @@ The configurations were tested by measuring \textit{S\textsubscript{11}} on a sp
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Frequency (\si{MHz}) & Coil & Capacitor board\\
+Frequency (\si{MHz}) & Coil & Capacitor board (C\textsubscript{m}/C\textsubscript{t} in \si{pF})\\
 \hline
 40 & A (8 turn) & 4.7/1 \\
 20 & A (8 turn) & Switched 63+4.7 \\
@@ -216,14 +251,13 @@ Frequency (\si{MHz}) & Coil & Capacitor board\\
 In the continuous flow loop, the flow rate was set by adjusting a screw clamp on the tube, which meant that the flow rate could not be set directly (e.g. by setting the pump rate.)
 Because of this, flow measurements were done using NMR velocimetry, using the gradient coils of the baby-MRI magnet.
 A pulse sequence for measuring the flow rate in the circuit using a Pulsed Gradient Spin Echo (PGSE) experiment was developed, following Callaghan \cite{CallaghanTranslationalDynamicsMagnetic2014}.
-This pulse sequence is shown in TODO..
+This pulse sequence is shown in \autoref{fig:back-pgse}.
 As discussed in \autoref{sec:back-PGSE}, the experiment uses two gradient pulses to encode displacement into the phase of the spin echo, so that with knowledge of the phase difference and $\Delta$, the velocity of the spins can be determined.
-This pulse sequence was implemented in Prospa, and allows the user to set pulse parameters such as gradient direction, number of q-steps and echo time.
-It can be used to measure using both the Fourier method, and the two q-step method (TODO check for better name in book).
+This pulse sequence was implemented in Prospa, and allows the user to set pulse parameters such as gradient direction, number of gradient steps and echo time.
+It can be used to measure using both the Fourier method, and the One-shot method.
 
-To investigate variations in the flow rate, the pulse sequence also allows for a single reference measurement (where \textit{g}=\SI{0}{T/m}) followed by repetitions of the same q-step.
+To investigate variations in the flow rate, the pulse sequence also allows for a single reference measurement (where \textit{g}=\SI{0}{T/m}) followed by repetitions of the same \textit{g}-step.
 This allowed for much faster measurements of the flow rate, when compared with the multiple q-step method -- in this experiment the temporal resolution is set by \TR.
-
 
 \subsection{Optical \SOtwo measurement}
 \label{sec:exptsetup-pulseoximeter}
@@ -234,21 +268,26 @@ While there were a number of possible techniques for this, such as polarographic
 This optical system was designed around the MAX30102 sensor (Maxim Integrated, San Jose CA US), which is an integrated pulse oximetry/heart rate module.
 It contains all the components for two wavelength pulse oximetry including a \SI{660}{nm} red LED, a \SI{880}{nm} IR LED, LED driver circuits, a photodiode and 18-bit ADC, and a digital ambient light cancellation filter.
 The sensor is included on an evaluation board (MAXREFDES117) (Maxim Integrated, San Jose CA US), which includes a voltage regulator and level shifter to allow it to be connected to, and supplied from 5V electronics.
-This PCB module was mounted in a 3D printed holder, which allowed it to be clipped onto a tubing joint used in the flow circuit.
+This PCB module was mounted in a 3D printed holder, which allowed it to be clipped onto a tubing joint used in the flow circuit, shown in \autoref{fig:exptsetup-oximeter}.
 It was arranged so that the sensor was shining perpendicular to a flat section of the tubing, to try and reduce any background effects from the plastic.
 The polystyrene plastic used in the joint did not cause significant absorption of the reflected light from the blood at either the red or IR wavelengths.
 
-TODO picture of SpO2 sensor module in mount
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{figures/exptsetup/opticalsensor.JPG}
+\caption[Optical \SOtwo sensor]{MAXREFDES117 Pulse oximeter module in 3D printed mount, connected to Arduino.}
+\label{fig:exptsetup-oximeter}
+\end{figure}
 
 The sensor measures the red and IR light reflected by the blood by alternately pulsing the red and IR LEDs and measuring the photodiode output.
 In this experiment, the LED pulse time was \SI{411}{\micro\second} (the longest possible value to get the most sensitivity), and the sample rate set to \SI{100}{Hz} with a 4x averaging filter to give 25 samples per second.
 Other parameters were set to the suggested values in the evaluation demo.
 The MAX30102 sensor communicated over I\textsuperscript{2}C to an Arduino board, that reads the incoming data and sends it to the computer over USB to be logged.
 This data is collected by a Python application, which provides a live plot of the data from the sensor and averages it further (100x) to reduce the amount of data stored.
-The application saves values of the red intensity, IR intensity every 4 seconds.
+The application saves values of the red intensity and IR intensity every 4 seconds.
 
-As discussed in (TODO background-pulseoximetry), the ratio of red and IR intensities are typically converted to \SOtwo using an empirical calibration curve.
-To create this curve, samples were collected while the oxygenation was being decreased, the \SOtwo{}s measured using the iStat.
+As discussed in \autoref{sec:back-pulseox}, the ratio of red and IR intensities are typically converted to \SOtwo using an empirical calibration curve.
+To create this curve, samples were collected while the oxygenation was being decreased, and the \SOtwo{}s measured using the iStat.
 The ratio for each sample was also measured, and used to fit a quadratic curve to find \SOtwo as a function of \textit{R}.
 The procedure for this process improved over the course of the experiments, to try and ensure that what was sampled from the circuit and tested on the iStat was on the sensor at the time it the ratio was measured.
 \begin{figure}[t]

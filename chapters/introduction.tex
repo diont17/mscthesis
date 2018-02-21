@@ -7,12 +7,11 @@ hypoxia can have catastrophic effects.
 Low Oxygen levels can also be an issue for neonates, who can have circulatory and pulmonary systems which are still developing.
 Being able to detect changes in oxygenation quickly means that action can be taken to limit and/or prevent ill effects to patients.
 
-The typical method for measuring blood oxygenation in patients is through pulse oximetry, a non-invasive method which measures the change in absorbance at
-various wavelengths of light to detect the presence of oxygenated and deoxygenated haemoglobin.
+The typical method for measuring blood oxygenation in patients is through pulse oximetry, a non-invasive method which measures the change in absorbance at various wavelengths of light to detect the presence of oxygenated and deoxygenated haemoglobin.
 This method can produce quick measurements of the blood oxygen saturation, while also being relatively cheap and robust.
-Because it measures the blood, this technique provides information about Oxygen saturation across the whole body, measured at a single point on the finger or ear lobe.
-However, this means that these saturations are not necessarily representative of Oxygen levels in specific parts of the body, such as the brain.
-An example is given by TODO if there are issues with blood flow to specific areas (ischemia?), these will not necessarily be reflected by pulse oximetry.
+As it measures the blood, this technique provides systemic information about Oxygen saturation, measured at a single point on the finger or ear lobe.
+However, these saturation values are not necessarily representative of Oxygen levels in specific parts of the body.
+Problems with blood flow (ischemia) to sensitive areas, such as the brain, can cause significant damage, and will not necessarily show up on pulse oximetry.
 Because of this, local tissue oxygenation measurements are desired by physicians, but they are difficult to measure.
 
 Techniques for measuring local tissue oxygenation in the brain include the use of NIRS (Near-Infrared Spectroscopy), and the use of oxygen measuring
@@ -42,7 +41,7 @@ This means that it is important to understand how factors like field strength an
 
 \section{NMR Measurement of oxygen saturation}
 The effect of \SOtwo on the \Ttwo of blood was originally described by \cite{ThulbornOxygenationdependencetransverse1982} in 1982, who investigated how \Ttwo changed as a function of oxygenation, magnetic field strength and haematocrit (fraction of blood in red blood cells.
-Thulborn found that the \Rtwo ($\mathit{\frac{1}{T_2}}$) of blood decreased with $(100-\mathit{SO_2})^2$.
+Thulborn found that the \Rtwo ($\mathit{\frac{1}{T_2}}$) of blood increased with $(\mathit{100}-\mathit{sO_2})^2$.
 Using a variety of spectrometers and NMR systems, he also showed that the strength of this effect scales with \Bzero squared, and that this effect requires that the red blood cells are intact (as no change in \Ttwo occured when the cells were lysed.)
 
 From this initial study, other researchers studied how the effect can be detected at lower fields.
@@ -67,8 +66,7 @@ TRUST-MRI (\Ttwo Relaxation Under Spin Tagging) can be used to measure the \Ttwo
 Measurement of oxygenation using \Ttwo values collected with different echo times has also been demonstrated \cite{VargheseCMRbasedbloodoximetry2017}.
 While these methods provide good agreement with other measurements of \SOtwo, they are not typically used in clinical practice.
 
-In this thesis, this parameter space has been mapped out to determine how field strength, CPMG echo time, and other factors affect the magnitude of the oxygenation
-\Ttwo effect in whole blood.
+In this thesis, this parameter space has been mapped out to determine how field strength, CPMG echo time, and other factors affect the magnitude of the oxygenation \Ttwo effect in whole blood.
 \autoref{ch:background} presents background information on NMR relaxation, and on the origin of the oxygenation dependent \Ttwo change.
 \autoref{ch:exptsetup} describes the two versions of the experimental setup used for the two series of experiments in this thesis.
 \autoref{ch:stoppedflow} presents the results of stopped flow experiments into the \Ttwo change at a series of oxygenation steps, while \autoref{ch:cont} presents the results of experiments measuring \Ttwo changes continuously as \SOtwo is slowly decreased.

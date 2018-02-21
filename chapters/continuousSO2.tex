@@ -626,14 +626,18 @@ As the experiment time increases, the peaks at \SI{415}{nm} and \SI{570}{nm} gro
 The \SI{415}{nm} peak also appears to flatten out and decreases in height at longer times, this may be due to other interfering substances in the plasma samples.
 From these spectra, the plasma free haemoglobin at each point was calculated using equations \ref{eq:Kahn} and \ref{eq:Harboe}, and these are shown in \autoref{fig:contflow-haemolyseResult}.
 
-\begin{figure}[ht]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/contflow/haemolyseAbsSpect.pdf}
 \caption[Absorption spectra for samples of separated plasma in 5 MHz experiment]{Absorption spectra for samples of separated plasma in 5 MHz experiment. Different spectra sampled from circuit at time indicated. * indicates sample was taken from deoxygenated blood.}
 \label{fig:contflow-haemolyseAbsSpect}
 \end{figure}
-
-\begin{figure}[t]
+The results from the 5 MHz experiment show that there is a correlation between the increasing concentration of haemoglobin, and the \Rtwo of the separated plasma.
+As the concentration increases from \SI{0.05}{g/L} to \SI{0.27}{g/L}, the \Ttwo values measured in plasma decrease from \SI{757}{ms} to \SI{667}{ms}.
+This corresponds to an increase in \Rtwo from \SI{1.3}{s^-1} to \SI{1.5}{s^{-1}}.
+As expected, there is a large difference between the \Ttwo of the separated plasma and the blood measurements, due to the removal of the red blood cells.
+Comparing this with the \Rtwo measurements in blood, this \SI{0.2}{s^{-1}} change accounts for about half of the relaxivity change between minute 90 and minute 350, which is \SI{0.4}{s^{-1}}.
+\begin{figure}[h!tp]
 \centering
 \begin{subfigure}{\textwidth}
 \caption{5 MHz experiment. (\Ttwo for blood sample at minute 350 taken from minute 294 to compare data from oxygenated blood)}
@@ -653,13 +657,6 @@ From these spectra, the plasma free haemoglobin at each point was calculated usi
 \caption[Blood haemolysis experiment result]{Blood haemolysis experiment result. Plasma free haemoglobin found using Kahn method, Plasma \Rtwo values measured on Spinsolve at \SI{1}{T}, Blood \Rtwo values taken from blood data shown in \autoref{fig:contflow-5mhzT2Time} and \autoref{fig:contflow-40mhzT2Time}}
 \label{fig:contflow-haemolyseResult}
 \end{figure}
-
-The results from the 5 MHz experiment show that there is a correlation between the increasing concentration of haemoglobin, and the \Rtwo of the separated plasma.
-As the concentration increases from \SI{0.05}{g/L} to \SI{0.27}{g/L}, the \Ttwo values measured in plasma decrease from \SI{757}{ms} to \SI{667}{ms}.
-This corresponds to an increase in \Rtwo from \SI{1.3}{s^-1} to \SI{1.5}{s^{-1}}.
-As expected, there is a large difference between the \Ttwo of the separated plasma and the blood measurements, due to the removal of the red blood cells.
-Comparing this with the \Rtwo measurements in blood, this \SI{0.2}{s^{-1}} change accounts for about half of the relaxivity change between minute 90 and minute 350, which is \SI{0.4}{s^{-1}}.
-
 A similar result was found in the 40 MHz experiment, although the plasma sample used was relatively cloudy, potentially due to lipids or proteins in the plasma , which meant that the UV/Vis spectra displayed broad absorptions.
 This broke (TODO more scientific!) the Kahn method, as it uses the region around the absorption peak to attempt to remove background absorption.
 
@@ -672,7 +669,6 @@ Haemolysis can be caused by many factors including the age of the blood, changes
 This was observed happening in the pump when the occlusion was set too tightly, which lead to the use of the occlusion setting process described in .
 It is possible that haemolysis is occuring due to the blood flowing through the relatively tight screw clamp, or due to contact with the PVC tube and oxygenator membrane.
 Blood haemolysis is also known to occur in \textit{ex-vivo} blood circulation circuits for cardiopulmonary bypass, although typically the natural scavenging process in the body is able to clear this without significant ill-effects\cite{VercaemstHemolysiscardiacsurgery2008}.
-
 
 \subsection{\SOtwo measurement from \Ttwo}
 As the goal of this project is to determine how well \SOtwo can be measured using NMR at low fields, the results from the continuous flow experiments were used to back-predict the \SOtwo for comparison to the optical sensor.

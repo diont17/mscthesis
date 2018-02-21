@@ -28,6 +28,13 @@ In the rotating frame, the net magnetisation still lies along the \textit{z}-axi
 Applying an additional magnetic field, along \textit{x'} (i.e. perpendicular to \Bzero) to the \textit{z}-axis causes the magnetisation to rotate around \textit{x'} towards \textit{y'}, following the same precession principle.
 The strength and time that the\Bone field is applied for can be changed to control the amount of rotation, leading to \SI{90}{\degree} and \SI{180}{\degree} pulses.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/background/fid.pdf}
+\caption{Applying a \Bone field along \textit{x'} causes the magnetisation to rotate towards \textit{y'}. Transforming this to the laboratory frame shows that the \Bone field must oscillate at the precession rate, and causes the magnetisation to spiral down into the transverse (\textit{xy}) plane}
+\label{fig:back-fid}
+\end{figure}
+
 Transforming this into the lab frame means that the \Bone field becomes a magnetic field oscillating at the Larmor frequency,
 while the components of the magnetisation along \textit{x} and \textit{y} correspond to a rotating magnetisation in the sample.
 This produces the resonance condition for NMR -- the frequency of the \Bone field needs to match the precession frequency to cause maximum rotation.
@@ -51,8 +58,15 @@ The \Tone of a sample can be determined by an inversion recovery experiment.
 A \SI{180}{\degree} pulse is applied to the sample, and the magnetisation remaining is measured after a range of variable delay time ($t_d$ )by applying a \SI{90}{\degree} pulse and taking the intensity of the FID.
 This can be used to fit a curve with the equation
 \begin{displaymath}
-M(t_d) = M_0 (1 - 2 e^{-frac{t_d}{T_1}})
+M(t_d) = M_0 (1 - 2 e^{-\frac{t_d}{T_1}})
 \end{displaymath}
+
+\begin{figure}[t]
+\centering
+\makebox[\textwidth][c]{\includegraphics[width=1.1\textwidth]{figures/background/T1relaxation.pdf}}
+\caption[Inversion recovery experiment]{\Tone relaxation leads to the recovery in the equilibrium magnetisation (M\textsubscript{0}). The Inversion Recovery experiment works by applying a \SI{180}{\degree} pulse, then measuring the magnetisation by applying a \SI{90}{\degree} pulse \textit{t\textsubscript{d}} to generate an FID. Repeating the experiment with a range of \textit{t\textsubscript{d}}s allows the samples \Tone to be measured.}
+\label{fig:back-T1}
+\end{figure}
 
 In most cases, the \Tone controls how rapidly an experiment can be repeated.
 A general rule is to set the repetition time (\TR - the delay between experiments) to 5$\times$\Tone, so that the sample magnetisation recovers to \SI{>99}{\percent} of its original equilibrium level.
@@ -71,13 +85,20 @@ This reduces the overall transverse magnetisation of the sample, which decreases
 \label{eq:back-Ttwo}
 \end{equation}
 
+\begin{figure}[t]
+\centering
+\makebox[\textwidth][c]{\includegraphics[width=1.1\textwidth]{figures/background/T2relaxation.pdf}}
+\caption[Transverse relaxation]{Variations in the \Bzero field cause protons in different locations to precess at different rates (shown in red shading). As the total magnetisation is the sum of the proton magnetic moments, the different magnetisations start cancelling out and cause a decay in the transverse component of the magnetisation, called \Ttwo relaxation.}
+\label{fig:back-T2}
+\end{figure}
+
 In a physical sample, protons are always experiencing different magnetic fields due to the fluctuating magnetic moments of surrounding protons.
-This process of dephasing is random and non-reversible.
-The physical properties of a sample control the amount of interaction between protons on surrounding molecules, and the rates of \Ttwo relaxation, for example, solids have extremely fast \Ttwo relaxation times, on the order of 10s of microseconds, while water can have a \Ttwo on the order of seconds.
+The dephasing from this process is random and non-reversible.
+The physical properties of a sample control the amount of interaction between protons on surrounding molecules, and the rates of this intrinsic \Ttwo relaxation, for example, solids have extremely fast \Ttwo relaxation times, on the order of 10s of microseconds, while water can have a \Ttwo on the order of seconds.
 
 \Ttwo relaxation is also be increased by the presence of paramagnetic ions in the sample, such as Cu\textsuperscript{2+}, Mn\textsuperscript{2+} and Gd\textsuperscript{3+}.
 These affect the magnetic fields experienced by protons in the sample, and cause additional dephasing.
-Their effect is characterised by a relaxivity \textit{r}, measured in \si{s^{-1}/mmol}.
+Their effect is characterised by a relaxivity \textit{r}, measured in \si{s^{-1}/mmolL^{-1}}, which describes the dependence on concentration.
 This is due to the additive nature of relaxation rates: when multiple processes cause relaxation, the relaxation rates add together:
 
 \begin{displaymath}
@@ -89,7 +110,7 @@ In addition, \Ttwo relaxation is also associated with the homogeneity of the \Bz
 The precession of the net magnetisation around the \Bzero field, and the effect of relaxation on the net magnetisation can be expressed using the phenomelogical Bloch equation \autoref{eq:back-Bloch}.
 
 \begin{equation}
-\frac{\mathrm{d}M}{\mathrm{d}t} = \gamma M \times B + \frac{1}{T_1} (M_0 - M_z) - \frac{1}{T_2} M_{xy}
+\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t} = \gamma \mathbf{M} \times \mathbf{B} + \frac{1}{T_1} (M_0 - M_z) - \frac{1}{T_2} M_{xy}
 \label{eq:back-Bloch}
 \end{equation}
 
@@ -99,7 +120,15 @@ The spin echo was first described by Hahn in 1950\cite{HahnSpinEchoes1950}.
 By applying a \SI{180}{\degree} pulse a time $\tau$ after a \SI{90}{\degree} pulse, he observed a signal forming after another $\tau$.
 He showed that this is due to the spread of phase caused by the \Bzero field inhomogeneity being reversed, which allows the protons to rephase and regenerate a net transverse magnetisation that can be detected.
 
-The formation of the spin echo is shown diagrammatically in TODO picture?.
+\begin{figure}[t]
+\centering
+\makebox[\textwidth][c]{
+\includegraphics[width=1.2\textwidth]{figures/background/Spinecho.pdf}}
+\caption[Generation of a Spin echo]{Applying a \SI{180}{\degree} pulse a time $\tau$ after a \SI{90}{\degree} pulse produces a spin echo at time $2\tau$, as the different accumulated phases are unwound.}
+\label{fig:back-spinecho}
+\end{figure}
+
+The formation of the spin echo is shown illustrated in \autoref{fig:back-spinecho}.
 The inhomogeneous \Bzero field causes protons across the sample to have different Larmor frequencies, meaning that they precess at different rates, and accumulate different amounts of phase as time continues.
 The different phases cause the net transverse magnetisation of the whole sample to decay, with a shorter time constant \Ttwostar.
 Applying a \SI{180}{\degree} refocussing pulse $\tau$ after the \SI{90}{\degree} pulse causes the magnetic moments of each proton to rotate through \SI{180}{\degree} around the \textit{x} (or \textit{y}) axis, so that the different precession rates unwind the different accumulated phase.
@@ -111,12 +140,19 @@ This rephasing process relies on the protons experiencing the same \Bzero field 
 If protons move across the inhomogeneous field during this time, they may not experience the same field and not be complete refocussed at $2\tau$.
 This can be due to diffusion(the movement of protons in the sample) or processes such as chemical exchange (explored below).
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/background/cpmg.pdf}
+\caption[CPMG pulse sequence]{Repeatedly applying \SI{180}{\degree} pulses produces a series of spin echoes. Measuring the intensity of the echoes (purple) allows the true \Ttwo relaxation (green) to be measured.}
+\label{fig:back-cpmg}
+\end{figure}
+
 Once the magnetisation has been refocused in the spin echo, the transverse magnetisation decays following the \Ttwostar relaxation time again.
 Carr and Purcell proposed repeating the refocussing pulses, to create more echoes and further map out the \Ttwo relaxation \cite{CarrEffectsDiffusionFree1954}.
 In this experiment, the refocussing pulses are evenly spaced by an echo time, as shown in TODO diagram.
 Meiboom and Gil improved this experiment by adjusting the phase of the \SI{180}{\degree} pulses relative to the \SI{90}{\degree} pulse, such that they rotate the magnetisation around the \textit{y}-axis rather than \textit{x} \cite{MeiboomModifiedSpinEcho1958}.
 This reduces the errors caused by an incorrect \SI{180}{\degree} pulse.
-With this modification, the CPMG experiment is commonly used fast and robust measurements of the \Ttwo of a sample.
+With this modification, the CPMG experiment is commonly used for fast and robust measurements of the \Ttwo of a sample.
 
 \begin{equation}
 S(t) = S_0 e^{\frac{t}{T_2}}
@@ -142,6 +178,13 @@ Traditionally, a magnetic field gradient creates a known change in the \Bzero fi
 This allows protons to be spatially resolved, as they will have different Larmor precession frequencies at different locations.
 This principle is the basis of Magnetic Resonance Imaging (MRI).
 
+\begin{figure}[t]
+\centering
+\makebox[\textwidth][c]{\includegraphics[width=0.8\textwidth]{figures/background/pgse.pdf}}
+\caption[Pulsed Gradient Spin Echo (PGSE) experiment]{Pulsed Gradient Spin Echo experiment: Applying a gradient changes the precession frequency to be dependent on the position along z, and imparts a phase difference depending on the time it is active($\delta$) (shown by the blue helix). Using a spin echo, and repeating the gradient pulse will unwind the this added phase if the protons have not moved (upper image). If the protons have moved together (e.g. flow), the second gradient pulse will bring them back into phase with each other, but leave an additional phase ($\phi$) which can be measured to determine the displacement.}
+\label{fig:back-pgse}
+\end{figure}
+
 Stejskal and Tanner proposed the PGSE experiment in 1965 \cite{StejskalSpinDiffusionMeasurements1965}.
 Their experiment uses a pulsed magnetic field gradient, which creates a range of precession rates across the sample for a short time, so that protons accumulate a phase related to their position.
 A \SI{180}{\degree} pulse is then applied, and an identical pulsed field gradient is reapplied.
@@ -161,10 +204,10 @@ In contrast, uniform motion of protons in a sample produces a different effect.
 Rather than the intensity of the spin echo decreasing, the phase of the spin echo is shifted.
 That is, the spin echo will form with the transverse magnetisation rotated slightly around the \textit{xy} plane when compared to a measurement with no flow (or no gradient), as the second gradient pulse `overcorrects' the dephasing.
 The velocity of the sample can be determined using two methods \cite{CallaghanVelocitydiffusionimaging1991,XiaOneshotvelocitymicroscopy1992,CallaghanTranslationalDynamicsMagnetic2014}
-By measuring the phase and intensity at a range of gradient strengths, the velocity can by found using a Fourier transform of \textit{q}.
+By measuring the phase and intensity at a range of gradient strengths, the velocity can by found using a Fourier transform.
 This produces a spectrum with a peak at the propagator, the average displacement in the sample.
 Alternatively, taking the phase ($\phi$) of the echo measured with a single gradient strength, and comparing it to a reference where there is no gradient, the flow velocity can be measured using \autoref{eq:PGSEvel}.
-This second method was used in these experiments, as it requires less measurements than the Fourier method to gain the same resolution.
+This second `one-shot' method was used in these experiments, as it requires less measurements than the Fourier method to gain the same resolution.
 \begin{equation}
 v = \frac{\phi}{\gamma \Delta \delta g}
 \label{eq:PGSEvel}
@@ -201,9 +244,9 @@ sO_2 = \frac{f_{oxyHb}}{f_{oxyHb} + f_{deoxyHb} + f_{dysHb}}
 \label{eq:o2sat}
 \end{equation}
 
-After leaving the lungs, the \SOtwo will be around 97\%, and the p\Otwo will be around \SI{95}{mmHg}.
+After leaving the lungs, the \SOtwo will be around 97\%, and the p\Otwo (the partial pressure of oxygen - proportional to the concentration of \Otwo) will be around \SI{95}{mmHg}.
 As blood travels around the body, oxygen diffuses from the blood into the tissue, which has a lower p\Otwo due to metabolism.
-The oxygen dissolved in plasma decreases, decreasing the p\Otwo (the partial pressure of oxygen).
+The oxygen dissolved in plasma decreases, decreasing the p\Otwo.
 This change triggers the oxy-haemoglobin to release oxygen, forming deoxy-haemoglobin and effectively buffering the p\Otwo change.
 In venous blood, after leaving tissue, the \SOtwo will be between \SIrange{20}{70}{\percent}, and have a p\Otwo between \SIrange{20}{40}{mmHg} (depending on the demand for oxygen in the tissue).
 
@@ -212,8 +255,15 @@ Met-haemoglobin is formed when the iron atom in the complex is further oxidised 
 Carboxy-haemoglobin is formed when carbon monoxide (CO) binds to haemoglobin, forming a bond much stronger than oxygen does, and leading to the loss of oxygen transport capacity.
 These other forms are not expected to be created in this experiment.
 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{figures/background/placeholder.JPG}
+\caption{Graph showing relationship between p\Otwo and \SOtwo in human blood. Placeholder for graph of some sort}
+\label{fig:back-po2so2}
+\end{figure}
+
 The relationship between \SOtwo and p\Otwo is non-linear due to effects such as co-operative binding.
-Binding the first oxygen molecule to the one of the heme groups causes a conformational change in the protein which makes binding at the other heme groups easier.
+Binding the first oxygen molecule to the one of the heme groups causes a change in the shape of the protein which makes binding at the other heme groups easier.
 This makes the \SOtwo increase more steeply (as a function of p\Otwo) once the first oxygen is bound.
 This effect also works in reverse, causing the protein to release oxygen.
 Physiologically, this causes a release of oxygen in areas with low p\Otwo, which helps to deliver oxygen to tissue that needs it.
@@ -227,7 +277,7 @@ This causes oxygen to be released in areas where \COtwo is being produced due to
 
 Changes in the \SOtwo can be measured using the different optical and magnetic properties of oxy- and deoxy-haemoglobin.
 The binding of oxygen to haemoglobin causes them to have slightly different optical absorption spectra.
-In particular, the deoxy-haemoglobin absorbs more strongly in the red region of the spectrum.
+In particular, the deoxy-haemoglobin absorbs strongly in the red region of the spectrum.
 This causes the colour change, where oxygenated blood appears red, and deoxygenated blood appears almost black.
 
 Oxygen binding to haemoglobin also causes a change in the electronic structure of the iron atom. \cite{PaulingMagneticPropertiesStructure1936}
@@ -245,6 +295,7 @@ Measurements of phase, and susceptibility mapping technique can also be used to 
 This gives a more direct measurement of \SOtwo, as there is no reliance on the diffusion/exchange effect and has recently been shown as a potential method for calibrating the \Ttwo effect described below.\cite{LanghamvivowholebloodT22018}
 
 \section{\SOtwo measurement}
+\label{sec:back-pulseox}
 The gold standard method for measuring the \SOtwo of blood is co-oximetry, which relies on the optical absorption changes in oxy-/deoxy- haemoglobin. TODO - source that isnt GuytonAndHall
 This method typically uses spectroscopic measurements of absorption at multiple wavelengths to identify the concentrations of oxy-haemoglobin, deoxy-haemoglobin and other dys-haemoglobins in a blood sample.
 
@@ -265,7 +316,7 @@ A pulse oximeter shines light through a part of the patient, typically a finger,
 The absorbance from the tissue can be rejected with the knowledge that the arterial blood flow is pulsatile, meaning that the component of absorption varying in time can be assigned to the blood. \cite{WiebenLightAbsorbancePulse1997}
 The differing absorbance at multiple wavelengths is used to find the fraction of oxy-haemoglobin in blood.
 
-While in theory, this could be done using the Beer-Lambert law with known extinction coefficients of oxy- and deoxy-haemoglobin, the effect of scattering  from red blood cells mean that more empirical calibration methods are used to convert the measured light intensities, and the \SOtwo \cite{WiebenLightAbsorbancePulse1997}
+While in theory, this could be done using the Beer-Lambert law with known extinction coefficients of oxy- and deoxy-haemoglobin, the effects such as scattering from red blood cells mean that empirical calibration methods are used to convert the measured light intensities, and the \SOtwo \cite{WiebenLightAbsorbancePulse1997}
 In two wavelength pulse oximeters, like used in this study, a quadratic calibration curve is used to approximate the relationship between the ratio of light intensities \textit{R}, and the \SOtwo.
 Pulse oximeters with more wavelengths can apply more advanced algorithms to measure \SOtwo.
 These devices are very commonly used in clinical practice, and are relatively cheap and robust.
