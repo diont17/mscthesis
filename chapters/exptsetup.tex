@@ -92,15 +92,15 @@ For these experiments, 3 different permanent magnet systems were used to obtain 
 \begin{figure}[t]
 \centering
 \begin{subfigure}[t]{0.4\textwidth}
-\includegraphics[width=\textwidth]{figures/exptsetup/nmrmole.jpg}
-\caption{NMR MOLE (\SI{0.1}{T})}
-\label{fit:exptsetup-nmrmole}
-\end{subfigure}
-\hspace{0.5cm}
-\begin{subfigure}[t]{0.4\textwidth}
 \includegraphics[width=\textwidth]{figures/exptsetup/halbach.jpg}
 \caption{Halbach magnet (\SI{0.3}{T})}
 \label{fig:exptsetup-halbach}
+\end{subfigure}
+\hspace{0.5cm}
+\begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[width=\textwidth]{figures/exptsetup/nmrmole.jpg}
+\caption{NMR MOLE (\SI{0.1}{T})}
+\label{fig:exptsetup-nmrmole}
 \end{subfigure}
 
 \begin{subfigure}[t]{0.4\textwidth}
@@ -109,19 +109,19 @@ For these experiments, 3 different permanent magnet systems were used to obtain 
 \label{fig:exptsetup-spinsolve}
 \end{subfigure}
 \caption{Magnets used in stopped flow experiments}
+\label{fig:exptsetup-stopflowmagnets}
 \end{figure}
 
-
-The first system was a 12 MHz (\SI{0.3}{T}) Halbach magnet array, with \SI{9}{cm} diameter bore and approximately \SI{20}{\centi\metre} long.
+The first system was a 12 MHz (\SI{0.3}{T}) Halbach magnet array (\autoref{fig:exptsetup-halbach}), with \SI{9}{cm} diameter bore and approximately \SI{20}{\centi\metre} long.
 This magnet was repurposed from a previous experiment in the lab, and specifications are not available for it.
 When combined with the home built coil and holder system described in \autoref{sec:exptsetup-coil}, the FID linewidth produced by the magnet was \SI{12}{\kilo\hertz}, which is relatively broad.
 
 Because it uses permanent magnets, it requires a stable temperature in order to have a stable field.
 This was set up using a temperature controlled water bath, which pumped wat at a constant \SI{30}{\celsius} through tubes wrapped around the magnet.
 On top of this, the magnet was wrapped in a layer of foam, and a layer of mylar sheeting to insulate it from the room.
-To decrease the effect of electrical noise on the measurements, the magnet assembly was also surrounded by a thin coppper mesh blanket.
+To decrease the effect of electrical noise on the measurements, the magnet assembly was also surrounded by a thin coppper mesh blanket (visible in stopped flow setup photo in \autoref{fig:sf-stoppedflowsetup}).
 
-The second magnet system used was the NMR MOLE, previously developed by Manz et al.\cite{ManzmobileonesidedNMR2006}.
+The second magnet system used was the NMR MOLE, previously developed by Manz et al.\cite{ManzmobileonesidedNMR2006} (\autoref{fig:exptsetup-nmrmole}).
 The NMR MOLE operates at a field of \SI{0.1}{T} and is a single sided device, which produces a `sweet spot' in the region above the magnet.
 The sweet spot is where the combination of magnetic field and RF produced by the coil on the surface are able to create resonance, which defines where signal comes from.
 In this case, the sweet spot was a pair of regions marking out a \SI{3}{cm} circle over the RF coil.
@@ -134,7 +134,7 @@ This creates a wide range of resonance frequencies, and means that it was not po
 It was also found that this limited the possible range of CPMG echo times, as echo times longer than \SI{1}{ms} were caused excessive signal attenuation.
 This limited experiments with this system to short echo times.
 
-The third magnet system used was a Magritek Spinsolve (Magritek, Wellington NZ), which is another permanent magnet based NMR system operating at \SI{1}{T}.
+The third magnet system used was a Magritek Spinsolve (Magritek, Wellington NZ), which is another permanent magnet based NMR system operating at \SI{1}{T} (\autoref{fig:exptsetup-spinsolve}).
 The Spinsolve is designed for chemical spectroscopy, so has a very homogeneous field, and can produce a linewidth of less than \SI{0.1}{Hz}.
 It also uses standard 5 mm NMR sample tubes, so it could not be used inline in the flow circuit like the other two systems.
 Because of this, experiments on the Spinsolve required withdrawing a small amount of blood and transferring it into an NMR tube.
@@ -152,7 +152,7 @@ This required a number of changes to the stopped flow setup, including the use o
 
 \subsection{Flow Circuit Changes}
 When first moving on to the measurements using continuous flow, the same flow circuit setup used in the stopped flow experiments was used.
-It was found that the design of the circuit, with the pump connected directly in line after the NMR system caused unacceptable variations in the flow rate through the probe, creating spikes in the measurements of \Ttwo (see TODO(continuous flow results?).
+It was found that the design of the circuit, with the pump connected directly in line after the NMR system caused unacceptable variations in the flow rate through the probe, creating spikes in the measurements of \Ttwo (see \autoref{sec:contflow-flowstability}).
 This is due to the two roller design of the pump, which means that at a specific point in its rotation, the flow rate drops.
 To remedy this issue, the circuit was rearranged to include an additional empty blood bag between the magnet and the pump.
 A steady flow rate was generated by allowing blood to flow under gravity, with the flow regulated with a screw clamp.
@@ -180,6 +180,13 @@ This is a cryogen-free magnet system (Cryogenic Limited, London UK), where the f
 The bore has a diameter of \SI{8}{cm}, and is \SI{60}{cm} long.
 The magnetic field it generates is much more homogneous than the permanent magnet systems, and it was possible to neasure an FID with a \SI{100}{Hz} linewidth.
 It also has a 3-axis gradient coil set, which allows it to be used for imaging and PGSE experiments.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/exptsetup/babymri.jpg}
+\caption{Variable field baby-MRI magnet}
+\label{fig:exptsetup-babymri}
+\end{figure}
 
 The experiments were controlled by a Kea 2 NMR spectrometer (Magritek, Wellington NZ) with a gradient controller.
 An external RF amplifier (American Microwave Technologies) is used, along with Bruker BAFPA-40 gradient power amplifiers (Bruker, Billerica, MA USA).

@@ -14,6 +14,7 @@ This imbalance generates a net magnetisation aligned with the magnetic field, wh
 As the size of the net magnetisation depends on the relative difference of spins towards and against the field, the net magnetisation becomes stronger when a larger \Bzero field is used.
 Any imbalance created is typically very small, which means that the NMR signal generated is very weak.
 
+
 A magnetic moment in a magnetic field experiences a torque, which causes it to rotate around an axis along the magnetic field.
 This is called Larmor precession, and gives rise to the Larmor frequency $\omega$, which defines the rate of rotation.
 Protons in a magnetic field precess at a frequency given by \autoref{eq:back-larmor}, where $\gamma$ is the gyromagnetic ratio (\SI{2.56e8}{rad/T} for protons).
@@ -124,7 +125,7 @@ He showed that this is due to the spread of phase caused by the \Bzero field inh
 \centering
 \makebox[\textwidth][c]{
 \includegraphics[width=1.2\textwidth]{figures/background/Spinecho.pdf}}
-\caption[Generation of a Spin echo]{Applying a \SI{180}{\degree} pulse a time $\tau$ after a \SI{90}{\degree} pulse produces a spin echo at time $2\tau$, as the different accumulated phases are unwound.}
+\caption[Generation of a Spin echo]{Generation of a spin echo: as protons precess at different rates, they accumulate different amounts of phase (shown by red shading). Applying a \SI{180}{\degree} pulse a time $\tau$ after the \SI{90}{\degree} pulse causes the magnetisation to be rotated around the \textit{x}-axis, so the different rates unwind their different phases, producing an echo at $2\tau$.}
 \label{fig:back-spinecho}
 \end{figure}
 
@@ -163,7 +164,7 @@ The \Ttwo can be measured by the slope of a semi-log plot, or by non-linear fitt
 While measurements of the intrinsic \Ttwo should not be afffected by the echo time used, process like exchange and diffusion can alter the measured \Ttwo.
 For example, for protons moving in a magnetic gradient, a longer echo time means that protons experience a wider range of \Bzero fields before being refocussed.
 This makes the refocusing less effective, and results in a shorter observed \Ttwo, following \autoref{eq:CPMGgrad}.
-Similarly, exchange processes can cause protons to experience different magnetic fields in the timescales of the experiment, causing the refocussing to be less efficient.
+Similarly, exchange processes can cause protons to experience different magnetic fields in the timescale of the experiment, causing the refocussing to be less efficient.
 Exchange processes, and their applicability to blood are discussed further in \autoref{sec:back-T2SO2}.
 
 \begin{equation}
