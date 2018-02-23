@@ -94,17 +94,19 @@ A list of 13 times between \SIrange{0.5}{20}{ms} was used, with more closely spa
 To ease processing, the number of echoes in each CPMG experiment is the same.
 This presented a problem with measuring longer echo times, for example, 200 echoes at \SI{20}{ms} requires an experiment time of \SI{4}{\second}.
 Overall, the experiment with 13 echo times, and a T\textsubscript{R} of \SI{5}{\second} takes 5 minutes.
-This was repeated to collect two data sets at each field strength, from the same blood sample.
+
 
 These experiments were completed during the continuous flow experiments, with experiments done at each field strength.
-Because of the difficulties found when trying to maintain intermediate levels of blood oxygenation (e.g. in the stopped flow experiments in \autoref{ch:stoppedflow}), experiments were done using blood in a deoxygenated state (see \autoref{tab:dm-fitPars}).
+Each experiment was repeated right afterwards, and the two \Ttwo values were averaged.
+
+Because of the difficulties found when trying to maintain intermediate levels of blood oxygenation (e.g. in the stopped flow experiments in \autoref{ch:stoppedflow}), experiments were done using blood in a deoxygenated state.
 Deoxygenated blood is typically used in the literature, and creates stronger contrast in the \Ttwo effect, due to the increased field inhomogeneities.
 
 \subsection*{Analysis method}
-To compare the two models, a similar approach was used to Stefanovic and Pike\cite{StefanovicHumanwholebloodrelaxometry2004}, Chen and Pike \cite{ChenHumanwholeblood2009} and Gardener and colleagues\cite{GardenerDependencebloodR22010}.
+To compare the two models, the approach of Stefanovic and Pike at \SI{1.5}{T} \cite{StefanovicHumanwholebloodrelaxometry2004} was used.
 \Ttwo values were calculated for each echo time using least squares fitting of the phased and integrated echo amplitudes with a monoexponential decay.
 To remove the effect of the fast decaying signal from the tube surrounding the blood, the first \SI{40}{ms} of the CPMG decay is ignored in the fitting.
-Data from after \SI{1}{\second} was also excluded, as it was found that the signal from the blood has decayed by this time, leaving only noise that biased the fitting.
+Data from after \SI{1}{\second} was also excluded, as the signal from the blood had generally decayed by this time, leaving only noise that increased fitting uncertainty.
 The average of \Ttwo values from the two experiments was used to fit to constrained versions of equations \ref{eq:LMsimp} and \ref{eq:JC} (where either \Texc or \rc are held constant).
 In this constrained fitting process, the \Texc was set to \SI{3.0}{ms}, and \rc set to \SI{4.3}{\micro\metre}, values reported by Stefanovic from studies at \SI{1.5}{T} \cite{StefanovicHumanwholebloodrelaxometry2004}, the lowest field this sort of experiment has been done in the literature.
 Theory suggests that these should be field independent, but a range of \Texc and \rc values have been found in the literature.
