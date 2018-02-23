@@ -74,9 +74,12 @@ Here, $t_ec$ is the echo time, $G_0$ is the mean squared magnitude of field inho
 In studies comparing the Luz-Meiboom and Jensen-Chandra equations, it has been shown that both agree adequately with experimental data, but that the Jensen and Chandra model is better.
 To qualitatively show the different predictions, the quantity $\frac{r_c^2}{2D}$ can be looked at as a time (as it has the dimensions of time).
 By setting this time equal to the exchange time in the Luz-Meiboom equation, the two models can be compared, as shown in \autoref{fig:dm-JCLMtheory}
-The two equations predict slightly different curves for the dependence of \Ttwo on echo time, and this dependence is investigated here.
+The two equations give slightly different shaped curves for the dependence of \Ttwo on echo time.
+The Jensen-Chandra equation gives a
 
-\begin{figure}[htb]
+and this dependence is investigated here.
+
+\begin{figure}[tb]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/diffmodels/JCLMtheorycomparison.pdf}
 \caption[Different predictions of Luz-Meiboom and Jensen Chandra models]{Different predictions of Luz-Meiboom and Jensen Chandra models. Parameters used are \Gzero = \SI{1e-14}{T^2}, \Kzero = \SI{0.59e-14}{T^2} (to approximate the same relaxation effect size), \Texc = \SI{4}{ms}, \rc = \SI{4}{\micro\metre}, D=\SI{2e3}{\micro\metre\squared\per\second}. The parameter $\tau_{ex} = \frac{r_c^2}{2D} = \SI{4}{ms}$.}
@@ -268,7 +271,9 @@ Extrapolating this to 1.5 T predicts a value of \Gzero = \SI{26.7e-14}{T^2}.
 This is about half of what is predicted using the results of Stefanovic, which (although based on studying changes in \SOtwo) can be used to find $\mathit{G_0} = \num{45\pm0.51e-14}  \mathit{(sO_2)^2} = \SI{40.6e-14}{T^2}$ when using \SOtwo = 0.03, the average value from our experiments.
 While the difference is significant, it is important to note that the variation between the oxygenations and haematocrit used at the different field strengths was not taken into account when fitting the data to find \Gzero, and multiple researchers \cite{StefanovicHumanwholebloodrelaxometry2004,ChenHumanwholeblood2009,GardenerDependencebloodR22010} have found that these parameters are correlated.
 
-TODO: How to bring in Petrik's comments on \TtwoO and comparing to normal continuous flow experiments?
+TODO: How to bring in Petrik's comments on \TtwoO and comparing this to normal continuous flow experiments and/or plasma T2 measurements?
+
+TODO: Luz-Meiboom in terms of exchange uses the approximation that exchange is instantaneous compared to echo time, yet it still works as short echo times?
 
 One possible source of error in these results is the effect of flow on the \Ttwo measurements.
 It was shown in \autoref{sec:contflow-Ttwoflow} that low amounts of flow through the circuit can cause slight decreases in the measured \Ttwo, without causing significant changes to the monoexponential decay in the CPMG experiment.

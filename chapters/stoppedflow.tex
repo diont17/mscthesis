@@ -10,7 +10,7 @@ For this series of experiments, measurements of \Ttwo were made at a series of o
 These steps are shown graphically in \autoref{fig:sf-protocol}
 After the flow circuit was assembled, the blood sample was loaded into the tubes and oxygenator, using the standard connectors on the bag.
 The pump was switched on, and gas at 21\% \Otwo was flowed through to bring the oxygenation and temperature of the blood up to the 100\% starting point for the experiments.
-The blood was allowed to flow through the circuit for the temperature to stabilise, before an initial test with the iStat.
+The blood was allowed to flow through the circuit for a period of time to allow the temperature to stabilise, before an initial test with the iStat.
 During this time, the probes were tuned and matched, and pulse sequence parameters such as pulse power and \textit{B\textsubscript{1}} frequency were calibrated (using FIDs on the Halbach system, and CPMG detection on the MOLE.)
 \begin{figure}[t]
 \centering
@@ -20,12 +20,12 @@ During this time, the probes were tuned and matched, and pulse sequence paramete
 \end{figure}
 
 If this showed that the pH, \SOtwo and HcT were normal, the flow was stopped and measurements on the two in-line NMR systems were started.
-It was possible to adjust the pH of the blood through the addition of sodium bicarbonate solution.
-Typically \TR = \SI{1.5}{s}, with echo times of \SIlist{0.25;0.5;1;5}{ms} on the Halbach, and \SIlist{0.25; 0.5; 1}{ms} on the MOLE (these were limited by the magnetic field gradients in each system).
+If the blood pH was significantly below 7, it was adjusted by adding sodium bicarbonate solution.
+Typically \TR = \SI{2.1}{s}, with echo times of \SIlist{0.25;0.5;1;5}{ms} on the Halbach, and \SIlist{0.25; 0.5; 1}{ms} on the MOLE (these were limited by the magnetic field gradients in each system).
 The number of echoes was adjusted to create an echo train \SI{600}{ms} long.
 4 scans with phase cycling were used on the Halbach, but the poorer signal to noise on the MOLE meant that 16 scans were required.
 Once these measurements had completed, the pump was turned on briefly to agitate the blood and minimize any effects of settling before repeating the NMR measurements.
-A \SI{2}{ml} sample of blood in the circuit was also taken out and syringed into a clean \SI{5}{mm} NMR tube for the Spinsolve measurements.
+A \SI{2}{ml} sample of blood in the circuit was also syringed into a clean \SI{5}{mm} NMR tube for the Spinsolve measurements.
 These tubes were sealed with the caps provided by the manufacturer.
 On the Spinsolve, typical experimental parameters were \TR = \SI{20}{s} with a 4 scan phase cycle, and with 4 echo times: \SIlist{0.5;2.5;5;10}{ms}.
 Again, the number of echoes was set to give an echo train with a fixed length of \SI{10}{s}.
@@ -40,7 +40,7 @@ Again, the number of echoes was set to give an echo train with a fixed length of
 The \SOtwo was then lowered to an intermediate value (around 50\%).
 Flow was turned back on and the gas mix set to 5\% \Otwo, which we had found produced these levels of oxygenation.
 After waiting for the \SOtwo to reach the desired level, a sample of blood was taken from the flow circuit and the iStat was used to confirm the \SOtwo.
-The flow was stopped, and two sets of NMR measurements were completed as above, with samples also removed for the Spinsolve.
+The flow was stopped, two sets of NMR measurements were completed as above, and a sample was removed for the Spinsolve.
 
 This process was repeated again to measure \Ttwo at a very low oxygenation (10\% or less), by setting the gas mix to 0\% \Otwo.
 Afterwards, these steps were reversed to increase the oxygenation again, taking a measurement at an intermediate value of \SOtwo on the way up as well.
@@ -107,7 +107,7 @@ A number of experiments were conducted to investigate the cause of this, and the
 
 The Halbach magnet system was run inline with the flow circuit, making it easier to measure more data points.
 As with the Spinsolve results, the CPMG decays were found to be monoexponential, however there was no appearance of even echo rephasing in the CPMG decays.
-In this experiment, the deoxygenation causes the \Ttwo to decrease from \SI{337}{ms} to \SI{303}{ms} fot the short echo time, and from \SI{226}{ms} to \SI{152}{ms} for the \SI{5}{ms} echo time.
+In this experiment, the deoxygenation causes the \Ttwo to decrease from \SI{337}{ms} to \SI{303}{ms} for the short echo time, and from \SI{226}{ms} to \SI{152}{ms} for the \SI{5}{ms} echo time.
 The strong field gradients in this system means that the CPMG experiments are sensitive to the diffusion of protons moving through the gradient, which causes longer echo times to measure a shorter \Ttwo.
 This can be seen in the position of the \SI{5}{ms} points (red), which are significantly lower than points at \SI{<1}{ms}.
 In this experiment, measurements were also completed with echo times of \SIlist{8;12}{ms}, but these did not show any trends due to the strong relaxation from the field inhomogeneities.
@@ -162,12 +162,6 @@ Brooks et al. studied the field dependence of the \Ttwo decrease for oxygenated 
 For their study however, they used a more conventional \SI{4}{ms} echo time, which makes the \Rtwo change from oxygenated to deoxygenated much larger (on the order of \SI{4}{s^{-1}} at \SI{0.5}{T}.)
 This means that their results are not directly comparable with the results in \autoref{fig:sf-fieldcomparison}, where the echo time is less than \SI{1}{ms}.
 
-%While applying the exchange model discussed in TODO(the background) directly to these results is not possible due to the effect of the field gradient, these gradient effects can be subtracted to give an estimate of the increase in \Rtwo due to the \SOtwo change.
-%This leaves the value for \Rtwo due to only the deoxygenation, which should be equivalent to the exchange term in the chemical exchange model (\autoref{eq:LMsimp}).
-%The results in \autoref{fig:sf-fieldcomparison} do not agree with the model, as the model relies on the approximation that the exchange or diffusion rate is much faster than the CPMG refocusing rate.
-%Further investigation is needed to be able to determine the mechanism causing the change in \Ttwo at short echo times, and how sensitive it is to changes in \SOtwo.
-%This may be particularly important for application in single sided devices, which typically use short echo times.
-
 We also encountered trouble with recovering the intial \Ttwo when reoxygenating the blood.
 This was visible in all results above, where at high \SOtwo{}s, the reoxygenated \Ttwo values (upwards triangles)  are typically lower than the initial values (circles) by \SIrange{10}{40}{ms}.
 In this set of experiments, several hypotheses were tested to investigate the cause of this.
@@ -181,7 +175,7 @@ This is not likely to be due to the paramagnetic effect of dissolved Oxygen, as 
 Ma et al. found that dissolved Oxygen in blood plasma causes \Rtwo to increase by \SI{2.3e-4}{s^{-1}\per\mmHg}~\cite{Maeffectdissolvedoxygen2016}, which would correspond to a change of \SI{0.04}{s^{-1}} at \SI{200}{mmHg}.
 
 Another possibility was that a property of the blood had changed in the circuit, with some parameter that affects \Ttwo being different, for example the haematocrit increasing due to separation of plasma and red blood cells in the blood bag.
-Testing with the iStat showed that there we
+However, testing with the iStat showed that there were not significant changes to the parameters it measured between the start and end of the experiments.
 
 Instead, we investigated whether red blood cells were being damaged by flowing through the circuit, and that this damage caused a decrease in \Ttwo.
 This would explain the \Ttwo decrease after hyperoxygenation, which would be caused by spending more time in the flow circuit.
@@ -200,7 +194,7 @@ This effect was studied more quantitatively when it occured in the continuous fl
 While these results confirm that changes in \SOtwo can be observed at low field, there were some difficulties with this method of collecting data.
 As the stopped flow system requires the flow to be stopped, it is possible that the blood could be changing within the scan time due to factors such as temperature dropping, or red blood cells separating from the plasma.
 It was also very difficult to be able to `hit' desired intermediate values of oxygenation.
-This is because of haemoglobin's strong affinity for Oxygen, which creates the very steep curve discussed in TODO(\SOtwo p\Otwo curve in background).
+This is because of haemoglobin's strong affinity for Oxygen, which creates the very steep curve shown in \autoref{fig:back-po2so2}.
 To be able to reach a specific intermediate levels of oxygenation would require more precision and stability in the gas mix output than were possible with this experimental setup.
 Therefore, the continuous flow setup discussed in \autoref{sec:exptsetup-contflow} was designed for the next set of experiments.
 Because the introduction of flow complicates everything, these stopped flow results are used as a benchmark for the continuous flow experiments.

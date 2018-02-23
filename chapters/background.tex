@@ -3,6 +3,7 @@
 \section{Nuclear Magnetic Resonance}
 
 Nuclear Magnetic Resonance (NMR) is an effect most often associated with chemical spectroscopy, or magnetic resonance imaging.
+This work in this thesis is closer to the technique of NMR relaxometry, the study of relaxation.
 This section will give a brief overview of the physics of NMR, using the semi-classical model and the Bloch equations.
 It describes NMR occuring to protons (\textsuperscript{1}H), which is the most common nucleus used for NMR and what is used in this thesis, although NMR can be observed with any nuclei with non-zero spin.
 For a more complete discussion, the reader is directed to one of the many textbooks on the subject, including books by Abragham\cite{AbragamPrinciplesNuclearMagnetism1961} and Callaghan\cite{CallaghanPrinciplesNuclearMagnetic1994} or Brown et al.\cite{BrownMagneticResonanceImaging2014a}.
@@ -150,7 +151,7 @@ This can be due to diffusion(the movement of protons in the sample) or processes
 
 Once the magnetisation has been refocused in the spin echo, the transverse magnetisation decays following the \Ttwostar relaxation time again.
 Carr and Purcell proposed repeating the refocussing pulses, to create more echoes and further map out the \Ttwo relaxation \cite{CarrEffectsDiffusionFree1954}.
-In this experiment, the refocussing pulses are evenly spaced by an echo time, as shown in TODO diagram.
+In this experiment, the refocussing pulses are evenly spaced by an echo time, as shown in \autoref{fig:back-cpmg}.
 Meiboom and Gil improved this experiment by adjusting the phase of the \SI{180}{\degree} pulses relative to the \SI{90}{\degree} pulse, such that they rotate the magnetisation around the \textit{y}-axis rather than \textit{x} \cite{MeiboomModifiedSpinEcho1958}.
 This reduces the errors caused by an incorrect \SI{180}{\degree} pulse.
 With this modification, the CPMG experiment is commonly used for fast and robust measurements of the \Ttwo of a sample.
@@ -223,25 +224,32 @@ Blood is pumped around the circulatory system by the heart, and transports nutri
 On average, blood makes up 7\% of a person's body weight, making a volume of about \SI{5}{L}.
 
 In addition to the nutrients carried in the plasma,  blood is responsible for the tranport of oxygen from the lungs to the body.
-Most of the oxygen transported is carried by red blood cells, with a small amount dissolved in blood plasma.
-These are shown in figure TODO, and have a biconcave disc shape, with a mean diameter of \SI{7.8}{\micro\metre}, and mean thickness of \SI{2.5}{\micro\metre}.
+Most of the oxygen transported is carried by red blood cells, with a small amount dissolved in blood plasma (typically \SI{<3}{\percent}).
+These are shown in \autoref{fig:back-bloodcell}, and have a biconcave disc shape, with a mean diameter of \SI{7.8}{\micro\metre}, and mean thickness of \SI{2.5}{\micro\metre}.
 RBCs contain no cell nucleus and are very deformable, which allows them to travel through narrow capillaries in tissue.
 While they have no nucleus, they still metabolise slowly to maintain membrane deformability and ion transport through the cell membrane.
 RBCs have a typical lifetime in the body of 120 days.
 
-The percentage of blood volume in red blood cells is called the haematocrit.
-It is typically around 0.4 in healthy men, and 0.36 in healthy women.
+The fraction of blood volume in red blood cells is called the haematocrit (typically around 0.4 in healthy adults)
 The primary role of RBCs is to contain and transport haemoglobin in the blood, and they can contain very high concentrations (up to \SI{34}{g/L}) of haemoglobin inside.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/background/placeholder.JPG}
+\caption{Image of a red blood cell?}
+\label{fig:back-bloodcell}
+\end{figure}
+
 \section{Oxy- and deoxy-haemoglobin}
+\label{sec:back-po2so2}
 Haemoglobin is a protein which can reversibly bind to oxygen to improve  its transport in the body. \cite{HallGuytonHallTextbook2015}
 By binding the oxygen to haemoglobin, blood can transport 30-100 times more oxygen than relying on dissolved oxygen in the plasma.
-It contains four heme groups, each containing an iron atom (Fe) which can reversibly bind to oxygen.
+It contains four heme groups, each containing an iron ion (Fe\textsuperscript{2+}) which can reversibly bind to oxygen.
 In the lungs, oxygen diffuses into the blood and RBCs, and is taken up by haemoglobin to form oxy-haemoglobin.
-This increases the oxygen saturation (\SOtwo), which is defined as the fraction of all haemoglobin bound to oxygen in \autoref{eq:o2sat}.
+This increases the oxygen saturation (\SOtwo), which is defined as the fraction of all haemoglobin bound to oxygen in \autoref{eq:o2sat} (in terms of concentration)\cite{ToffalettiMisconceptionsreportingoxygen2007}.
 
 \begin{equation}
-sO_2 = \frac{f_{oxyHb}}{f_{oxyHb} + f_{deoxyHb} + f_{dysHb}}
+sO_2 = \frac{c_{oxyHb}}{c_{oxyHb} + c_{deoxyHb}}
 \label{eq:o2sat}
 \end{equation}
 
@@ -249,14 +257,14 @@ After leaving the lungs, the \SOtwo will be around 97\%, and the p\Otwo (the par
 As blood travels around the body, oxygen diffuses from the blood into the tissue, which has a lower p\Otwo due to metabolism.
 The oxygen dissolved in plasma decreases, decreasing the p\Otwo.
 This change triggers the oxy-haemoglobin to release oxygen, forming deoxy-haemoglobin and effectively buffering the p\Otwo change.
-In venous blood, after leaving tissue, the \SOtwo will be between \SIrange{20}{70}{\percent}, and have a p\Otwo between \SIrange{20}{40}{mmHg} (depending on the demand for oxygen in the tissue).
+In venous blood, after leaving tissue, the \SOtwo will be between \SIrange{20}{70}{\percent}, and have a p\Otwo between \SIrange{20}{40}{mmHg} (depending on the demand for oxygen in the tissue). \cite{HallGuytonHallTextbook2015}
 
 In addition to these two forms of haemoglobin, other dys-haemoglobins can also be created, including met- and carboxy-.
-Met-haemoglobin is formed when the iron atom in the complex is further oxidised to Fe\textsuperscript{3+}.
+Met-haemoglobin is formed when the iron in the complex is further oxidised to Fe\textsuperscript{3+}.
 Carboxy-haemoglobin is formed when carbon monoxide (CO) binds to haemoglobin, forming a bond much stronger than oxygen does, and leading to the loss of oxygen transport capacity.
 These other forms are not expected to be created in this experiment.
 
-\begin{figure}
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/background/placeholder.JPG}
 \caption{Graph showing relationship between p\Otwo and \SOtwo in human blood. Placeholder for graph of some sort}
@@ -297,7 +305,7 @@ This gives a more direct measurement of \SOtwo, as there is no reliance on the d
 
 \section{\SOtwo measurement}
 \label{sec:back-pulseox}
-The gold standard method for measuring the \SOtwo of blood is co-oximetry, which relies on the optical absorption changes in oxy-/deoxy- haemoglobin. TODO - source that isnt GuytonAndHall
+The gold standard method for measuring the \SOtwo of blood is co-oximetry, which relies on the optical absorption changes in oxy-/deoxy- haemoglobin\cite{ToffalettiMisconceptionsreportingoxygen2007}.
 This method typically uses spectroscopic measurements of absorption at multiple wavelengths to identify the concentrations of oxy-haemoglobin, deoxy-haemoglobin and other dys-haemoglobins in a blood sample.
 
 Alternatively, the \SOtwo can be found using knowledge of the p\Otwo of the sample, and the relationship between p\Otwo and \SOtwo.
@@ -318,7 +326,7 @@ The absorbance from the tissue can be rejected with the knowledge that the arter
 The differing absorbance at multiple wavelengths is used to find the fraction of oxy-haemoglobin in blood.
 
 While in theory, this could be done using the Beer-Lambert law with known extinction coefficients of oxy- and deoxy-haemoglobin, the effects such as scattering from red blood cells mean that empirical calibration methods are used to convert the measured light intensities, and the \SOtwo \cite{WiebenLightAbsorbancePulse1997}
-In two wavelength pulse oximeters, like used in this study, a quadratic calibration curve is used to approximate the relationship between the ratio of light intensities \textit{R}, and the \SOtwo.
+In two wavelength pulse oximeters, like used in this thesis, a quadratic calibration curve is used to approximate the relationship between the ratio of light intensities \textit{R}, and the \SOtwo.
 Pulse oximeters with more wavelengths can apply more advanced algorithms to measure \SOtwo.
 These devices are very commonly used in clinical practice, and are relatively cheap and robust.
 
@@ -330,14 +338,14 @@ While the change between intracellular and extracellular is difficult to measure
 Changes in susceptibility cause variations in the magnetic field, which causes the refocusing pulses in the CPMG experiment to be less effective in recovering the phase.
 This causes increased dephasing, which is observed as a decreased \Ttwo.
 
-In the literature, the size of this decrease is typically described using the Luz-Meiboom equation.
+Thulborn introduced the use of the Luz-Meiboom equation to describe the effect of \SOtwo on the \Ttwo of blood.
 This equation comes from the study of a chemical exchange process, where protons on an ammonium ion exchange with the solvent\cite{LuzNuclearMagneticResonance1963}.
 Protons bound to the ammonium ion have a different chemical shift, which combined with the exchange, causes increased dephasing and a shorter \Ttwo.
 Luz and Meiboom show that this process leads to a \Ttwo decrease dependent on the echo time given by \autoref{eq:LMchemEx}\cite{LuzNuclearMagneticResonance1963}, where $p_i$ is the fraction of protons in state $i$, $\delta_i$ is the shift of protons in state $i$, $t_{ec}$ is the echo time, and $\tau_{ex}$ is the average time between exchanges. It also includes \TtwoO to include the \Ttwo when there is no exchange contribution.
 
 \begin{equation}
 \label{eq:LMchemEx}
-\frac{1}{T_2} = \frac{1}{T_{20}} + \sum_i{p_i\delta_i^2} \left(1 - \frac{t_{ec}}{2\tau_{ex}} \tanh{ \frac{2\tau_{ex}}{t_{ec}} }\right)
+\frac{1}{T_2} = \frac{1}{T_{20}} + \sum_i{p_i\delta_i^2}  \: \tau_{ex} \left(1 - \frac{2\tau_{ex}}{t_{ec}} \tanh{ \frac{t_{ec}}{2\tau_{ex}}}\right)
 \end{equation}
 
 Some authors have proposed that this is a similar situation to red blood cells, where the susceptibility change due to haemoglobin causes a difference in the field in the cytoplasm compared to the plasma, and protons exchange across the cell membrane\cite{BryantMagneticrelaxationblood1990}
@@ -345,7 +353,7 @@ Others have proposed that the dephasing is caused by diffusion through intracell
 The exchange time then becomes the time for spins to experience the range of fields in the gradient.
 
 Wright\cite{WrightEstimatingoxygensaturation1991} applied this exchange model to blood, expressing it with more useful parameters.
-In \autoref{eq:LMblood} the summation over the states becomes $P_A$, which is the relative population of protons in cytoplasm and plasma (and therefore the haematocrit, and the frequency difference given by a term dependent on the $sO_2$, the field strength $\omega_0$, and a dimensionless factor $\alpha$ which is dependent on the susceptibility change of deoxy-haemoglobin, and the geometry of the red blood cell.
+In \autoref{eq:LMblood} the summation over the states becomes the haematocrit, as this relative population of protons in cytoplasm and plasma, and the frequency difference given by a term dependent on the $sO_2$, the field strength $\omega_0$, and a dimensionless factor $\alpha$ which is dependent on the susceptibility change of deoxy-haemoglobin, and the geometry of the red blood cell.
 
 \begin{equation}
 \label{eq:LMblood}
@@ -367,10 +375,38 @@ K(t) = K_0 e^{-t/\tau}
 \frac{1}{T_2} = \frac{1}{T_{20}} + \gamma^2 K_0 \tau_{ex} (1 - \frac{2\tau_{ex}}{t_{ec}} \tanh{\frac{t_{ec}}{2\tau_{ex}}})
 \end{equation}
 
-This has the same form as the Luz-Meiboom equation, but with a more general ``correlation time'', and the factor $K_0$ representing the variance of the magnetic field.
+Comparing \autoref{eq:LMsimp} with \autoref{eq:LMblood} shows that it has the same form as Luz-Meiboom equation, but with a more general ``correlation time'' $\tau$, and the factor $K_0$ representing the variance of the magnetic field.
 Because of this, the correlation time is not directly connected to an exchange process, which could explain why the Luz-Meiboom formula agrees with experimental results, but also gives a range of exchange times.
 In practice, this \Kzero parameter describes how dependent the \Ttwo is on echo time.
 A larger value of \Kzero means that the inhomogeneities are stronger, and cause a larger dephasing effect as the echo time increases.
 
 This exchange model is used in this research, as it is most commonly used in the literature.
 An alternative model which more accurately characterises the diffusion of protons around red blood cells has also been developed\cite{JensenNMRrelaxationtissues2000}, and is investigated and compared with the exchange equation in \autoref{ch:models}.
+
+
+\section{NMR Measurement of oxygen saturation}
+The effect of \SOtwo on the \Ttwo of blood was originally described by \cite{ThulbornOxygenationdependencetransverse1982} in 1982, who investigated how \Ttwo changed as a function of oxygenation, magnetic field strength and haematocrit.
+Thulborn found that the \Rtwo ($\mathit{\frac{1}{T_2}}$) of blood increased with $(\mathit{100}-\mathit{sO_2})^2$.
+Using a variety of spectrometers and NMR systems, he also showed that the strength of this effect scales with \Bzero squared, and that this effect requires that the red blood cells are intact (as no change in \Ttwo occured when the cells were lysed.)
+
+From this initial study, other researchers studied how the effect can be detected at lower fields.
+Gomori measured the \Ttwo of samples of oxygenated and deoxygenated blood at fields ranging from \SIrange{0.19}{1.4}{T}, and found that changes were still visible at these lower fields\cite{GomoriNMRRelaxationTimes1987}.
+This sort of experiment was also completed by Brooks, who found that \Ttwo shortening were visible at fields between \SIlist{0.05;1.5}{T} \cite{BrooksComparisont2relaxation1995}.
+Brooks mapped out the dependence on field strength more finely than Gomori, and was able to show that the size of the effect still scales with \Bzero squared at low fields.
+In these studies, the samples of blood were measured with either completely oxygenated and completely deoxygenated blood, typically obtained by
+There are a handful of other studies of this effect at these low field strengths, such as \cite{BryantMagneticrelaxationblood1990} and Stadelmann\cite{StadelmannRelaxationtimesvenous1991},
+although like the studies by Brooks and Gomori, these were only done using samples of deoxygenated and oxygenated blood.
+
+More recently, this effect has been studied \textit{in-vitro} for applications in high field imaging systems (\SI{>1.5}{T}.)
+Silvennoin\cite{SilvennoinenComparisondependenceblood2003}, Stefanovic\cite{StefanovicHumanwholebloodrelaxometry2004}, Chen\cite{ChenHumanwholeblood2009} and Gardener\cite{GardenerDependencebloodR22010} scanned samples with varying oxygenation levels in MRI scanners (1.5, 2.35, 3 or 4.7 T) to study the change in \Ttwo as a function of oxygenation, haematocrit and CPMG echo time.
+These studies showed that the effect follows the same quadratic trend found by Thulborn, and shows good agreement with the theoretical models discussed in \autoref{ch:models}.
+
+Another method of studying \Ttwo changes with \SOtwo \textit{in-vitro} was described by Meyer et al., who used a continuous flow loop to measure \Ttwo at varying levels of \SOtwo, with a spectrometer at \SI{4.7}{T}.
+This method was more recently used by the group of Peter van Zilj, who has published multiple studies (\cite{ZhaoOxygenationhematocritdependence2007,GrgacTransversewaterrelaxation2017,QinDeterminationwholebrainoxygen2011} on the dependence of \Ttwo on \SOtwo, haematocrit, and on field strength.
+These studies have looked at magnetic field strengths from \SIrange{3.0}{16.4}{T}.
+
+The effect on \Ttwo of \SOtwo has also been applied in \textit{in-vivo} imaging, with a pioneering study by Wright\cite{WrightEstimatingoxygensaturation1991}, who measured changing oxygen saturation in the body using \Ttwo changes.
+More recently, other researchers have developed methods for imaging \SOtwo in blood based on this \Ttwo effect\cite{RodgersMRIbasedmethodsquantification2016}.
+TRUST-MRI can be used to isolate the protons in blood, and find \SOtwo from \Ttwo and a calibration curve.\cite{LuQuantitativeevaluationoxygenation2008}.
+Measurement of oxygenation using \Ttwo values collected with different echo times has also been demonstrated \cite{VargheseCMRbasedbloodoximetry2017}.
+While these methods provide good agreement with other measurements of \SOtwo, they are not typically used in clinical practice.
