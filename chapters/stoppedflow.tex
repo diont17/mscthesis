@@ -130,7 +130,7 @@ This is related to both the reduced field strength (\SI{0.1}{T}), and the single
 Because of this, measurements took longer to acquire than on the other systems and the largest source of experimental uncertainty was from noise in the fitting process.
 
 As expected, the change in \Ttwo as oxygenation was decreased was smaller again than in the higher field Spinsolve and Halbach system measurements.
-At the \SI{0.25}{ms} echo time, the decrease from oxygenated to deoxygenated is \SI{25}{ms}, but at the \SI{1}{ns} echo time, the decrease is only \SI{5}{ms} (which is within experimental uncertainty.)
+At the \SI{0.25}{ms} echo time, the decrease from oxygenated to deoxygenated is \SI{25}{ms}, but at the \SI{1}{ms} echo time, the decrease is only \SI{5}{ms} (which is within experimental uncertainty.)
 Additionally, the field inhomogeneity of the MOLE means that there is a significant decrease in the measured \Ttwo due to diffusion through the gradients of the magnet system.
 Along with the decrease in the stregnth of the effect at this field, this could explain why there is little to no change at the \SI{1}{ms} echo time.
 
@@ -145,7 +145,7 @@ Although the data from the MOLE is strongly affected by its inhomogeneous field,
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/stoppedflow/fieldcomparison.pdf}
-\caption[Change in \Rtwo for the three stopped flow systems]{Change in \Rtwo for the three stopped flow systems. Data points show \Rtwo\textsubscript{\textit{deoxy}} -- \Rtwo\textsubscript{\textit{oxy}} to remove the effect of background gradients. Note points are moved on the x-axis to allow comparison}
+\caption[Change in \Rtwo for the three stopped flow systems]{Change in \Rtwo for the three stopped flow systems. Data points show \Rtwo\textsubscript{\textit{deoxy}} -- \Rtwo\textsubscript{\textit{oxy}} to remove the effect of background gradients. Note points are moved on the x-axis to allow comparison. The \SI{1}{T} measurements used different echo times, so only the \SI{0.5}{ms} data point is shown here}
 \label{fig:sf-fieldcomparison}
 \end{figure}
 
@@ -156,13 +156,13 @@ Additionally, the \SI{0.1}{\tesla} measurement shows that the change in \Rtwo is
 
 \section{Discussions}
 
-These results confirm that \Ttwo when decreasing \SOtwo occur at low fields, in agreement with the literature.
+These results confirm that the decrease in\Ttwo which occurs due to decreases in \SOtwo is still visible at low fields, in agreement with the literature.
 As noted in the introduction however, there are relatively few examples in the literature to compare them to.
 Brooks et al. studied the field dependence of the \Ttwo decrease for oxygenated and deoxygenated blood, and found that the size of the \Rtwo change scales with \Bzero  squared\cite[Fig.1]{BrooksComparisont2relaxation1995}.
 For their study however, they used a more conventional \SI{4}{ms} echo time, which makes the \Rtwo change from oxygenated to deoxygenated much larger (on the order of \SI{4}{s^{-1}} at \SI{0.5}{T}.)
-This means that their results are not directly comparable with the results in \autoref{fig:sf-fieldcomparison}, where the echo time is less than \SI{1}{ms}.
+This means that their results are not directly comparable with the results in \autoref{fig:sf-fieldcomparison}, where the echo time is less than \SI{1}{ms}, as our measurements were affected by the field homogeneity of the magnet systems.
 
-We also encountered trouble with recovering the intial \Ttwo when reoxygenating the blood.
+We also encountered difficulties with recovering the intial \Ttwo when reoxygenating the blood.
 This was visible in all results above, where at high \SOtwo{}s, the reoxygenated \Ttwo values (upwards triangles)  are typically lower than the initial values (circles) by \SIrange{10}{40}{ms}.
 In this set of experiments, several hypotheses were tested to investigate the cause of this.
 The fact that it occured across all three systems (including the Spinsolve, which was used not part of the circuit) suggests that it is due to a physical change in the blood and not only related to changes in the flow circuit (although movement of the Halbach probe could not be ruled out.)

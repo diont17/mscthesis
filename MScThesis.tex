@@ -54,7 +54,22 @@
 \author{Dion Gary Thomas}
 
 \subject{Physics}
-\abstract{An abstract of fewer than 500 words must be included. \Ttwo}
+\abstract{
+Changes in blood oxygen saturation change the magnetic properties of red blood cells, generating an inhomogeneous magnetic field which decreases the \Ttwo relaxation time of the water protons in blood.
+This effect has been well characterised at imaging fields (\SI{>1.5}{T}), and has been applied to measure changes in blood oxygen saturation, but at the low fields required for portable NMR devices, there are only few examples in the literature.
+It is known that the size of this contrast is related to the field strength squared, and to the fraction of deoxy-haemoglobin squared, but previous experiments in the literature at low field strengths have only looked at extreme levels of oxygenation/deoxygenation.
+
+In this thesis, we measure this \Ttwo relaxation change to determine how factors such as oxygen saturation, field strength and CPMG echo time affect it.
+A continuous flow circuit, similar to a cardiopulmonary bypass circuit, is used to control parameters such as oxygen saturation and temperature, before the blood sample flows into a variable field magnet, where a series of CPMG experiments with echo times ranging from \SIrange{1}{20}{ms} are run to measure the \Ttwo.
+Additionally, the oxygen saturation is continually tracked by an optical sensor, to give a reference to compare the \Ttwo.
+This allows us to measure small variations in the blood oxygenation, so that the sensitivity to small, clinically relevant decreases could be tested.
+
+These results show that the \Ttwo relaxation change follows the trends predicted by theory, with a quadratic dependence on the fraction of deoxy-haemoglobin.
+The size of the change also follows a quadratic dependence on the field strength.
+The results were also compared with two theoretical models for the dependence on echo time: the Luz-Meiboom equation, and the Jensen and Chandra model.
+At these field strengths and echo times, both models provided good agreement with the experimental data, however the Jensen and Chandra model model was able to provide better fits to the data.
+These experiments show that the \SOtwo dependent \Ttwo changes effect agrees with the predictions of theory, and that this technique for measuring oxygen saturation with NMR is feasible in a low field device.
+}
 % Books don't normally have abstracts, and this is a bit of a hack
 
 % Uncomment the appropriate degree
@@ -97,7 +112,7 @@
 \include{chapters/continuousSO2}
 \include{chapters/diffmodels}
 \include{chapters/conclusion}
-
+\include{chapters/conference}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
