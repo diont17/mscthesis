@@ -74,10 +74,7 @@ Here, $t_ec$ is the echo time, $G_0$ is the mean squared magnitude of field inho
 In studies comparing the Luz-Meiboom and Jensen-Chandra equations, it has been shown that both agree adequately with experimental data, but that the Jensen and Chandra model is better.
 To qualitatively show the different predictions, the quantity $\frac{r_c^2}{2D}$ can be looked at as a time (as it has the dimensions of time).
 By setting this time equal to the exchange time in the Luz-Meiboom equation, the two models can be compared, as shown in \autoref{fig:dm-JCLMtheory}
-The two equations give slightly different shaped curves for the dependence of \Ttwo on echo time.
-The Jensen-Chandra equation gives a
-
-and this dependence is investigated here.
+The two equations give slightly different shaped curves for the dependence of \Ttwo on echo time, and this different shape should be reflected in the agreement with the experimental data here.
 
 \begin{figure}[tb]
 \centering
@@ -121,7 +118,7 @@ Finally, the Sum-of-Squared-Residuals (SSR) was calculated to give a quantitativ
 \subsection{\Ttwo Measurement}
 CPMG decays were measured for blood in the contunuous flow setup at each of the field strengths used in those experiments.
 The oxygenation was logged by optical sensor, and found to vary <5\% over the experiment.
-The same flow rate from the continuous flow experiments was maintained using the screw clamp, which meant that the blood did not have the chance to settle and meant that the temperature was relatively stable during the 5 minutes of the experiment (within \SI{2}{\celsius}).
+The same flow rate from the continuous flow experiments was maintained using the screw clamp, which meant that the blood did not have the chance to settle and that the temperature was relatively stable during the 5 minutes of the experiment (within \SI{2}{\celsius}).
 
 To obtain a \Ttwo value for each echo time, the echo intensities were fit to a monoexponential decay, as discussed in \autoref{sec:back-spinecho}.
 An example of this is shown in \autoref{fig:dm-CPMGdecay}, the section of the decay used for fitting is also marked.
@@ -146,7 +143,7 @@ The resulting best fit curves for both equations are shown in \autoref{fig:dm-fi
 \begin{table}[h]
 \centering
 
-\caption[Best fit values to the experimental data at different fields]{Best fit values to the experimental data at different fields, shaded columns indicate fixed parameters in fitting. Note that the \TtwoO values are going to be dependent on the state of the blood in the flow circuit, so are not necessarily reflective of the diffusion/exchange effects.}
+\caption[Best fit values to the experimental data at different fields]{Best fit values to the experimental data at different fields, shaded columns indicate fixed parameters in fitting. Note that the \TtwoO values are dependent on the state of the blood in the flow circuit, so are not necessarily reflective of the diffusion/exchange effects.}
 \label{tab:dm-fitPars}
 
 
@@ -187,12 +184,12 @@ The resulting best fit curves for both equations are shown in \autoref{fig:dm-fi
   }
 
   \makebox[\textwidth][c]{
-  \begin{subfigure}[t]{0.6\textwidth}
+  \begin{subfigure}[c]{0.6\textwidth}
   \caption{14 MHz: \SOtwo 5\%, Hct 0.34, v=1.1 cm/s}
   \includegraphics[width=\textwidth]{figures/diffmodels/14MHzT2.pdf}
   \label{fig:dm-fitResults14}
   \end{subfigure}
-  \begin{subfigure}[t]{0.6\textwidth}
+  \begin{subfigure}[c]{0.6\textwidth}
   \caption{10 MHz: \SOtwo 2\%, Hct 0.37, v=1.6 cm/s}
   \includegraphics[width=\textwidth]{figures/diffmodels/10MHzT2.pdf}
   \label{fig:dm-fitResults10}
@@ -201,16 +198,15 @@ The resulting best fit curves for both equations are shown in \autoref{fig:dm-fi
   }
 
   \makebox[\textwidth][c]{
-  \begin{subfigure}[t]{0.6\textwidth}
+
+  \begin{subfigure}[c]{0.6\textwidth}
   \caption{5 MHz: \SOtwo 7\%, Hct 0.35, v=2.5 cm/s}
   \includegraphics[width=\textwidth]{figures/diffmodels/5MHzT2.pdf}
   \label{fig:dm-fitResults5}
   \end{subfigure}
-
-  \parbox[pos=c]{0.5\textwidth}{
+  \parbox[pos=c]{0.6\textwidth}{
   Error bars show standard error (n=2). Best fit from Luz-Meiboom (Green) and diffusion model (Purple) are also shown. Dashed lines show constrained fits, while solid lines are unconstrained. Note different scale for 40MHz and 20 MHz}
   }
-
   \caption[Luz-Meiboom and diffusion model fits at different fields]{Luz-Meiboom and diffusion model fits at different fields}
   \label{fig:dm-fitResults}
 \end{figure}

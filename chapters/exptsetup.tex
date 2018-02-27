@@ -72,9 +72,8 @@ The iStat uses the following equation, which assumes Oxygen saturation follows t
 \begin{displaymath}
 \mathit{sO_2} = 100 \times \frac{X^3 + 150X}{X^2 + 150X + 23400}
 \end{displaymath}
-
 \begin{displaymath}
-\mathrm{where } X = \mathit{pO_2} \times 10^{0.48(\mathit{pH}-7.40) - 0.0013(\mathit{[HCO3]}-25)}
+\mathrm{where } \quad X = \mathit{pO_2} \times 10^{0.48(\mathit{pH}-7.40) - 0.0013(\mathit{[HCO3]}-25)}
 \end{displaymath}
 
 While it takes into account the effect of \COtwo and pH on the p\Otwo/\SOtwo relationship, it does not include the effect of 2,3-DPG (diphospoglycerate) which affects haemoglobin's oxygen affinity.
@@ -124,15 +123,15 @@ To decrease the effect of electrical noise on the measurements, the magnet assem
 
 The second magnet system used was the NMR MOLE, previously developed by Manz et al.\cite{ManzmobileonesidedNMR2006} (\autoref{fig:exptsetup-nmrmole}).
 The NMR MOLE operates at a field of \SI{0.1}{T} and is a single sided device, which produces a `sweet spot' in the region above the magnet.
-The sweet spot is where the combination of magnetic field and RF produced by the coil on the surface are able to create resonance, which defines where signal comes from.
+The sweet spot is where the combination of magnetic field and RF produced by the coil on the surface are able to create resonance, which defines the volume where signal comes from.
 In this case, the sweet spot was a pair of regions marking out a \SI{3}{cm} circle over the RF coil.
 In the initial experiments, the tube was positioned over the sweet spot, but this tended to move during the experiment.
 For the last 3 experiments, the whole blood bag was placed on top of the MOLE, avoiding this issue.
 As with the Halbach array, the MOLE is also sensitive to temperature, so an electronic temperature controller and wire heater were used to keep it stable at \SI{29}{\celsius}.
 
 The design of the magnet array in the MOLE creates strong magnetic field gradients across the sweet spot.
-This creates a wide range of resonance frequencies, and means that it was not possible to measure an FID from the system.
-It was also found that this limited the possible range of CPMG echo times, as echo times longer than \SI{1}{ms} were caused excessive signal attenuation.
+This creates a wide range of resonance frequencies, and meant that it was not possible to measure an FID from the system.
+It was also found that this limited the possible range of CPMG echo times, as echo times longer than \SI{1}{ms} caused excessive signal attenuation.
 This limited experiments with this system to short echo times.
 
 The third magnet system used was a Magritek Spinsolve (Magritek, Wellington NZ), which is another permanent magnet based NMR system operating at \SI{1}{T} (\autoref{fig:exptsetup-spinsolve}).
@@ -176,7 +175,7 @@ A diagram of the continuous flow version of the circuit is included in \autoref{
 \end{figure}
 
 \subsection{Baby-MRI magnet}
-After the difficulties in working with the permanent magnet system, the research moved onto the baby-MRI magnet.
+After the difficulties in working with the permanent magnet systems, the research moved onto the baby-MRI magnet.
 This is a cryogen-free magnet system (Cryogenic Limited, London UK), where the field can be changed from \SI{0}{1.5}{T} by adjusting the current in the superconducting coils.
 The bore has a diameter of \SI{8}{cm}, and is \SI{60}{cm} long.
 The magnetic field it generates is much more homogneous than the permanent magnet systems, and it was possible to neasure an FID with a \SI{100}{Hz} linewidth.
@@ -209,23 +208,25 @@ Different numbers of turns were used for the three different coils, to be able t
 In the initial design of the coil assembly, the coil was constructed from \SI{0.67}{mm} Copper wire wrapped around a rolled up acetate cylinder.
 A second version of the coil assemblies used 3D printed forms made from ABS plastic (to decrease unwanted signal), with the same wire and number of turns.
 
-\begin{figure}[th]
+\begin{figure}[tb]
 \centering
-\begin{subfigure}[t]{0.4\textwidth}
-\includegraphics[width=\textwidth]{figures/exptsetup/probe.JPG}
+\makebox[\textwidth][c]{
+\begin{subfigure}[t]{0.5\textwidth}
+\includegraphics[height=5cm]{figures/exptsetup/probe.JPG}
 \caption{Probe assembly}
 \label{fit:exptsetup-probe}
 \end{subfigure}
-\hspace{1cm}
-\begin{subfigure}[t]{0.4\textwidth}
-\includegraphics[width=\textwidth]{figures/exptsetup/circuit.jpg}
-\caption{Exchangable coils and capacitor boards}
+\hspace{0.6cm}
+\begin{subfigure}[t]{0.5\textwidth}
+\includegraphics[height=5cm]{figures/exptsetup/circuit.jpg}
+\caption{Exchangeable coils and capacitor boards}
 \label{fig:exptsetup-coils}
 \end{subfigure}
+}
 \caption{Probe and Tuning and Matching equipment}
 \end{figure}
 
-The tuning and matching circuit was also designed and manufactured for this probe.
+The tuning and matching circuit was also designed and produced for this probe.
 It allows for the capacitors to be exchanged, using small PCBs with different capacitors attached.
 The circuit also contains variable capacitors which are used for fine tuning the match frequency.
 While the higher frequencies only require small changes in capacitance to be tuned and matched using only the variable capacitors (\SIrange[range-phrase = --]{40}{60}{MHz} can be tuned with \SI{20}{pF} or less from the variable capacitors), tuning and matching to lower frequencies required much higher capacitance and inductance.
@@ -233,7 +234,7 @@ Switching the different capacitors allowed the probe to be tuned and matched at 
 
 As the probe is located inside the magnet, the capacitors are all of a non-magnetic type (AVX Hi-Q (AVX, Greenville SC US)  or MCM series (Cornell Dubilier CDE, New Bedford MA US) and are also rated for high voltage (\SI{>500}{V}.)
 
-\textit{S\textsubscript{11}} simulations were run in Qucs Spice to find the appropriate capacitor values (C\textsubscript{m}/C\textsubscript{t}) to tune and match a range of frequencies with the different coils.
+\textit{S\textsubscript{11}} simulations were run in Qucs Spice (\url{qucs.sourceforge.net}) to find the appropriate capacitor values (C\textsubscript{m}/C\textsubscript{t}) to tune and match a range of frequencies with the different coils.
 These were then used to find the configurations in \autoref{tbl:exptsetup-capconf} for the tuning and matching circuit that were used in experiments.
 The configurations were tested by measuring \textit{S\textsubscript{11}} on a spectrum analyser, before attaching to the Kea for wobbling.
 
@@ -265,19 +266,19 @@ This pulse sequence was implemented in Prospa, and allows the user to set pulse 
 It can be used to measure using both the Fourier method, and the One-shot method.
 
 To investigate variations in the flow rate, the pulse sequence also allows for a single reference measurement (where \textit{g}=\SI{0}{T/m}) followed by repetitions of the same \textit{g}-step.
-This allowed for much faster measurements of the flow rate, when compared with the multiple q-step method -- in this experiment the temporal resolution is set by \TR.
+This allowed for measurements of faster variations of the flow rate, when compared with the multiple gradient-step method -- in this experiment the temporal resolution is set by \TR.
 
 \subsection{Optical \SOtwo measurement}
 \label{sec:exptsetup-pulseoximeter}
 Making measurements with continuously flowing blood required continuous monitoring of the \SOtwo of the blood going into the magnet system.
-This meant that the iStat would not be suitable for these experiments, due to the cost of the cartridges and the length of time it took to measure each sample (approximately two minutes.)
+This meant that the iStat would not be suitable for these experiments, due to the length of time it took to measure each sample (approximately two minutes), and the cost of cartridges.
 While there were a number of possible techniques for this, such as polarographic or fibre-optic p\Otwo sensors, it was decided to use an optical/NIR setup.
 
 This optical system was designed around the MAX30102 sensor (Maxim Integrated, San Jose CA US), which is an integrated pulse oximetry/heart rate module.
 It contains all the components for two wavelength pulse oximetry including a \SI{660}{nm} red LED, a \SI{880}{nm} IR LED, LED driver circuits, a photodiode and 18-bit ADC, and a digital ambient light cancellation filter.
-The sensor is included on an evaluation board (MAXREFDES117) (Maxim Integrated, San Jose CA US), which includes a voltage regulator and level shifter to allow it to be connected to, and supplied from 5V electronics.
+The sensor is included on an evaluation board (MAXREFDES117) (Maxim Integrated, San Jose CA US), which includes a voltage regulator and level shifter to allow it to be connected to, and supplied from \SI{5}{V} electronics.
 This PCB module was mounted in a 3D printed holder, which allowed it to be clipped onto a tubing joint used in the flow circuit, shown in \autoref{fig:exptsetup-oximeter}.
-It was arranged so that the sensor was shining perpendicular to a flat section of the tubing, to try and reduce any background effects from the plastic.
+It was arranged so that the sensor was shining perpendicular to a flat section of the tubing, to try and reduce any reflections from the plastic.
 The polystyrene plastic used in the joint did not cause significant absorption of the reflected light from the blood at either the red or IR wavelengths.
 
 \begin{figure}
@@ -291,7 +292,7 @@ The sensor measures the red and IR light reflected by the blood by alternately p
 In this experiment, the LED pulse time was \SI{411}{\micro\second} (the longest possible value to get the most sensitivity), and the sample rate set to \SI{100}{Hz} with a 4x averaging filter to give 25 samples per second.
 Other parameters were set to the suggested values in the evaluation demo.
 The MAX30102 sensor communicated over I\textsuperscript{2}C to an Arduino board, that reads the incoming data and sends it to the computer over USB to be logged.
-This data is collected by a Python application, which provides a live plot of the data from the sensor and averages it further (100x) to reduce the amount of data stored.
+This data is collected by a Python application, which generates a live plot of the data from the sensor and averages it further (100x) to reduce the amount of data stored.
 The application saves values of the red intensity and IR intensity every 4 seconds.
 
 As discussed in \autoref{sec:back-pulseox}, the ratio of red and IR intensities are typically converted to \SOtwo using an empirical calibration curve.
@@ -313,8 +314,7 @@ Results for this calibration process from different experimental runs are shown 
 Because of the fast change in \SOtwo at intermediate oxygenations (\autoref{sec:back-po2so2}), it was more difficult to ensure that the blood sampled for iStat measurements hadn't changed from the blood measured at the sensor, so there is a larger scatter in the data points in the middle of the curve.
 This is also reflected in the fit residuals, which are typically less than \SI{5}{\percent} at high and low \SOtwo, but increase to \SI{10}{\percent} between \SIrange{50}{70}{\percent}.
 Variations in the technique used for earlier calibration runs meant there is also more scatter for these points (shown in grey is much larger).
-These results were used to find a calibration curve following \autoref{eq:oximetercal}, which was used when processing experiments at all fields.
-
+These results were used to find a calibration curve (\autoref{eq:oximetercal}), which was used when processing experiments at all fields.
 \begin{equation}
 \mathit{sO_2} = -25.5 R^2 + 118 R - 35
 \label{eq:oximetercal}

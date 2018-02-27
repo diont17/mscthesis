@@ -257,7 +257,7 @@ Because of the artifacts in ramp up 1, ramp down 2 and ramp up 2, only the first
 \includegraphics[width=1.2\textwidth]{figures/contflow/20MHzFlowrate.pdf}
 }
 
-\caption[\Ttwo measurements during blood oxygenation ramping at 20 MHz field]{\Ttwo measurements during blood oxygenation ramping at 20 MHz field. Error bars show \Ttwo fitting error. \Hct = 0.35. v=\SI{1.9\pm0.1}{cm/s} between  415-515 minutes. Temperature decreased from \SIrange{33}{29}{\celsius} from 415-515 minutes.}
+\caption[\Ttwo measurements during blood oxygenation ramping at 20 MHz field]{\Ttwo measurements during blood oxygenation ramping at 20 MHz field. Error bars show \Ttwo fitting error. \Hct = 0.35. v=\SI{1.9\pm0.1}{cm/s} between  425-515 minutes. Temperature decreased from \SIrange{33}{29}{\celsius} from 425-515 minutes.}
 \label{fig:contflow-20mhzT2Time}
 \end{figure}
 
@@ -386,7 +386,7 @@ The initial \Ttwo for this sample is at \SI{286}{ms} for the \SI{1}{ms} echo tim
 Like the 10 MHz experiment, the \Ttwo values for  short and long echo times show a \SI{20}{ms} split.
 
 When the \SOtwo is dropped, the \Ttwo also decreases from \SI{300}{ms} to \SI{286}{ms} for the \SI{1}{ms} echo time, and from \SI{266}{ms} to \SI{232}{ms} for the \SI{20}{ms} echo time.
-The \SI{20}{ms} drop at short echo time is roughly the same as the stopped flow experiment, which decreaed by \SI{25}{ms} when samples were deoxygenated.
+The \SI{20}{ms} drop at short echo time is roughly the same as the stopped flow experiment, which decreased by \SI{25}{ms} when samples were deoxygenated.
 
 The splitting between short and long echo times is only \SI{30}{ms} which is quite close to the splitting in the first oxygenated stage (at 90 minutes).
 During reoxygenation, the small size of the \Ttwo change means that it does not appear to come back up, as the background \Ttwo decrease is of the same size at this point.
@@ -466,9 +466,8 @@ This effect is more visible at higher fields, and in the 10 MHz (d) and 5 MHz (e
 This is because there is more time for protons to experience dephasing from the field inhomogeneity as the time between the refocusing pulses increases.
 These changes were not as visible in the stopped flow experiments due to the inhomogeneity of the magnets, which caused additional dephasing.
 
-The splitting between long and short echo times also increases as \SOtwo decreases.
-This also agrees with the LM model, as it predicts a higher relaxation rate at longer echo times, and .
-The splitting is more visible at higher fields, as induced field inhomogeneity becomes stronger.
+The splitting between long and short echo times also increases as \SOtwo decreases, as the induced field inhomogeneity is dependent on the fraction of deoxy-haemoglobin in red blood cells, which is (1-\SOtwo).
+There is also a stronger effect at higher fields, as the induced inhomogeneity becomes stronger.
 However, at the 5 MHz field (e), changes in \Rtwo across echo time are small enough to be within the uncertainty from fitting.
 
 \subsection{Dependence on Field}
@@ -484,32 +483,43 @@ However, at the 5 MHz field (e), changes in \Rtwo across echo time are small eno
 Plotting the difference in \Rtwo between deoxygenated and oxygenated blood shows the same trends.
 \autoref{fig:contflow-R2diff} shows that \Rtwo change increases with field strength, going from \SI{0.35\pm0.3}{s^{-1}} at \SI{0.1}{T} to \SI{1.14\pm0.06}{s^{-1}} at \SI{1}{T} for the \SI{1}{ms} echo time.
 As expected, the \SI{5}{ms} echo time shows a larger \Rtwo change, increasing to \SI{4.6\pm0.06}{s^{-1}} at \SI{1}{T}.
-The trends of both echo times look like they may follow the quadratic trend predicted by theory, but more data points would be useful to test this.
+The trends of both echo times look like they may follow the quadratic trend predicted by theory, but more data points would be needed to confirm this.
 
 While this falls within the uncertainty of the result from the stopped flow experiment on the MOLE, the Halbach measured a slightly larger \Rtwo change at both echo times.
 This may be due to effects from the background gradients not being completely removed when subtracting the relaxivities.
 Conversely, the Spinsolve measurement at \SI{5}{ms} echo time is about half as large (\SI{2.96}{s^{-1}}) than the measurement at \SI{1}{T}.
 The deoxygenated Spinsolve sample had \SOtwo=9\%, rather than the 4\% of the continuous flow experiment.
-Taking the measured \Rtwo for this \SOtwo=9\%  from the continuous flow experiment makes the relaxivity difference \SI{4.1}{s^{-1}}, which is still larger than the Spinsolve result.
+Taking the measured \Rtwo when \SOtwo=9\%  from the continuous flow experiment makes the relaxivity difference \SI{4.1}{s^{-1}}, which is still larger than the Spinsolve result.
 
 To more easily show the dependence on field, the \Ttwo values from different echo times at each \SOtwo were fit to find \Kzero in the Luz-Meiboom equation \autoref{eq:LMsimp}, following the same procedure as Stefanovic et al.\cite{StefanovicHumanwholebloodrelaxometry2004}.
-This parameter describes the splitting between the echo times, and inspecting \autoref{eq:LMblood} and \autoref{eq:LMsimp} shows it is proportional to:
+This parameter describes the splitting between the echo times, and inspecting \autoref{eq:LMblood} and \autoref{eq:LMsimp} shows it should be proportional to:
 \begin{displaymath}
-\gamma^2 K_0 = (\Hct)(1-\Hct)(1-sO_2)^2 \alpha \omega_0^2
+\gamma^2 K_0 = (\Hct)(1-\Hct)(1-sO_2)^2 \alpha^2 \omega_0^2
 \end{displaymath}
 
-Each data point in the \Rtwo vs \SOtwo curves was fitted using non-linear fitting to find \Kzero, using  \Texc =  \SI{3}{ms} for the exchange time, and \TtwoO as a second fitted variable.
-This value of \Texc was reported by Stefanovic\cite{StefanovicHumanwholebloodrelaxometry2004}, and \TtwoO was allowed to vary to ensure that the \Kzero was only dependent on the difference between echo times (as it adds a uniform offset).
-Fitting the Luz-Meiboom equation to the different \Rtwo values at the 5 echo times gave good agreement to the data across all \SOtwo values.
-These results are included in \autoref{fig:contflow-K0field}.
-
-\begin{figure}[t]
+\begin{figure}[tbh]
 %Graph from oxydeoxy field comparison
 \centering
 \includegraphics[width=0.8\textwidth]{figures/contflow/K0field.pdf}
 \caption[Relationship between \Kzero on \SOtwo at different fields]{Dependence of \Kzero on \SOtwo at different fields. \Kzero values found by fitting as described in text. Linear fit coefficients are included in \autoref{tab:contflow-K0fitPar}. Note 5 MHz data only extends to \SOtwo=25\%.}
 \label{fig:contflow-K0field}
 \end{figure}
+
+Each data point in the \Rtwo vs \SOtwo curves was fitted using non-linear fitting to find \Kzero, using  \Texc =  \SI{3}{ms} for the exchange time, and \TtwoO as a second fitted variable.
+This value of \Texc was reported by Stefanovic\cite{StefanovicHumanwholebloodrelaxometry2004}, and \TtwoO was allowed to vary to ensure that the \Kzero was only dependent on the difference between echo times (as it adds a uniform offset).
+Fitting the Luz-Meiboom equation to the different \Rtwo values at the 5 echo times gave good agreement to the data across all \SOtwo values.
+These results are included in \autoref{fig:contflow-K0field}.
+
+Plotting \Kzero against (1-\SOtwo)\textsuperscript{2} shows a linear relationship at all field strengths, as predicted by theory.
+These were fit using weighted least-squares fitting to find the slope.
+Fit parameters for the linear fits are shown in \autoref{tab:contflow-K0fitPar}.
+At high values of \SOtwo (left side of graph), the fitted \Kzero parameters should decrease to 0, as the dependence on echo time and therefore the splitting between \Ttwo values should go to zero.
+In cases where oxygenated blood samples created splitting, for example the 10 MHz data, this is reflected in the intercept parameter being non-zero.
+
+As expected, the slope also increases with field strength.
+To determine the dependence on \Bzero, the slopes can be plotted on a log-log scale to see if they follow a linear trend.
+This is shown in \autoref{fig:contflow-k0loglog}.
+The line of best fit has a slope of \num{2.1\pm0.4}, which is consistent with a dependence on \Bzero\textsuperscript{2}.
 
 \begin{table}[t]
 %data from oxydeoxy field comparison
@@ -524,16 +534,6 @@ These results are included in \autoref{fig:contflow-K0field}.
 \label{tab:contflow-K0fitPar}
 \end{table}
 
-Plotting \Kzero against (1-\SOtwo)\textsuperscript{2} shows a linear relationship at all field strengths, as predicted by theory.
-These were fit using weighted least-squares fitting to find the slope.
-Fit parameters for the linear fits are shown in \autoref{tab:contflow-K0fitPar}.
-At high values of \SOtwo (left side of graph), the fitted \Kzero parameters should decrease to 0, as the dependence on echo time and therefore the splitting between \Ttwo values should go to zero.
-In cases where oxygenated blood samples created splitting, for example the 10 MHz data, this is reflected in the intercept parameter being non-zero.
-
-As expected, the slope also increases with field strength.
-To determine the dependence on \Bzero, the slopes can be plotted on a log-log scale to see if they follow a linear trend.
-This is shown in \autoref{fig:contflow-k0loglog}.
-The line of best fit has a slope of \num{2.1\pm0.4}, which is consistent with a dependence on \Bzero\textsuperscript{2}.
 \begin{figure}[tbh]
 %Graph from oxydeoxy field comparison
 \centering
@@ -602,8 +602,8 @@ This makes it difficult to compare these continuous flow results with examples f
 One comparable study was done by Brooks et al., who measured the dependence of \Ttwo on field strength between \SIlist{0.02;1.5}{T} for samples of oxygenated and deoxygenated blood\cite{BrooksComparisont2relaxation1995}.
 They used a fixed echo time of \SI{4}{ms}, which is relatively close to the \SI{5}{ms} echo time series used in this experiment.
 Their samples were much smaller (\SI{0.5}{ml}), and were measured at 13 different \Bzero strengths.
-Brooks et al. found that the difference between deoxygenated and oxygenated blood is given by $R_2 = a + bB_0^2$, where \textit{a}=\SI{4}{s^{-1}} and \textit{b}=\SI{7.2}{s^{-1}/T}.
-They suggested that there is still a significant difference between the deoxygenated and oxygenated blood at low field.
+Brooks et al. found that the difference between deoxygenated and oxygenated blood is given by $R_2 = a + bB_0^2$, where \textit{a}=\SI{4}{s^{-1}} and \textit{b}=\SI{7.2}{s^{-1}/T^2}.
+This suggests that there is still a significant difference between the deoxygenated and oxygenated blood at low field.
 
 In contrast the continuous flow results show a similar trend, but with \textit{a}=\SI{0.11\pm0.12}{s^{-1}} and \textit{b}=\SI{5.1\pm0.3}{s^{-1}/T}.
 While the \textit{b} value is approximately the same, the value for \textit{a} from these results means that there is little to no change between oxygenated and deoxygenated blood at low fields.
@@ -612,7 +612,8 @@ The reason for this difference is unclear, but may be due to differences in thei
 They deoxygenated the blood chemically, which can completely remove oxygen in the samples and drop the \SOtwo to zero.
 They also state that the deoxygenated blood samples were deoxygenated and used without further processing, but the oxygenated blood samples were centrifuged, washed in saline, and resuspended in thawed plasma.
 
-Little to no change for weak \Bzero fields was also found by Gomori et al., who found a \SI{10}{ms} \Ttwo difference between oxygenated and deoxygenated blood at \SI{0.19}{T} \cite{GomoriNMRRelaxationTimes1987} --
+Gomori et al. also found little to no change  in \Ttwo for weak \Bzero fields.
+They found a \SI{10}{ms} \Ttwo difference between oxygenated and deoxygenated blood at \SI{0.19}{T} \cite{GomoriNMRRelaxationTimes1987} --
 at a \SI{2}{ms} echo time, the oxygenated and deoxygenated blood had \Ttwo values of \SI{235\pm40}{ms} and \SI{224\pm25}{ms} (estimated from graph).
 This corresponds to an \Rtwo change of \SI{0.2\pm1.1}{s^{-1}}, which agrees with our finding of little to no change in \Rtwo at low field.
 
@@ -620,28 +621,27 @@ The other component of this experiment that can be compared is the dependence on
 Stefanovic et al. measured the \Ttwo of blood at various levels of oxygenation with a range of CPMG echo times in a \SI{1.5}{T} MRI scanner\cite{StefanovicHumanwholebloodrelaxometry2004}.
 They performed the same \Kzero fitting process to calibrate \Kzero values against \SOtwo, and plotted them against the same (1-\SOtwo)\textsuperscript{2}
 Their results also produced a linear dependence, with a slope of \SI{3.1\pm0.2 e-13}{T^2}.
-For comparison, this data point is also included in \autoref{fig:contflow-k0loglog}, and appears to follow the field dependence trend predicted by theory.
-This is nice. (TODO more scientific!)
+For comparison, this data point is also included in \autoref{fig:contflow-k0loglog}, and appears to follow the dependence on \Bzero\textsuperscript{2} predicted by theory.
 
 Other studies give empirical calibration constants for the shape of the \Rtwo/\SOtwo curve (curvature in \autoref{fig:contflow-R2SO2}).
 The results from these studies are used to calibrate \Ttwo measurements to \SOtwo in imaging studies using the simplified equation below.
 
 \begin{equation}
-\frac{1}{T_2} = \frac{1}{T_{20}} + K\left(\tau_{180},\omega_0\right)\left(1 - \frac{sO_2}{100}\right)
+\frac{1}{T_2} = \frac{1}{T_{20}} + K\left(\tau_{180},\omega_0\right)\left(1 - \frac{sO_2(\%)}{100}\right)
 \label{eq:quadmodel}
 \end{equation}
 
 This curvature constant will be dependent on parameters such as field strength, echo time and haematocrit.
 One example is from Wright, who found \textit{K}=\SI{13.4}{s^-1} at a field of \SI{1.5}{T}, and a \SI{6}{ms} echo time\cite{WrightEstimatingoxygensaturation1991}.
-This value was also found by Portnoy, who also found \textit{K}=\SI{13.4}{s^-1} in blood at \SI{1.5}{T}\cite{PortnoyRelaxationpropertieshuman2017}.
+This value was also found by Portnoy, who reported \textit{K}=\SI{13.4}{s^-1} in blood at \SI{1.5}{T}\cite{PortnoyRelaxationpropertieshuman2017}.
 Silvennoinen found a higher value of \textit{K}=\SI{21}{s^{-1}} using a spin-echo experiment at \SI{1.5}{T}.\cite{SilvennoinenComparisondependenceblood2003}.
 
 %TODO Found another one! 10.1002/mrm.26835
 Fitting a quadratic curve to the 40 MHz experiment (\autoref{fig:contflow-40MHzR2SO2}) gives a value of \textit{K}=\SI{5.1}{s^{-1}} at the \SI{5}{ms} echo time (the closest to the echo time used by Wright).
 Extrapolating this to a \SI{1.5}{T} field by multiplying by $(\frac{\SI{1.5}{T}}{\SI{0.94}{T}})^2$ gives a value of \SI{13}{s^{-1}}, which is quite close to the published value.
-This extrapolated value would be expected to be lower, as these continuous flow experiments used lower blood samples with a lower hematocrit than the literature studies, which used blood with a physiological \Hct, and a slightly shorter echo time.
+This extrapolated value would be expected to be lower, as these continuous flow experiments used blood samples with a lower hematocrit than the literature studies, which used blood with a physiological \Hct, and a slightly shorter echo time (\SI{5}{ms}), rather than the \SI{6}{ms} in studies by Wright).
 
-\subsection{Background \Ttwo decrease: Haemolysis?}
+\subsection{Background \Ttwo decrease: Haemolysis}
 \label{sec:contflow-hemolysis}
 The general decreasing trend in \Ttwo over the time of the experiments is still significant in these experiments.
 A similar effect was also observed in the stopped flow experiments, where \Ttwo values did not fully recover after the blood samples were reoxygenated.
@@ -650,8 +650,8 @@ In these continuous flow experiments, this effect is more visible due to the lon
 The stopped flow experiments suggested that the change in \Ttwo might be due to the breakdown of red blood cells in the blood.
 To test this more quantitatively, the haemoglobin concentration was measured for samples of plasma, separated from blood removed from the flow circuit.
 This `Plasma free haemoglobin' is an indicator for haemolysis, the breakdown of red blood cells, as the cells release their haemoglobin into the surrounding plasma. \cite{MalinauskasPlasmaHemoglobinMeasurement1997}.
-Additionally, the \Ttwo for the separated plasma was measured on the Spinsolve, to see if there was any correlation with the changing \Ttwo values from the continuous flow experiment.
-In studies at high fields, haemoglobin has been shown in the literature to act as a paramagnetic contrast agent \cite{GrgacTransversewaterrelaxation2017}
+Additionally, the \Ttwo of the separated plasma was measured on the Spinsolve, to see if there was any correlation with the changing \Ttwo values from the continuous flow experiment.
+In studies at high fields, haemoglobin has been shown in the literature to act as a paramagnetic contrast agent\cite{GrgacTransversewaterrelaxation2017}.
 
 Plasma free haemoglobin was measured using the Kahn method, which is described in a review of haemolysis testing methods by Fairbanks\cite{FairbanksMethodsmeasuringplasma1992}.
 This uses UV/Vis spectroscopy of the haemoglobin absorption peak at \SI{578}{nm} to measure the concentration.
@@ -660,11 +660,11 @@ Instead, the coefficients were multiplied to remove the assumed dilution, althou
 Absorption spectra were measured in plastic cuvettes with a \SI{1}{cm} pathlength, using a Shimadzu UV-2600 UV/Vis spectrometer (Shimadzu, Kyoto Japan).
 
 \begin{equation}
-\mathrm{Kahn: } c_{Hb} (\si{g/L}) = 1.55A_{578} - 0.861A_{562} - 0.689A_{598}
+\mathrm{Kahn: } \quad c_{Hb} (\si{g/L}) = 1.55A_{578} - 0.861A_{562} - 0.689A_{598}
 \label{eq:Kahn}
 \end{equation}
 \begin{equation}
-\mathrm{Harboe: } c_{Hb} (\si{g/L}) = 0.836 \times \left( 2A_{415} - A_{380} - A_{450}\right) \times \frac{1}{11}
+\mathrm{Harboe: } \quad c_{Hb} (\si{g/L}) = 0.836 \times \left( 2A_{415} - A_{380} - A_{450}\right) \times \frac{1}{11}
 \label{eq:Harboe}
 \end{equation}
 
@@ -707,6 +707,7 @@ Comparing this with the \Rtwo measurements in blood, this \SI{0.2}{s^{-1}} chang
 \caption[Blood haemolysis experiment result]{Blood haemolysis experiment result. Plasma free haemoglobin found using Kahn method, Plasma \Rtwo values measured on Spinsolve at \SI{1}{T}, Blood \Rtwo values taken from blood data shown in \autoref{fig:contflow-5mhzT2Time} and \autoref{fig:contflow-40mhzT2Time}}
 \label{fig:contflow-haemolyseResult}
 \end{figure}
+
 A similar result was found in the 40 MHz experiment, although the plasma sample used was relatively cloudy, potentially due to lipids or proteins in the plasma causing the UV/Vis spectra to display broad absorptions.
 This interfered with the haemoglobin measurement, as it uses the region around the absorption peak to attempt to remove background absorption.
 
@@ -714,27 +715,27 @@ This interfered with the haemoglobin measurement, as it uses the region around t
 While the UV/Vis spectra from this experiment cannot conclusively link free haemoglobin and the plasma \Rtwo, the increasing trend in the plasma \Rtwo and blood \Rtwo over time suggest that the blood is breaking down.
 
 These experiments suggest that the background decrease in \Ttwo across the time span of the experiments is due to haemolysis of the red blood cells.
-Haemolysis can be caused by many factors including the age of the blood, changes in osmolarity, temperatures above \SI{40}{\celsius} and mechanical/shear stress\cite{Sowemimo-CokerRedbloodcell2002}
+Haemolysis can be caused by many factors including the age of the blood, changes in osmolarity, temperatures above \SI{40}{\celsius} and mechanical/shear stress\cite{Sowemimo-CokerRedbloodcell2002}.
 This was observed happening in the pump when the occlusion was set too tightly, which lead to the use of the occlusion setting process described in \autoref{sec:exptsetup-flowcircuitandpump}.
 It is possible that haemolysis is occuring due to the blood flowing through the relatively tight screw clamp, or due to contact with the PVC tube and oxygenator membrane.
-Blood haemolysis is also known to occur in \textit{ex-vivo} blood circulation circuits for cardiopulmonary bypass, although typically the natural scavenging process in the body is able to clear this without significant ill-effects\cite{VercaemstHemolysiscardiacsurgery2008}.
+Blood haemolysis is known to occur in \textit{ex-vivo} blood circulation circuits for cardiopulmonary bypass, although typically the natural scavenging process in the body is able to clear this without significant ill-effects\cite{VercaemstHemolysiscardiacsurgery2008}.
 
-\subsection{\SOtwo measurement from \Ttwo}
-As the goal of this project is to determine how well \SOtwo can be measured using NMR at low fields, the results from the continuous flow experiments were used to back-predict the \SOtwo for comparison to the optical sensor.
+\subsection{Oxygen saturation measurement from \Ttwo}
+As the goal of this project is to determine how well \SOtwo can be measured using NMR at low fields, the \Ttwo values measured in the 14 MHz continuous flow experiment were used to back-predict the \SOtwo for comparison to the optical sensor.
 In the literature, most experiments use a calibration curve to directly link measured \Ttwo values with \SOtwo for one echo time.
 This process was pioneered by Wright\cite{WrightEstimatingoxygensaturation1991}, and applied by Golay\cite{GolayMeasurementtissueoxygen2001}, Lu\cite{LuQuantitativeevaluationoxygenation2008}, Portnoy\cite{PortnoyNoninvasiveevaluationblood2017} and many others.
 
-More recently, a parametric method of fitting \Ttwo values measured at multiple echo times has been introduced by Varghese\cite{VargheseCMRbasedbloodoximetry2017} for use in MRI oximetry of the heart.
-This relies on using non-linear least sqaures fitting to fit the full Luz-Meiboom equation (\autoref{eq:LMblood}, which includes terms for \Hct, $\alpha$ and \SOtwo) to the measured \Ttwo values, and extracting \SOtwo from this.
+More recently, a parametric method of fitting \Ttwo values measured at multiple echo times was been introduced by Varghese\cite{VargheseCMRbasedbloodoximetry2017} for use in MRI oximetry of the heart.
+This relies on using non-linear least squares fitting to fit the full Luz-Meiboom equation (\autoref{eq:LMblood}, which includes terms for \Hct, $\alpha$ and \SOtwo) to the measured \Ttwo values, and extracting \SOtwo from this.
 In their study, they demonstrated that this parametric method improved \SOtwo measurement accuracy when compared to the simplified calibration curve model, by comparing the \SOtwo values calculated with each method to direct \SOtwo measurements of blood sampled from the heart (in pigs).
 This method requires a separate measurement of a sample of blood to find a known \SOtwo value and the haematocrit, to be able to estimate $\alpha$ and the haematocrit factor in the Luz-Meiboom equation.
 \Ttwo values were measured using 4 echo times between \SIrange{10}{25}{ms}, which were used to estimate either the \SOtwo, or 4 constrained parameters: \SOtwo, \Hct, $\alpha$ and \TtwoO.
 
 In this work, a similar parametric method was applied to find \Kzero and \TtwoO from the 5 echo times in each measurement.
 This should mean that effects due to temperature, flow and haemolysis can be ignored, so that the \SOtwo prediction depends only on the echo time splitting.
-This \Kzero value was then converted to an \SOtwo using the values in \autoref{fig:contflow-K0field}, which describe the linear relationship between \Kzero and $(1-sO_2)^2$ at this field and haematocrit.
+This \Kzero value was then converted to an \SOtwo using the values in \autoref{fig:contflow-K0field}, which describe the linear relationship between \Kzero and (1-\SOtwo)\textsuperscript{2} at this field and haematocrit.
 In effect, this is the same as the `Approach 3' trained method described by Varghese, where the `nuisance parameters' are found from the training data, which are the slope parameter in \autoref{tab:contflow-K0fitPar}.
-The short echo times used in these experiments, particularly the \SI{1}{ms} time, should allow this method to better estimate the \TtwoO, while the wide range of echo times also provides a larger splitting, allowing for better estimation of \Kzero.
+The short echo times used in these experiments, particularly the \SI{1}{ms} time, should allow this method to better estimate \TtwoO, while the wide range of echo times also provides a larger splitting, allowing for better estimation of \Kzero.
 
 This method was applied to data from the 14 MHz experiment, shown in \autoref{fig:contflow-NMRSO2}.
 The section of the experiment where the \Ttwo and optical sensor \SOtwo values were extracted for analysis (effectively training data) is shown in grey.
@@ -743,7 +744,7 @@ For comparison, a quadratic \Rtwo/\SOtwo calibration was also calculated using t
 \begin{figure}[t]
 %Graph from 14MHz experiment
 \centering
-\includegraphics[width=0.8\textwidth]{figures/contflow/calibratedNMRSO2.pdf}
+\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/calibratedNMRSO2.pdf}}
 \caption[Back-predicted \SOtwo from NMR measurements at 14 MHz]{Back-predicted \SOtwo from NMR measurements at 14 MHz, using data highlighted in grey as `training' data}
 \label{fig:contflow-NMRSO2}
 \end{figure}
