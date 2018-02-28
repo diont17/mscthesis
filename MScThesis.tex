@@ -6,7 +6,8 @@
 \usepackage{fontspec}
 \setmainfont{TeX Gyre Pagella}
 \usepackage{url} % for typesetting urls
-\usepackage{hyperref}
+
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=black,citecolor=black]{hyperref}
 
 \usepackage{xspace}
 \usepackage{graphicx}
@@ -14,7 +15,7 @@
 \usepackage{subcaption}
 \usepackage{siunitx}
 \usepackage[table]{xcolor}
-\usepackage[bottom=3.0cm, left=4cm, right=3.3cm]{geometry}
+\usepackage[bottom=3.0cm, left=3cm, right=3.0cm]{geometry}
 
 \usepackage{pdflscape}
 %\renewcommand{\baselinestretch}{1.00}
@@ -40,8 +41,8 @@
 \newcommand{\Hct} {\textit{Hct}\xspace}
 
 \sisetup{separate-uncertainty = true}
-\sisetup{unit-color = blue}
-\sisetup{number-color = blue}
+%\sisetup{unit-color = blue}
+%\sisetup{number-color = blue}
 
 \begin{document}
 
@@ -55,20 +56,28 @@
 
 \subject{Physics}
 \abstract{
-Changes in blood oxygen saturation change the magnetic properties of red blood cells, generating an inhomogeneous magnetic field which decreases the \Ttwo relaxation time of the water protons in blood.
-This effect has been well characterised at imaging fields (\SI{>1.5}{T}), and has been applied to measure changes in blood oxygen saturation, but at the low fields required for portable NMR devices, there are only few examples in the literature.
-It is known that the size of this contrast is related to the field strength squared, and to the fraction of deoxy-haemoglobin squared, but previous experiments in the literature at low field strengths have only looked at extreme levels of oxygenation/deoxygenation.
+Blood oxygenation is a critical physiological parameter for patient health.
+The clinical importance of this parameter means that measurement of blood oxygenation is a routine part of care.
+Magnetic resonance provides a way to measure blood oxygenation through the paramagnetic effect of deoxy-haemoglobin, which decreases the \Ttwo relaxation time of blood.
+This effect has been well characterised at high fields (\SI{>1.5}{T}) for use in Magnetic Resonance Imaging, and it is a contributing factor to the Blood Oxygenation Level Dependent contrast used in functional MRI.
+However there are relatively few studies of this effect at low magnetic fields, and these have only looked at extreme levels of oxygenation/deoxygenation.
+To study this effect for potential application in a low-field device, we measured this effect to determine how factors such as oxygenation, field strength and CPMG echo time affect the \Ttwo of blood.
 
-In this thesis, we measure this \Ttwo relaxation change to determine how factors such as oxygen saturation, field strength and CPMG echo time affect it.
-A continuous flow circuit, similar to a cardiopulmonary bypass circuit, is used to control parameters such as oxygen saturation and temperature, before the blood sample flows into a variable field magnet, where a series of CPMG experiments with echo times ranging from \SIrange{1}{20}{ms} are run to measure the \Ttwo.
-Additionally, the oxygen saturation is continually tracked by an optical sensor, to give a reference to compare the \Ttwo.
-This allows us to measure small variations in the blood oxygenation, so that the sensitivity to small, clinically relevant decreases could be tested.
+A continuous flow circuit, similar to a cardiopulmonary bypass circuit, was used to control parameters such as oxygen saturation and temperature, before the blood sample flowed into a variable field magnet (set at fields between 5-40 MHz), where a series of CPMG experiments with echo times ranging from \SIrange{1}{20}{ms} were performed to measure the \Ttwo.
+Additionally, the oxygen saturation was continually monitored by an optical sensor, for comparison with the \Ttwo changes.
+This allowed us to test the sensitivity of this effect at low fields.
 
-These results show that the \Ttwo relaxation change follows the trends predicted by theory, with a quadratic dependence on the fraction of deoxy-haemoglobin.
-The size of the change also follows a quadratic dependence on the field strength.
-The results were also compared with two theoretical models for the dependence on echo time: the Luz-Meiboom equation, and the Jensen and Chandra model.
-At these field strengths and echo times, both models provided good agreement with the experimental data, however the Jensen and Chandra model model was able to provide better fits to the data.
-These experiments show that the \SOtwo dependent \Ttwo changes effect agrees with the predictions of theory, and that this technique for measuring oxygen saturation with NMR is feasible in a low field device.
+These results show that at low fields, the \Ttwo relaxation change still follows the trends shown in the literature, with a dependence on \Bzero squared, and on the fraction of deoxyhaemoglobin squared.
+Additionally, these results were also compared with two theoretical models for the dependence on echo time, which have previously been tested at high fields: the Luz-Meiboom equation, and the Jensen and Chandra model.
+Both models gave good agreement with the data measured at low fields.
+These experiments show that the \Ttwo changes in blood due to oxygenation are still visible at low field, and that this technique should be feasible in a low field device.
+
+
+%Changes in blood oxygen saturation change the magnetic properties of red blood cells, generating an inhomogeneous magnetic field which decreases the \Ttwo relaxation time of the water protons in blood.
+%This effect has been well characterised at imaging fields (\SI{>1.5}{T}), and has been applied to measure changes in blood oxygen saturation \textit{in-vivo}, but at the low fields required for portable NMR devices, there are only a handful of studies in the literature.
+%These showed that the size of the \Ttwo change increases with the field strength squared, althuoguh these experiments at low fields only looked at extreme levels of oxygenation/deoxygenation.
+
+%At these field strengths and echo times, both models provided good agreement with the experimental data, however the Jensen and Chandra model model was able to provide better fits to the data.
 }
 % Books don't normally have abstracts, and this is a bit of a hack
 
@@ -89,6 +98,7 @@ These experiments show that the \SOtwo dependent \Ttwo changes effect agrees wit
 \maketitle
 
 \include{chapters/acknowledge}
+\addtocontents{toc}{\vskip-1.0cm}
 
 \tableofcontents
 

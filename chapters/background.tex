@@ -65,7 +65,7 @@ M(t_d) = M_0 (1 - 2 e^{-\frac{t_d}{T_1}})
 \begin{figure}[t]
 \centering
 \makebox[\textwidth][c]{\includegraphics[width=1.1\textwidth]{figures/background/T1relaxation.pdf}}
-\caption[Inversion recovery experiment]{\Tone relaxation leads to the recovery in the equilibrium magnetisation (M\textsubscript{0}). The Inversion Recovery experiment works by applying a \SI{180}{\degree} pulse, then measuring the magnetisation by applying a \SI{90}{\degree} pulse \textit{t\textsubscript{d}} to generate an FID. Repeating the experiment with a range of \textit{t\textsubscript{d}}s allows the samples \Tone to be measured.}
+\caption[Inversion recovery experiment]{\Tone relaxation leads to the recovery in the equilibrium magnetisation (M\textsubscript{0}). The Inversion Recovery experiment works by applying a \SI{180}{\degree} pulse, then measuring the magnetisation by applying a \SI{90}{\degree} pulse at time \textit{t\textsubscript{d}} to generate an FID. Repeating the experiment with a range of \textit{t\textsubscript{d}}s allows the samples \Tone to be measured.}
 \label{fig:back-T1}
 \end{figure}
 
@@ -97,17 +97,17 @@ In a physical sample, protons are always experiencing different magnetic fields 
 The dephasing from this process is random and non-reversible.
 The physical properties of a sample control the amount of interaction between protons on surrounding molecules, and the rates of this intrinsic \Ttwo relaxation, for example, solids have extremely fast \Ttwo relaxation times, on the order of 10s of microseconds, while water can have a \Ttwo on the order of seconds.
 
-\Ttwo relaxation is also be increased by the presence of paramagnetic ions in the sample, such as Cu\textsuperscript{2+}, Mn\textsuperscript{2+} and Gd\textsuperscript{3+}.
+\Ttwo relaxation can also be increased by the presence of paramagnetic ions in the sample, such as Cu\textsuperscript{2+}, Mn\textsuperscript{2+} and Gd\textsuperscript{3+}.
 These affect the magnetic fields experienced by protons in the sample, and cause additional dephasing.
 Their effect is characterised by a relaxivity \textit{r}, measured in \si{s^{-1}/mmolL^{-1}}, which describes the dependence on concentration.
-This is due to the additive nature of relaxation rates: when multiple processes cause relaxation, the relaxation rates add together:
+This is due to the additive nature of relaxation rates: when multiple processes cause relaxation, the relaxation rates add together
 
 \begin{displaymath}
 \frac{1}{\Ttwo} = R_2 = \frac{1}{T_{2 intrinsic}} + r_{2} c_{metal}
 \end{displaymath}
 
-In addition another process reduces the transverse magnetisation of a sample.
-\Ttwostar relaxation is  associated with the homogeneity of the \Bzero field, as different magnetic fields across the sample will produce different precession rates, and cause protons to dephase.
+Additionally, another process reduces the transverse magnetisation of a sample.
+\Ttwostar relaxation is associated with the homogeneity of the \Bzero field, as different magnetic fields across the sample will produce different precession rates, and cause protons to dephase.
 This process is illustrated in \autoref{fig:back-T2}.
 
 The precession of the net magnetisation around the \Bzero field, and the effect of relaxation on the net magnetisation can be expressed using the phenomelogical Bloch equation \autoref{eq:back-Bloch}.
@@ -120,7 +120,7 @@ The precession of the net magnetisation around the \Bzero field, and the effect 
 \section{Spin echoes and CPMG}
 \label{sec:back-spinecho}
 The spin echo was first described by Hahn in 1950\cite{HahnSpinEchoes1950}.
-By applying a \SI{180}{\degree} pulse a time $\tau$ after a \SI{90}{\degree} pulse, he observed a signal forming after another $\tau$.
+By applying a \SI{180}{\degree} pulse a time $\tau$ after a \SI{90}{\degree} pulse, he observed a signal forming at $2\tau$.
 He showed that this is due to the spread of phase caused by the \Bzero field inhomogeneity being reversed, which allows the protons to rephase and regenerate a net transverse magnetisation that can be detected.
 
 \begin{figure}[t]
@@ -134,14 +134,14 @@ He showed that this is due to the spread of phase caused by the \Bzero field inh
 The formation of the spin echo is shown illustrated in \autoref{fig:back-spinecho}.
 The inhomogeneous \Bzero field causes protons across the sample to have different Larmor frequencies, meaning that they precess at different rates, and accumulate different amounts of phase as time continues.
 The different phases cause the net transverse magnetisation of the whole sample to decay, with a shorter time constant \Ttwostar.
-Applying a \SI{180}{\degree} refocussing pulse $\tau$ after the \SI{90}{\degree} pulse causes the magnetic moments of each proton to rotate through \SI{180}{\degree} around the \textit{x} (or \textit{y}) axis, so that the different precession rates unwind the different accumulated phase.
+Applying a \SI{180}{\degree} refocusing pulse $\tau$ after the \SI{90}{\degree} pulse causes the magnetic moments of each proton to rotate through \SI{180}{\degree} around the \textit{x} (or \textit{y}) axis, so that the different precession rates unwind the different accumulated phase.
 Thus unwinding causes the magnitude of the net transverse magnetisation to increase, reaching a maximum at $2\tau$, which is the centre of the echo.
 The spin echo will still have a reduced intensity, due to the intrinsic \Ttwo relaxation proceses described above.
 However, it removes the effects of the inhomogeneous \Bzero field, and allows the measurement of the intrinsic \Ttwo relaxation process.
 
 This rephasing process relies on the protons experiencing the same \Bzero field in the period before and after the \SI{180}{\degree} pulse.
-If protons move across the inhomogeneous field during this time, they may not experience the same field and not be complete refocussed at $2\tau$.
-This can be due to diffusion(the movement of protons in the sample) or processes such as chemical exchange (explored below).
+If protons move across an inhomogeneous field during this time, they may not experience the same field and not be complete refocussed at $2\tau$.
+This can be due to diffusion (the random movement of protons in the sample) or processes such as chemical exchange (explored below).
 
 \begin{figure}[t]
 \centering
@@ -153,7 +153,7 @@ This can be due to diffusion(the movement of protons in the sample) or processes
 Once the magnetisation has been refocused in the spin echo, the transverse magnetisation decays following the \Ttwostar relaxation time again.
 Carr and Purcell proposed repeating the refocussing pulses, to create more echoes and further map out the \Ttwo relaxation \cite{CarrEffectsDiffusionFree1954}.
 In this experiment, the refocussing pulses are evenly spaced by an echo time, as shown in \autoref{fig:back-cpmg}.
-Meiboom and Gill improved this experiment by adjusting the phase of the \SI{180}{\degree} pulses relative to the \SI{90}{\degree} pulse, such that they rotate the magnetisation around the \textit{y}-axis rather than \textit{x} \cite{MeiboomModifiedSpinEcho1958}.
+Meiboom and Gill improved this experiment by adjusting the phase of the \SI{180}{\degree} pulses relative to the \SI{90}{\degree} pulse, such that they rotate the magnetisation around the \textit{y}-axis rather than \textit{x}-axis \cite{MeiboomModifiedSpinEcho1958}.
 This reduces the errors caused by an incorrect \SI{180}{\degree} pulse.
 With this modification, the CPMG experiment is commonly used for fast and robust measurements of the \Ttwo of a sample.
 
@@ -166,7 +166,7 @@ The \Ttwo can be measured by the slope of a semi-log plot, or by non-linear fitt
 While measurements of the intrinsic \Ttwo should not be afffected by the echo time used, process like exchange and diffusion can alter the measured \Ttwo.
 For example, for protons moving in a magnetic gradient, a longer echo time means that protons experience a wider range of \Bzero fields before being refocussed.
 This makes the refocusing less effective, and results in a shorter observed \Ttwo, following \autoref{eq:CPMGgrad}.
-Similarly, exchange processes can cause protons to experience different magnetic fields in the timescale of the experiment, causing the refocussing to be less efficient.
+Similarly, exchange processes can cause protons to experience different magnetic fields in the timescale of the experiment, causing the refocusing to be less efficient.
 Exchange processes, and their applicability to blood are discussed further in \autoref{sec:back-T2SO2}.
 
 \begin{equation}
@@ -194,7 +194,7 @@ A \SI{180}{\degree} pulse is then applied, and an identical pulsed field gradien
 This causes the phase accumulated in the first pulse to be reversed before the spin echo is formed.
 Assuming there is no movement, the protons in the sample will be completely rephased, and the normal spin echo will be recovered.
 
-Diffusion (random movement) of protons means that the rephasing is not as effective, as the phase accumulated in the first pulsed gradient will is not totally removed.
+Diffusion (random movement) of protons means that the rephasing is not as effective, as the phase accumulated in the first pulsed gradient will not be totally removed.
 This means that some of the protons will cancel each other out, and cause the intensity of the spin echo to be reduced.
 By running experiments with a range of gradient strengths (\textit{g}) and measuring the echo intensity, the diffusion coefficient (D) for the sample can be obtained using \autoref{eq:PGSEdiff}, where $\delta$ is the length of time the pulsed gradient field is active, and $\Delta$ is the time between the two gradient pulses.
 
@@ -203,7 +203,7 @@ S(G) = S_0 e^{-\gamma^2 G^2 \delta^2 (\Delta - \frac{\delta}{3} ) D}
 \label{eq:PGSEdiff}
 \end{equation}
 
-In contrast, uniform motion of protons in a sample produces a different effect.
+In contrast, uniform motion of protons in a sample (such as flow) produces a different effect.
 Rather than the intensity of the spin echo decreasing, the phase of the spin echo is shifted.
 That is, the spin echo will form with the transverse magnetisation rotated slightly around the \textit{xy} plane when compared to a measurement with no flow (or no gradient), as the second gradient pulse `overcorrects' the dephasing.
 The velocity of the sample can be determined using two methods \cite{CallaghanVelocitydiffusionimaging1991,XiaOneshotvelocitymicroscopy1992,CallaghanTranslationalDynamicsMagnetic2014}
@@ -234,10 +234,10 @@ RBCs have a typical lifetime in the body of 120 days.
 The fraction of blood volume in red blood cells is called the haematocrit (typically around 0.4 in healthy adults)
 The primary role of RBCs is to contain and transport haemoglobin in the blood, and they can contain very high concentrations (up to \SI{34}{g/L}) of haemoglobin inside.
 
-\begin{figure}[ht]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/background/placeholder.JPG}
-\caption{Image of a red blood cell?}
+\includegraphics[width=0.5\textwidth]{figures/background/Blausen_0761_RedBloodCells_crop.png}
+\caption[Illustration of red blood cells]{Illustration of red blood cells. Source: Bruce Blaus \url{https://commons.wikimedia.org/wiki/File:Blausen_0761_RedBloodCells.png}}
 \label{fig:back-bloodcell}
 \end{figure}
 
@@ -265,15 +265,15 @@ Met-haemoglobin is formed when the iron in the complex is further oxidised to Fe
 Carboxy-haemoglobin is formed when carbon monoxide (CO) binds to haemoglobin, forming a bond much stronger than oxygen does, and leading to the loss of oxygen transport capacity.
 These other forms are not expected to be created in this experiment.
 
-\begin{figure}[ht]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/background/placeholder.JPG}
-\caption{Graph showing relationship between p\Otwo and \SOtwo in human blood. Placeholder for graph of some sort}
+\includegraphics[width=0.7\textwidth]{figures/background/Hemoglobin_saturation_curve.pdf}
+\caption[Graph showing relationship between p\Otwo and \SOtwo in blood]{Graph showing relationship between p\Otwo and \SOtwo in human blood. Source: \url{https://commons.wikimedia.org/wiki/File:Hemoglobin_saturation_curve.svg}}
 \label{fig:back-po2so2}
 \end{figure}
 
 The relationship between \SOtwo and p\Otwo is non-linear due to effects such as co-operative binding.
-Binding the first oxygen molecule to the one of the heme groups causes a change in the shape of the protein which makes binding at the other heme groups easier.
+Binding the first oxygen molecule to one of the heme groups causes a change in the shape of the protein which makes binding at the other heme groups easier.
 This makes the \SOtwo increase more steeply (as a function of p\Otwo) once the first oxygen is bound.
 This effect also works in reverse, causing the protein to release oxygen.
 Physiologically, this causes a release of oxygen in areas with low p\Otwo, which helps to deliver oxygen to tissue that needs it.
@@ -288,7 +288,7 @@ This causes oxygen to be released in areas where \COtwo is being produced due to
 Changes in the \SOtwo can be measured using the different optical and magnetic properties of oxy- and deoxy-haemoglobin.
 The binding of oxygen to haemoglobin causes them to have slightly different optical absorption spectra.
 In particular, the deoxy-haemoglobin absorbs strongly in the red region of the spectrum.
-This causes the colour change, where oxygenated blood appears red, and deoxygenated blood appears almost black.
+This causes a colour change, where oxygenated blood appears red, and deoxygenated blood appears almost black.
 
 Oxygen binding to haemoglobin also causes a change in the electronic structure of the iron atom. \cite{PaulingMagneticPropertiesStructure1936}
 In the oxygenated state, the iron atom complex has no unpaired electrons.
@@ -387,10 +387,10 @@ Using a variety of spectrometers and NMR systems, he also showed that the streng
 
 From this initial study, other researchers studied how the effect can be detected at lower fields.
 Gomori measured the \Ttwo of samples of oxygenated and deoxygenated blood at fields ranging from \SIrange{0.19}{1.4}{T}, and found that changes were still visible at these lower fields\cite{GomoriNMRRelaxationTimes1987}.
-This sort of experiment was also completed by Brooks, who found that \Ttwo shortening were visible at fields between \SIlist{0.05;1.5}{T} \cite{BrooksComparisont2relaxation1995}.
+This sort of experiment was also completed by Brooks, who found that \Ttwo decreases were visible at fields between \SIlist{0.05;1.5}{T} \cite{BrooksComparisont2relaxation1995}.
 Brooks mapped out the dependence on field strength more finely than Gomori, and was able to show that the size of the effect still scales with \Bzero squared at low fields.
 In these studies, the samples of blood were measured with either completely oxygenated and completely deoxygenated blood, typically obtained by adding sodium dithionite to deoxygenate the blood chemically.
-There are a handful of other studies of this effect at these low field strengths, such as \cite{BryantMagneticrelaxationblood1990} and Stadelmann\cite{StadelmannRelaxationtimesvenous1991}, although like the studies by Brooks and Gomori, these were only done using samples of deoxygenated and oxygenated blood.
+There are a handful of other studies of this effect at these low field strengths, such as Bryant\cite{BryantMagneticrelaxationblood1990} and Stadelmann\cite{StadelmannRelaxationtimesvenous1991}, although like the studies by Brooks and Gomori, these were only done using samples of deoxygenated and oxygenated blood.
 
 More recently, this effect has been studied \textit{in-vitro} for applications in high field imaging systems.
 Silvennoin\cite{SilvennoinenComparisondependenceblood2003}, Stefanovic\cite{StefanovicHumanwholebloodrelaxometry2004}, Chen\cite{ChenHumanwholeblood2009} and Gardener\cite{GardenerDependencebloodR22010} scanned samples of blood with varying oxygenation levels in MRI scanners (1.5, 2.35, 3 or 4.7 T) to study the change in \Ttwo as a function of oxygenation, haematocrit and CPMG echo time.
@@ -400,7 +400,7 @@ Another method of studying \Ttwo changes with \SOtwo \textit{in-vitro} was descr
 This method was more recently used by the group of Peter van Zijl, who has published multiple studies (\cite{ZhaoOxygenationhematocritdependence2007,GrgacTransversewaterrelaxation2017,QinDeterminationwholebrainoxygen2011} on the dependence of \Ttwo on \SOtwo, haematocrit, and on field strength for imaging systems.
 These studies have looked at magnetic field strengths from \SIrange{3.0}{16.4}{T}.
 
-The effect on \Ttwo of \SOtwo has also been applied in \textit{in-vivo} imaging, with a pioneering study by Wright\cite{WrightEstimatingoxygensaturation1991}, who measured changing oxygen saturation in the body using \Ttwo changes.
+The effect of \SOtwo on \Ttwo has also been applied in \textit{in-vivo} imaging, with a pioneering study by Wright\cite{WrightEstimatingoxygensaturation1991}, who measured changing oxygen saturation in the body using \Ttwo changes.
 More recently, other researchers have developed methods for imaging \SOtwo in blood based on this \Ttwo effect\cite{RodgersMRIbasedmethodsquantification2016}.
 TRUST-MRI can be used to isolate the protons in blood, and find \SOtwo from \Ttwo and a calibration curve.\cite{LuQuantitativeevaluationoxygenation2008}.
 Measurement of oxygenation using \Ttwo values collected with different echo times has also been demonstrated \cite{VargheseCMRbasedbloodoximetry2017}.
@@ -409,6 +409,6 @@ While these methods provide good agreement with other measurements of \SOtwo, th
 There are also other MR methods for detecting changes in \SOtwo which rely on the oxy-/deoxy-haemogobin susceptibility change.
 The Blood Oxygenation Level Dependent contrast used in functional imaging relies on the susceptibility change of blood in vessels in the brain.
 The induced field inhomogeneity causes additional \Ttwostar relaxation, lowering the observed signal in each pixel.
-By tracking the signal decrease (and the increase due to inflow of oxygenated blood afterwards) over time, regions of the brain using oxygen can be identified.
+By tracking the signal changes over time, regions of the brain using oxygen can be identified.
 Measurements of phase, and susceptibility mapping technique can also be used to directly measure the susceptibility change of blood vessels\cite{Haackevivomeasurementblood1997,Fernandez-SearaMRsusceptometrymeasuring2006a,JainInvestigatingmagneticsusceptibility2012}.
 This gives a more direct measurement of \SOtwo, as there is no reliance on the diffusion/exchange effect and has recently been demonstrated as a potential method for calibrating the \Ttwo effect described above.\cite{LanghamvivowholebloodT22018}

@@ -50,7 +50,7 @@ To collect the CPMG and PGSE data, a looping batch script was set up in Prospa t
 Multiple versions of the standard CPMG experiment included in Prospa were added with echo times equal to \SIlist{1;5;8;10;20}{ms}, and the number of echoes varied to give a total echo train length of \SI{600}{ms}.
 4 scans of each CPMG experiment were used with the standard phase cycling and a \SI{1.2}{s} inter-experiment delay (the sample was flowing through the coil, bringing in `fresh' spins, so the repetition time could be less than $5 \times \mathit{T_1}$.)
 Additionally, a PGSE experiment was added to monitor the flow rate, with $\Delta = \SI{16}{ms}$, $\delta = \SI{2}{ms}$, $\mathit{g} =$ \SIrange{0}{0.015}{T/m} over 4 steps, and a \SI{15.5}{ms} echo time.
-The x gradients were used as the PGSE gradient, as this corresponds to the direction of flow through the coil.
+The \textit{x} gradients were used as the PGSE gradient, as this corresponds to the direction of flow through the coil.
 \autoref{eq:PGSEvel} (restated here) was used to calculate the flow velocity.
 \begin{displaymath}
 v = \frac{\phi}{\gamma \Delta \delta g}
@@ -134,7 +134,7 @@ An example is shown in \autoref{fig:contflow-spikeyTtwo}, from an experiment wit
 There are large spikes of up to \SI{40}{ms} in the measured \Ttwo{}s, which makes it difficult to see trends due to changing \SOtwo.
 Interestingly, there is a period of `calm' between 355 and 380 minutes, before it goes back to the random spike pattern.
 
-\begin{figure}[ht]
+\begin{figure}[htb]
 %Graph generated in processBloodoxygenation2/171110 14mhz
 \centering
 \includegraphics[width=\textwidth]{figures/contflow/spikeyTtwo.pdf}
@@ -156,7 +156,7 @@ This is half of the rotational period of the pump head (approximately 26 seconds
 This drop is from a short period of time where both rollers stop squeezing the tube as the head rotates.
 When this is combined with the effect of phase cycling, this could cause the spikes in the measured \Ttwo.
 
-\begin{figure}[ht]
+\begin{figure}[htb]
 %plots made in flowtesting round 2/fast pgseprofile pump
 \centering
 \begin{subfigure}[t]{0.32\textwidth}
@@ -179,7 +179,7 @@ When this is combined with the effect of phase cycling, this could cause the spi
 The flow circuit was modified to include another blood bag between the magnet and the pump, and the have the blood flow under gravity.
 This give a much more stable flow, as can be seen in \autoref{fig:contflow-flowstabilityrawpgse}(c), and the green curve in \autoref{fig:contflow-flowstabilityspeed}, which has a speed of \textit{v} = \SI{1.04\pm0.02}{cm/s} over the 100 seconds it was measured for.
 
-\begin{figure}[ht]
+\begin{figure}[htb]
 %plots made in flowtesting round 2/fast pgseprofile pump
 \centering
 \includegraphics[width=\textwidth]{figures/contflow/flowstabilityspeed.pdf}
@@ -230,7 +230,7 @@ The \Ttwo increases to around \SI{280}{ms} when reoxygenated (at 181 minutes), r
 This effect was also seen in the stopped flow experiments.
 
 During the second deoxygenation ramp, the top blood bag ran empty due to the pump being set too slow (minute 225).
-This stopped the smooth deoxygenation ramp, and meant that the relatively deoxygenated blood from the oxygenator was sent through the circuit withough mixing with oxygenated blood in the bag.
+This stopped the smooth deoxygenation ramp, and meant that the relatively deoxygenated blood from the oxygenator was sent through the circuit without mixing with oxygenated blood in the bag.
 This can be seen in the optical data, as there is a sudden drop to around 30\% saturated, and it then stays constant.
 The \Ttwo responds differently however, with a slight increase, followed by the expected decrease.
 This may be due to the deoxygenated blood mixing with the oxygenated blood in the tube as it travels from the optical sensor to the magnet.
@@ -326,18 +326,6 @@ Because of the rapid increases in \Ttwo during the oxygenation ramps, and the \T
 
 \subsection{10 MHz}
 
-\begin{figure}[htp]
-%Generated in processbloodoxygenation2/171122 10mhz
-\centering
-\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/10MHzT2Time.pdf}}
-
-\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/10MHzTempTime.pdf}}
-
-\makebox[\textwidth][c]{\includegraphics[width=1.19\textwidth]{figures/contflow/10MHzFlowrate.pdf}}
-
-\caption[\Ttwo measurements during blood oxygenation ramping at 10 MHz field]{\Ttwo measurements during blood oxygenation ramping at 10 MHz field. Error bars show \Ttwo fitting error. \Hct = 0.34. v=\SI{1.6 \pm 0.1}{cm/s} between  70-230 minutes. Temperature was stable at \SI{28 \pm 0.5}{\celsius} during experiment.}
-\label{fig:contflow-10mhzT2Time}
-\end{figure}
 
 The blood sample used in the 10 MHz experiment was collected 13 days beforehand.
 After warming up, the pH was 7.19 and haematocrit was 0.34.
@@ -362,21 +350,22 @@ After reoxygenation, the third oxygenated stage is lower again by \SI{23}{ms}.
 These are the same sort of decreases observed in the higher field experiments.
 
 Both deoxygenation ramps produced the expected smooth decrease in \Ttwo, so both were used for further analysis.
+\begin{figure}[htp]
+%Generated in processbloodoxygenation2/171122 10mhz
+\centering
+\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/10MHzT2Time.pdf}}
+
+\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/10MHzTempTime.pdf}}
+
+\makebox[\textwidth][c]{\includegraphics[width=1.19\textwidth]{figures/contflow/10MHzFlowrate.pdf}}
+
+\caption[\Ttwo measurements during blood oxygenation ramping at 10 MHz field]{\Ttwo measurements during blood oxygenation ramping at 10 MHz field. Error bars show \Ttwo fitting error. \Hct = 0.34. v=\SI{1.6 \pm 0.1}{cm/s} between  70-230 minutes. Temperature was stable at \SI{28 \pm 0.5}{\celsius} during experiment.}
+\label{fig:contflow-10mhzT2Time}
+\end{figure}
 
 
 \subsection{5 MHz}
-%Generated in processbloodoxygenation2/171129 5mhz
-\begin{figure}[h!tp]
-\centering
-\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/5MHzT2Time.pdf}}
 
-\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/5MHzTempTime.pdf}}
-
-\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/5MHzFlowrate.pdf}}
-
-\caption[\Ttwo measurements during blood oxygenation ramping at 5 MHz field]{\Ttwo measurements during blood oxygenation ramping at 5 MHz field. Error bars show \Ttwo fitting error. \Hct = 0.35. v=\SI{2.3 \pm 0.4}{cm/s} between 80-250 minutes, and varied from \SI{1.4 \pm 0.3}{cm/s} between 280-380 minutes. Temperature varied around \SI{29 \pm 3}{\celsius} during experiment, with a drop to \SI{25}{\celsius} at 273 minutes.}
-\label{fig:contflow-5mhzT2Time}
-\end{figure}
 
 The blood sample used in the 5 MHz experiment was collected the day before.
 After being warmed up, the pH was 7.20, and the haematocrit was 0.34.
@@ -406,6 +395,18 @@ When reoxygenated, the \Ttwo increases back to \SI{255}{ms} at the \SI{1}{ms} ec
 The splitting of \SI{10}{ms} is consistent with the value when it was oxygenated.
 
 Because of the change in flow rate, only the data from the second deoxygenation ramp was extracted for further analysis.
+%Generated in processbloodoxygenation2/171129 5mhz
+\begin{figure}[h!tp]
+\centering
+\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/5MHzT2Time.pdf}}
+
+\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/5MHzTempTime.pdf}}
+
+\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/5MHzFlowrate.pdf}}
+
+\caption[\Ttwo measurements during blood oxygenation ramping at 5 MHz field]{\Ttwo measurements during blood oxygenation ramping at 5 MHz field. Error bars show \Ttwo fitting error. \Hct = 0.35. v=\SI{2.3 \pm 0.4}{cm/s} between 80-250 minutes, and varied from \SI{1.4 \pm 0.3}{cm/s} between 280-380 minutes. Temperature varied around \SI{29 \pm 3}{\celsius} during experiment, with a drop to \SI{25}{\celsius} at 273 minutes.}
+\label{fig:contflow-5mhzT2Time}
+\end{figure}
 
 \subsection{Dependence on \SOtwo}
 \label{contflow:fieldcomp}
@@ -414,6 +415,12 @@ This matching process took into account the delay between the optical sensor and
 Where data was taken from multiple oxygenation ramps, the \Ttwo values were shifted up, so that \Ttwo of oxygenated blood matched the intial measurements.
 This removes the effect of the background changes in \Ttwo (effectively \TtwoO in the Luz-Meiboom equation).
 These results are shown in \autoref{fig:contflow-R2SO2}.
+
+
+These plots clearly show the increases in \Rtwo (decrease in \Ttwo) as \SOtwo decreases.
+The higher field strengths also have a much wider range in \Rtwo, where the 40 MHz experiment has \Rtwo values between \SIlist{3.5;13.5}{s^{-1}}, and the 10 MHz (d) experiment has values between \SIlist{3.2;4}{s^{-1}} (the 5 MHz experiment (e) does not reach the lower levels of \SOtwo, so has a smaller range.)
+The slope of the \Rtwo curves also increases at lower values of \SOtwo, which agrees with theory, which predicts a dependence on (1-\SOtwo)\textsuperscript{2}.
+This effect is more visible at higher fields, and in the 10 MHz (d) and 5 MHz (e) experiments, the data appears almost linear.
 
 \begin{figure}[h!p]
   \makebox[\textwidth][c]{
@@ -456,11 +463,6 @@ These results are shown in \autoref{fig:contflow-R2SO2}.
   \caption[\Rtwo vs \SOtwo at different field strengths]{\Rtwo during oxygenation ramps plotted against measured \SOtwo, at different field strengths. Error bars show fitting error. Note different \Rtwo scales for 40 MHz and 20 MHz data. The same symbols are used in all graph}
   \label{fig:contflow-R2SO2}
 \end{figure}
-
-These plots clearly show the increases in \Rtwo (decrease in \Ttwo) as \SOtwo decreases.
-The higher field strengths also have a much wider range in \Rtwo, where the 40 MHz experiment has \Rtwo values between \SIlist{3.5;13.5}{s^{-1}}, and the 10 MHz (d) experiment has values between \SIlist{3.2;4}{s^{-1}} (the 5 MHz experiment (e) does not reach the lower levels of \SOtwo, so has a smaller range.)
-The slope of the \Rtwo curves also increases at lower values of \SOtwo, which agrees with theory, which predicts a dependence on (1-\SOtwo)\textsuperscript{2}.
-This effect is more visible at higher fields, and in the 10 MHz (d) and 5 MHz (e) experiments, the data appears almost linear.
 
 \Rtwo measurements with longer echo times are also much more sensitive to the decreasing \SOtwo.
 This is because there is more time for protons to experience dephasing from the field inhomogeneity as the time between the refocusing pulses increases.
@@ -553,7 +555,7 @@ In particular, it predicts that $R_2 \propto \left[\omega_0\alpha(1-sO_2)\right]
 Removing the effect of echo time, by fitting \Kzero to the different experiments makes it easier to see this dependence in \autoref{fig:contflow-K0field}.
 The fit results show that there is a significant linear correlation in the the parameters at most of the different field strengths.
 
-Additionally, fitting a log-log plot of the slopes of \Kzero against the field strength \Bzero gives a slope of \num{2.1\pm0.4}.
+Additionally, fitting a log-log plot of the slopes of \Kzero against the field strength \Bzero (\autoref{fig:contflow-k0loglog}) gives a slope of \num{2.1\pm0.4}.
 This agrees with the theoretical dependence on \Bzero squared.
 The relationship seems to hold for all but the lowest field strength (5 MHz), where the slope does not change significantly when compared to the 10 MHz slope.
 This suggests that the splitting  in \Ttwo due to \SOtwo at the 5 MHz field may be too small to be picked up with this set of 5 echo times.
@@ -704,7 +706,7 @@ Comparing this with the \Rtwo measurements in blood, this \SI{0.2}{s^{-1}} chang
 \includegraphics[width=0.9\textwidth]{figures/contflow/40haemolysePlasT2.pdf}
 %\includegraphics[width=0.9\textwidth]{figures/contflow/haemolyseBloodT2.pdf}
 \end{subfigure}
-\caption[Blood haemolysis experiment result]{Blood haemolysis experiment result. Plasma free haemoglobin found using Kahn method, Plasma \Rtwo values measured on Spinsolve at \SI{1}{T}, Blood \Rtwo values taken from blood data shown in \autoref{fig:contflow-5mhzT2Time} and \autoref{fig:contflow-40mhzT2Time}}
+\caption[Blood haemolysis experiment for 5 MHz and 40 MHz results]{Blood haemolysis experiment result. Plasma free haemoglobin found using Kahn method, Plasma \Rtwo values measured on Spinsolve at \SI{1}{T}, Blood \Rtwo values taken from blood data shown in \autoref{fig:contflow-5mhzT2Time} and \autoref{fig:contflow-40mhzT2Time}}
 \label{fig:contflow-haemolyseResult}
 \end{figure}
 
@@ -744,7 +746,7 @@ For comparison, a quadratic \Rtwo/\SOtwo calibration was also calculated using t
 \begin{figure}[t]
 %Graph from 14MHz experiment
 \centering
-\makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{figures/contflow/calibratedNMRSO2.pdf}}
+\makebox[\textwidth][c]{\includegraphics[width=\textwidth]{figures/contflow/calibratedNMRSO2.pdf}}
 \caption[Back-predicted \SOtwo from NMR measurements at 14 MHz]{Back-predicted \SOtwo from NMR measurements at 14 MHz, using data highlighted in grey as `training' data}
 \label{fig:contflow-NMRSO2}
 \end{figure}
