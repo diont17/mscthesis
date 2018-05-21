@@ -1,10 +1,10 @@
 \chapter{Models for \Ttwo relaxation enhancement}\label{ch:models}
 
 As discussed in section \ref{sec:back-T2SO2}, researchers have developed a number of models to explain the decrease in \Ttwo of the water protons in blood.
-Thulborn originally introduced the Luz-Meiboom equation to describe the decrease in \Ttwo and its dependence on the CPMG echo time\cite{ThulbornOxygenationdependencetransverse1982}.
-Another model has been proposed by Jensen and Chandra, which describes the dephasing of water protons that diffuse through areas of magnetic field inhomogeneities \cite{JensenNMRrelaxationtissues2000}.
-Generally, the two models predict the same behaviour at short echo times \SIrange{1}{3}{ms} and at long echo times (\SI{>20}{ms})\cite{BrooksT2shorteningweaklymagnetized2001}, but in the intemediate range, the two models give different values for the decrease in \Ttwo as echo time changes.
-Additionally, experiments comparing the two models have found that at clinical MRI fields (1.5 T and up), both models provide good agreement with experimental data \cite{StefanovicHumanwholebloodrelaxometry2004,ChenHumanwholeblood2009,GardenerDependencebloodR22010,GrgacTransversewaterrelaxation2017}
+Thulborn originally introduced the Luz-Meiboom equation to describe the decrease in \Ttwo and its dependence on the CPMG echo time \cite{ThulbornOxygenationdependencetransverse1982}.
+Another model has been proposed by Jensen and Chandra, which describes the dephasing of water protons that diffuse through areas of magnetic field inhomogeneities  \cite{JensenNMRrelaxationtissues2000}.
+Generally, the two models predict the same behaviour at short echo times \SIrange{1}{3}{ms} and at long echo times (\SI{>20}{ms}) \cite{BrooksT2shorteningweaklymagnetized2001}, but in the intermediate range, the two models give different values for the decrease in \Ttwo as echo time changes.
+Additionally, experiments comparing the two models have found that at clinical MRI fields (1.5 T and up), both models provide good agreement with experimental data  \cite{StefanovicHumanwholebloodrelaxometry2004,ChenHumanwholeblood2009,GardenerDependencebloodR22010,GrgacTransversewaterrelaxation2017}
 Because of this, the Luz-Meiboom equation is typically used when analysing data, as it is simpler than the diffusion model.
 
 As another component of this research, the agreement between these models and data collected at lower fields has been tested to investigate which model is more effective at lower field.
@@ -37,10 +37,10 @@ The Luz-Meiboom equation (\autoref{eq:LMblood}) is typically used to describe th
 It usually provides good agreement with experimental data at different echo times, but it does not provide a good description of the underlying physical system - for example, what the exchange time actually measures is not clear.
 
 In the literature, there are a range of values for the exchange time (\autoref{tab:dm-litTex}), ranging from \SIrange{0.6}{9.1}{ms}.
-While this has been attributed to using different ranges of echo time in the CPMG experiments, which can cause the fitting to become biased, many of these do not agree with values for the rate of transmembrane exchange when measured by other NMR methods (Typically > 10 ms\cite{Herbstreviewwaterdiffusion1989}.)
+While this has been attributed to using different ranges of echo time in the CPMG experiments, which can cause the fitting to become biased, many of these do not agree with values for the rate of transmembrane exchange when measured by other NMR methods (Typically > 10 ms \cite{Herbstreviewwaterdiffusion1989}).
 This suggests that the exchange time parameter (\Texc) is not necessarily due to exchange across the cell membrane.
 
-In their paper\cite{JensenNMRrelaxationtissues2000}, Jensen and Chandra study this effect using the weak-field approximation.
+In their paper, Jensen and Chandra study this effect using the weak-field approximation \cite{JensenNMRrelaxationtissues2000}.
 Using an exponential decay to approximate the correlation function $K(t)$, they derive a formula similar to the Luz-Meiboom equation for \Ttwo as a function of echo time (\Tech). (\autoref{eq:LMsimp}, restated here).
 In this formula, $\tau$ is the correlation time, and \Kzero is the variance of the magnetic field.
 
@@ -108,7 +108,7 @@ The average of \Ttwo values from the two experiments was used to fit to constrai
 In this constrained fitting process, the \Texc was set to \SI{3.0}{ms}, and \rc set to \SI{4.3}{\micro\metre}, values reported by Stefanovic from studies at \SI{1.5}{T} \cite{StefanovicHumanwholebloodrelaxometry2004}, the lowest field this sort of experiment has been done in the literature.
 Theory suggests that these should be field independent, but a range of \Texc and \rc values have been found in the literature.
 Their experiments typically held \TtwoO constant in the constrained models, but this would not have allowed for changes in intrinsic \Ttwo due to haemolysis or other changes in the state of the blood which occured in these experiments (\autoref{sec:contflow-hemolysis}, so this was used as a second fitted parameter.
-In all fits, the diffusion coefficient of water was was assumed to be \SI[per-mode=reciprocal]{2.0}{\micro\metre\squared\per\milli\second}.
+In all fits, the diffusion coefficient of water was assumed to be \SI[per-mode=reciprocal]{2.0}{\micro\metre\squared\per\milli\second}.
 The results from the constrained fit were then used as initial guesses for an unconstrained least squares fit to the formulae, where all three parameters were allowed to vary.
 This was needed to ensure the curve fitting procedure converged.
 Finally, the Sum-of-Squared-Residuals (SSR) was calculated to give a quantitative measure of the model's agreement with the measured data.
@@ -116,7 +116,7 @@ Finally, the Sum-of-Squared-Residuals (SSR) was calculated to give a quantitativ
 \section{Results}
 
 \subsection{\Ttwo Measurement}
-CPMG decays were measured for blood in the contunuous flow setup at each of the field strengths used in those experiments.
+CPMG decays were measured for blood in the continuous flow setup at each of the field strengths used in those experiments.
 The oxygenation was logged by optical sensor, and found to vary <5\% over the experiment.
 The same flow rate from the continuous flow experiments was maintained using the screw clamp, which meant that the blood did not have the chance to settle and that the temperature was relatively stable during the 5 minutes of the experiment (within \SI{2}{\celsius}).
 
@@ -251,12 +251,12 @@ However, the curves / predictions of the LM model tend to be within \SI{10}{ms} 
 This is the same conclusion reached by Stefanovic and Pike and Chen and Pike, who found that the Luz-Meiboom exchange model provides acceptable accuracy at 1.5 T and at 3T respectively.
 
 Additionally, with the exception of the 20 MHz results (where experiments were run after the 40 MHz run), the unconstrained fits produce concordant results of \Texc = \SI{2.17\pm0.06}{ms} and \rc = \SI{3.58 \pm 0.08}{\micro\metre} (weighted mean across field strengths).
-This value for \rc is within the range of red blood cell size, although it is smaller than the value found by Stefanovic (\SI{4.3}{\micro\metre})\cite{StefanovicHumanwholebloodrelaxometry2004}, and larger than the value found by Chen (\SI{2.7}{\micro\metre})\cite{ChenHumanwholeblood2009}.
+This value for \rc is within the range of red blood cell size, although it is smaller than the value found by Stefanovic (\SI{4.3}{\micro\metre}) \cite{StefanovicHumanwholebloodrelaxometry2004}, and larger than the value found by Chen (\SI{2.7}{\micro\metre}) \cite{ChenHumanwholeblood2009}.
 
-This value for the exchange time is also within the range of results in the literature, although they do not correspond with the values measured at low field by Gomori\cite{GomoriNMRRelaxationTimes1987}.
+This value for the exchange time is also within the range of results in the literature, although they do not correspond with the values measured at low field by Gomori \cite{GomoriNMRRelaxationTimes1987}.
 This may be due to the long echo times they used, e.g. Gomori used two echo times of \SIlist{32;64}{ms} at 0.94 T to get very short \Ttwo decays.
 These long echo times were used because they were unable to get a good estimate of \Ttwo shortening at short echo times due to large uncertainties.
-Looking at these long echo times may lead to greater sensitivity to exchange processes, and in particular, the \SI{9.1}{ms} exchange time found by Gomori aligns well with literature values from permeability studies of the red blood cell membrane, which found values on the order of \SI{10}{ms}\cite{Herbstreviewwaterdiffusion1989}.
+Looking at these long echo times may lead to greater sensitivity to exchange processes, and in particular, the \SI{9.1}{ms} exchange time found by Gomori aligns well with literature values from permeability studies of the red blood cell membrane, which found values on the order of \SI{10}{ms} \cite{Herbstreviewwaterdiffusion1989}.
 
 Changes in the value of \rc when moving from 40 MHz to 20 MHz are interesting, as it is known to be the same sample of blood.
 This could reflect changes in the state of the blood, due to being cycled through the flow circuit for 7 hours.
@@ -264,7 +264,7 @@ More precisely, the fitted parameter in \autoref{eq:JC} is actually $\mathit{\fr
 It is also possible that the decrease is due to experimental factors, such as a change in the shim of the magnet when moving fields, which could affect the spread of \Ttwo values.
 
 The straight lines in \autoref{fig:dm-KGfield} suggest that \Kzero and \Gzero follow a power law, although the dependence here is on \Bzero\textsuperscript{1.75}, rather than the \num{2.1} found in the continuous flow experiment (\autoref{sec:contflow-fielddep}).
-1.75 is still close to the 2 predicted by theory \cite[Eq. 52-54]{JensenNMRrelaxationtissues2000}, and the .
+1.75 is still close to the 2 predicted by theory \cite[Eq. 52-54]{JensenNMRrelaxationtissues2000}.
 Extrapolating this to 1.5 T predicts a value of \Gzero = \SI{26.7e-14}{T^2}.
 This is about half of what is predicted using the results of Stefanovic, which (although based on studying changes in \SOtwo) can be used to find $\mathit{G_0} = \num{45\pm0.51e-14}  \mathit{(sO_2)^2} = \SI{40.6e-14}{T^2}$ when using \SOtwo = 0.03, the average value from our experiments.
 While the difference is significant, it is important to note that the variation between the oxygenations and haematocrit used at the different field strengths was not taken into account when fitting the data to find \Gzero, and multiple researchers \cite{StefanovicHumanwholebloodrelaxometry2004,ChenHumanwholeblood2009,GardenerDependencebloodR22010} have found that these parameters are correlated.
@@ -280,14 +280,16 @@ However, the doped water flow experiments showed that there was only a small cha
 In these variable echo time experiments, lower \Ttwo values at longer echo times, would lead to an overestimation in the magnitude of the \Ttwo shortening effect.
 This would affect the \Kzero and \Gzero terms, as they would be split further apart.
 The flow rates in these experiments were only \SIrange{1}{2}{cm/s} in these experiment, which means that this should not be a significant effect.
-Additionally, the flow rate has been assumed to be constant over the 5 minute course of the experiment.
-This is relatively short compared to the longer term trends which were seen in the continuous flow experiments, so this should not have a significant effect.
+Additionally, the flow rate has been assumed to be constant over the 5-minute course of the experiment.
+This is relatively short compared to the longer-term trends which were seen in the continuous flow experiments, so this should not have a significant effect.
 
-As both models have acceptable predictions for the shape of the echo time curve, these results can not provide more evidence of the actual physical mechanism of the \Ttwo shortening effect.
+As both models have acceptable predictions for the shape of the echo time curve, these results cannot provide more evidence of the actual physical mechanism of the \Ttwo shortening effect.
 To be able to determine this, other experimental NMR techniques would need to be used such as chemical shift exchange sensitive methods such as DDCOSY/DEXSY that could detect this process directly.
-Other researchers have also used paramagnetic contrast agents to probe exchange between intra- and extracellular pools in blood\cite{LiIntegratedanalysisdiffusion1998}.
+Other researchers have also used paramagnetic contrast agents to probe exchange between intra- and extracellular pools in blood \cite{LiIntegratedanalysisdiffusion1998}.
 Matwiyoff \cite{Matwiyofflineshapeswater1990} proposed that as the field decreased below 1.5 T, the exchange time would increase as the mechanism moved from mainly diffusion to mainly exchange.
 This is the opposite to the trend observed here, where there is a slightly decreasing or constant trend in the exchange time, as field strength decreases.
+
+\section{Summary}
 
 Because of the variations between the measurements at different fields, with different samples of blood at each field, different amounts of time in the flow circuit, and variations in factors such as flow rate and oxygen saturation, it is difficult to make strong conclusions about the parameters underlying the models.
 More data, with different samples of blood and better control of these experimental factors would need to be collected.

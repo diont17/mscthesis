@@ -1,7 +1,7 @@
 \chapter{Stopped flow \SOtwo measurements}\label{ch:stoppedflow}
 
 As a first step in this research, experiments on blood using a stopped flow setup were completed, using a similar protocol and design used in previous work by the group.
-Stopped flow measurements are the typical method used in the literature for these blood oxygenation \Ttwo experiments, and there a number of examples in the literature\cite{BrooksComparisont2relaxation1995,BryantMagneticrelaxationblood1990,GomoriNMRRelaxationTimes1987} (although as mentioned in the introduction, relatively few at low field).
+Stopped flow measurements are the typical method used in the literature for these blood oxygenation \Ttwo experiments, and there a number of examples in the literature \cite{BrooksComparisont2relaxation1995,BryantMagneticrelaxationblood1990,GomoriNMRRelaxationTimes1987} (although as mentioned in the introduction, relatively few at low field).
 These experiments used the stopped flow experimental setup from \autoref{ch:exptsetup}, with 3 different magnet systems at different fields to observe changes in \Ttwo at a number of levels of oxygenation.
 These also provide a benchmark for the continuous flow setup, as it removes any effects which occur because of flow.
 
@@ -55,7 +55,7 @@ Two examples of the CPMG decays measured on the Spinsolve are shown in \autoref{
 Plotting the log of the echo amplitudes against time gives a straight line, which indicates that the decay is mono-exponential.
 This agrees with what is reported in the literature.
 
-This data also shows even-echo rephasing occuring in the decays measured with long echo times (in red).
+This data also shows even-echo rephasing occurring in the decays measured with long echo times (in red).
 Where this was visible, only the even echoes were used in the curve fitting routine to find \Ttwo.
 
 %Graph generated in processBloodOxygenation1/Spinsolve data 170728
@@ -132,7 +132,7 @@ Because of this, measurements took longer to acquire than on the other systems a
 As expected, the change in \Ttwo as oxygenation was decreased was smaller again than in the higher field Spinsolve and Halbach system measurements.
 At the \SI{0.25}{ms} echo time, the decrease from oxygenated to deoxygenated is \SI{25}{ms}, but at the \SI{1}{ms} echo time, the decrease is only \SI{5}{ms} (which is within experimental uncertainty.)
 Additionally, the field inhomogeneity of the MOLE means that there is a significant decrease in the measured \Ttwo due to diffusion through the gradients of the magnet system.
-Along with the decrease in the stregnth of the effect at this field, this could explain why there is little to no change at the \SI{1}{ms} echo time.
+Along with the decrease in the strength of the effect at this field, this could explain why there is little to no change at the \SI{1}{ms} echo time.
 
 These results also show that \Ttwo is lower after reoxygenating, with a decrease of approximately \SI{15}{ms} between the initial \Ttwo and the \Ttwo after reoxygenation.
 It is unlikely to be due to changes in the magnetic field gradients as the MOLE temperature is very well controlled, and the sample was the entire blood bag, which is larger than the sweet spot of the magnet.
@@ -158,14 +158,14 @@ Additionally, the \SI{0.1}{\tesla} measurement shows that the change in \Rtwo is
 
 These results confirm that the decrease in\Ttwo which occurs due to decreases in \SOtwo is still visible at low fields, in agreement with the literature.
 As noted in the introduction however, there are relatively few examples in the literature to compare them to.
-Brooks et al. studied the field dependence of the \Ttwo decrease for oxygenated and deoxygenated blood, and found that the size of the \Rtwo change scales with \Bzero  squared\cite[Fig.1]{BrooksComparisont2relaxation1995}.
+Brooks et al. studied the field dependence of the \Ttwo decrease for oxygenated and deoxygenated blood, and found that the size of the \Rtwo change scales with \Bzero  squared \cite[Fig.1]{BrooksComparisont2relaxation1995}.
 For their study however, they used a more conventional \SI{4}{ms} echo time, which makes the \Rtwo change from oxygenated to deoxygenated much larger (on the order of \SI{4}{s^{-1}} at \SI{0.5}{T}.)
 This means that their results are not directly comparable with the results in \autoref{fig:sf-fieldcomparison}, where the echo time is less than \SI{1}{ms}, as our measurements were affected by the field homogeneity of the magnet systems.
 
-We also encountered difficulties with recovering the intial \Ttwo when reoxygenating the blood.
+We also encountered difficulties with recovering the initial \Ttwo when reoxygenating the blood.
 This was visible in all results above, where at high \SOtwo{}s, the reoxygenated \Ttwo values (upwards triangles)  are typically lower than the initial values (circles) by \SIrange{10}{40}{ms}.
 In this set of experiments, several hypotheses were tested to investigate the cause of this.
-The fact that it occured across all three systems (including the Spinsolve, which was used not part of the circuit) suggests that it is due to a physical change in the blood and not only related to changes in the flow circuit (although movement of the Halbach probe could not be ruled out.)
+The fact that it occurred across all three systems (including the Spinsolve, which was used not part of the circuit) suggests that it is due to a physical change in the blood and not only related to changes in the flow circuit (although movement of the Halbach probe could not be ruled out.)
 
 One possibility was that the blood was not completely reoxygenated, which could occur if the blood was damaged during storage or or the time at extremely low \SOtwo, and caused the \SOtwo measurement on the iStat to be inaccurate.
 To test this, samples were hyper-oxygenated with 30\% \Otwo (rather than 21\%).
@@ -191,7 +191,12 @@ This effect was studied more quantitatively when it occured in the continuous fl
 \label{fig:sf-bloodbeforeafter}
 \end{figure}
 
-While these results confirm that changes in \SOtwo can be observed at low field, there were some difficulties with this method of collecting data.
+\section{Summary}
+The results from the stopped flow experiments show that the relationship between \Ttwo and \SOtwo can still be observed at low field.
+As expected, the \SI{1}{T} system saw a much greater change in \Ttwo, although changes were still visible in the \SI{0.3}{T} and \SI{0.1}{T} systems.
+This is significant, as these are representative of the field strength and homogeneities found in portable NMR devices.
+
+While these results confirm that changes in \SOtwo can be observed at low field, there were also some difficulties with this method of collecting data.
 As the stopped flow system requires the flow to be stopped, it is possible that the blood could be changing within the scan time due to factors such as temperature dropping, or red blood cells separating from the plasma.
 It was also very difficult to be able to `hit' desired intermediate values of oxygenation.
 This is because of haemoglobin's strong affinity for Oxygen, which creates the very steep curve shown in \autoref{fig:back-po2so2}.
